@@ -1,0 +1,2 @@
+# Minimal .gitignore for reference corpus
+# No build artifacts, dependencies, or runtime outputs expected at this stage.
