@@ -160,34 +160,155 @@ Level **3** is treated as **saturated** for the current slice: the three landed 
 | L4 filesystem / path | **DECIDED** — `programs/04-complex/*.gs` (flat; §3) |
 | L4 corpus progression | **DECIDED** — owner intends to land **all five** queue entries below (none required for L3 completion) |
 | L4 queue sequence | **CONFIRMED** — order in table below |
-| L4 saturation | **not applicable** until the queue slice is reviewed; **one** program landed does not close L4 |
+| L4 saturation | **reviewed** — five-program **CONFIRMED** queue **complete** on disk; **not** declared **SATURATED** (§8.4.3) |
 
 #### 8.4.1 L4 landed registry
 
 | Filename | Status | Structural role (reference) |
 | -------- | ------ | --------------------------- |
-| `parse_decimal_strict.gs` | **landed** — `programs/04-complex/parse_decimal_strict.gs` (**L4.1**) | Strict decimal string → `Int?`; lexical validation; digit accumulation with overflow guard; sign handling; `null` for invalid input; signed `Int{64}` boundaries including leading-zero `INT_MIN` lexeme |
+| `parse_decimal_strict.gs` | **LANDED** — `programs/04-complex/parse_decimal_strict.gs` (**L4.1**) | Strict decimal string → `Int?`; lexical validation; digit accumulation with overflow guard; sign handling; `null` for invalid input; signed `Int{64}` boundaries including leading-zero `INT_MIN` lexeme |
+| `rle_roundtrip.gs` | **LANDED** — `programs/04-complex/rle_roundtrip.gs` (**L4.2**; **221** LOC) | RLE encode → `validate_encoded_rle` → `decode_rle` → roundtrip verify; parallel `[Char]` / `[Int]` encoded form; decoder writes **`[Char]`**, not `String`; roundtrip via Unicode scalar equivalence to source `String` |
+| `n_queens_backtrack.gs` | **LANDED** — `programs/04-complex/n_queens_backtrack.gs` (**L4.3**; **116** LOC) | N×N queens: recursive backtracking with constraint checks; shared mutable `board: [Int]` (`board[row]` = column or **`-1`**); `.set(row, col)` placement and `.set(row, -1)` restoration |
+| `bfs_shortest_path_flat.gs` | **LANDED** — `programs/04-complex/bfs_shortest_path_flat.gs` (**L4.4**; **352** LOC) | Unweighted shortest path on flat directed adjacency `adjacency[u*n+v]` ∈ {0,1}; BFS with head-index FIFO queue; shared mutable `visited` / `distance` / `predecessor`; predecessor path reconstruction → `[Int]?` |
+| `shunting_yard_eval.gs` | **LANDED** — `programs/04-complex/shunting_yard_eval.gs` (**L4.5**; **556** LOC) | Infix arithmetic: lex → grammar validation → shunting-yard → postfix eval; parallel token `kinds` / `values`; `evaluate_expression` → `Int?`; program-local `*_int64` guards |
 
-**L4.1 acceptance (corpus-organization):** **source-level ACCEPTED** — reference target on canonical GS surface. **GS runtime execution not verified** in this registry slice.
+**L4.1 acceptance (corpus-organization):** **SOURCE-LEVEL ACCEPTED** — reference target on canonical GS surface. **RUNTIME NOT VERIFIED** in this registry slice.
 
 **L4.1 pipeline (landed specimen):** lexical validation → sign / digit-run handling → bounded accumulation → `apply_sign` → orchestration via `parse_decimal_strict`.
 
-**L4.1 validation record (honest):** `parse_decimal_strict_sample` includes prior golden cases plus **seven** signed `Int{64}` boundary cases (max, max+1, min, min−1, leading-zero variants). Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
+**L4.1 validation record (honest):** `parse_decimal_strict_verify() -> Bool` `parse_decimal_strict_sample` demonstrates parsing only — prior golden cases plus **seven** signed `Int{64}` boundary cases (max, max+1, min, min−1, leading-zero variants). Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
 
 `parse_decimal_strict.gs` was the **first** L4 target in the **CONFIRMED** queue (historical selection only).
 
+**L4.2 acceptance (corpus-organization):** **LANDED**; **SOURCE-LEVEL ACCEPTED**; **RUNTIME NOT VERIFIED**. This registry slice does **not** claim that the GS program was compiled or executed end-to-end.
+
+**L4.2 pipeline (landed specimen):** encode (`rle_encode`) → validate (`validate_encoded_rle`) → decode (`decode_rle`) → verify (`rle_roundtrip_verified` / `text_equals_chars`).
+
+**L4.2 representation:** encoded runs as parallel **`[Char]`** (run symbols) and **`[Int]`** (run lengths). **`decode_rle`** appends decoded scalars into an output **`[Char]`** buffer; it does **not** return or construct a **`String`**.
+
+**L4.2 encoded invariants (`validate_encoded_rle`):** `chars.count()` equals `lens.count()`; every run length is **positive**; adjacent runs use **distinct** `Char` values; sum of run lengths equals the decoded scalar count implied by a valid roundtrip (and matches the original `String` scalar count on success).
+
+**L4.2 rejection:** invalid encodings (count mismatch, zero/negative length, adjacent duplicate runs) are rejected **before** decode proceeds (`validate_encoded_rle`; `decode_rle` returns false when validation fails).
+
+**L4.2 validation record (honest):** `rle_roundtrip_verify() -> Bool` `rle_roundtrip_sample` demonstrates encode/decode only — golden roundtrips: empty, singleton (`"a"`), repeated (`"aaaa"`), alternating (`"abc"`), mixed runs (`"aabbbcc"`, `"aaabbbaa"`); negative validation: count mismatch, zero length, negative length, adjacent duplicate; decode guard on invalid input; Unicode scalar roundtrip **`"aπb"`**. Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
+
+**Language gap (corpus honesty, not an owner decision):** Canonical construction of `String` from `[Char]` remains **OPEN**. L4.2 verifies Unicode scalar equivalence without claiming that `decode_rle` returns `String`.
+
+`rle_roundtrip.gs` was the **second** L4 target in the **CONFIRMED** queue (historical selection only).
+
+**L4.3 acceptance (corpus-organization):** **LANDED**; **SOURCE-LEVEL ACCEPTED**; **RUNTIME NOT VERIFIED**. This registry slice does **not** claim that the GS program was compiled or executed end-to-end, and does **not** claim that golden cases passed at runtime.
+
+**L4.3 pipeline (landed specimen):** board initialization (`init_n_queens_board`) → candidate placement and constraint validation (`queens_safe_at`) → recursive search (`queens_search_from_row`) → state restoration (backtrack via `.set(row, -1)`) → solution counting (`count_n_queens_solutions`) → sample verification (`n_queens_backtrack_sample`).
+
+**L4.3 representation:** flat **`board: [Int]`** of length `n`; **`board[row]`** is the queen column for that row, or **`-1`** when unassigned. No matrix, map, or auxiliary set types.
+
+**L4.3 constraints (`queens_safe_at`):** for a candidate `(row, col)`, reject same column as any prior row and reject diagonal conflicts against rows `0..row-1` (unique column and non-conflicting diagonals among assigned rows).
+
+**L4.3 mutation and backtracking:** shared board mutated in place with **`board.set(row, col)`** before recursion; after exploring each column, **`board.set(row, -1)`** restores the row. Board is passed by reference through recursive calls (no per-call board copy).
+
+**L4.3 counting contract (program-specific, DECIDED — not a global GS rule):** `count_n_queens_solutions(n: Int) -> Int?` — **`n < 0` → `null`**; **`n = 0` → `1`** (empty-board convention); **`n > 0` →** count of valid complete placements.
+
+**L4.3 validation record (honest):** `n_queens_backtrack_verify() -> Bool` `n_queens_backtrack_sample` demonstrates search only — golden solution counts for **N = 0…8** (0→1, 1→1, 2→0, 3→0, 4→2, 5→10, 6→4, 7→40, 8→92); negative-**N** expects **`null`** for `n = -1`; restoration via `search_restores_board` for **N = 4** and **N = 8**. Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
+
+`n_queens_backtrack.gs` was the **third** L4 target in the **CONFIRMED** queue (historical selection only).
+
+**L4.4 acceptance (corpus-organization):** **LANDED**; **SOURCE-LEVEL ACCEPTED**; **RUNTIME NOT VERIFIED**. This registry slice does **not** claim that the GS program was compiled or executed end-to-end, and does **not** claim that golden cases passed at runtime.
+
+**L4.4 pipeline (landed specimen):** graph representation (flat `n × n` adjacency) → input validation (`bfs_input_valid`) → BFS traversal (`run_bfs_flat`) → shared `visited` / `distance` / `predecessor` state → path reconstruction (`reconstruct_shortest_path`) → sample verification (`bfs_shortest_path_flat_sample`).
+
+**L4.4 representation:** directed graph as **`adjacency: [Int]`** with **`adjacency.count() == n * n`**; cell **`adjacency[u * n + v]`** is **`1`** (edge **u → v**) or **`0`** (no edge). **`queue: [Int]`** with **head-index** dequeue (no front removal). **`visited: [Bool]`**, **`distance: [Int]`** (unvisited **`-1`**), **`predecessor: [Int]`** (missing **`-1`**).
+
+**L4.4 traversal:** FIFO by advancing queue head; neighbors inspected in **ascending** vertex order; first discovery sets **`distance[v] = distance[u] + 1`** and **`predecessor[v] = u`** (deterministic tie-breaking for equal-length paths).
+
+**L4.4 reconstruction:** walk predecessor links from target toward source, reverse into **`[Int]`** from source to target; no sentinel **`-1`** in the returned path.
+
+**L4.4 path invariants (reference intent):** each vertex discovered at most once; reconstructed path starts at source and ends at target; consecutive vertices correspond to directed edges with cell **`1`**; edge count equals BFS distance when reachable.
+
+**L4.4 input/output contract (program-specific, owner decision A1=C — DECIDED — not a global GS rule):**
+
+- **`bfs_input_valid(adjacency, n, source, target) -> Bool`** — shape (`n >= 0`, `n × n` matrix), vertex indices in range, and **binary** matrix cells (**`0`** or **`1`** only).
+- **`bfs_shortest_path_flat(n, adjacency, source, target) -> [Int]?`** — calls the same validation; on failure returns **`null`**.
+- **Invalid input:** **`bfs_input_valid` → false**; BFS → **`null`** (caller must check validation first to distinguish from unreachable).
+- **Valid but unreachable target:** **`bfs_input_valid` → true**; BFS → **`null`**.
+- **Valid and reachable:** **`bfs_input_valid` → true**; BFS → path **`[Int]`** from source to target.
+- **`source == target`:** singleton path **`[source]`** when input is valid.
+
+**Two-call distinction (A1=C):** callers that need to separate **invalid input** from **unreachable** must consult **`bfs_input_valid`** before interpreting a **`null`** path from **`bfs_shortest_path_flat`**.
+
+**L4.4 validation record (honest):** `bfs_shortest_path_flat_verify() -> Bool` `bfs_shortest_path_flat_sample` demonstrates BFS only — direct edge, multi-hop chain, deterministic diamond tie (`[0, 1, 3]`), unreachable with valid input, `source == target`, directed asymmetry, invalid indices, invalid adjacency shape, empty **`n = 0`** graph with invalid indices, non-binary cells (**`2`**, **`-1`**); path edge-count and directed-edge checks on a chain specimen. Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
+
+**Language-contract verification gaps (corpus honesty):** optional collection **`[Int]?`** and mutable **`[Bool]`** with **`.set`** are used on the canonical GS surface in this specimen; they are **not** claimed verified by current compiler/runtime in this registry slice.
+
+`bfs_shortest_path_flat.gs` was the **fourth** L4 target in the **CONFIRMED** queue (historical selection only).
+
+**L4.5 acceptance (corpus-organization):** **LANDED**; **SOURCE-LEVEL ACCEPTED** (post–closure audit, this registry slice); **RUNTIME NOT VERIFIED**. This registry slice does **not** claim compiler/runtime execution or golden-case runtime pass.
+
+**L4.5 pipeline (landed specimen):** lexical analysis (`lex_expression`) → token grammar validation (`validate_token_stream`) → infix-to-postfix (`shunting_yard`) → postfix evaluation (`eval_postfix`) → orchestration (`evaluate_expression`) → sample (`shunting_yard_eval_sample`).
+
+**L4.5 grammar (initial target, program-specific):** binary `+` `-` `*` `/`; parentheses; non-negative **ASCII_DIGIT+** integer literals; ASCII **space** whitespace; **no unary** `+`/`-`. Rejects empty input, malformed operators/parentheses, implicit multiplication, invalid characters.
+
+**L4.5 token representation:** parallel **`kinds: [Int]`** and **`values: [Int]`** (INTEGER, OPERATOR, LEFT_PAREN, RIGHT_PAREN); postfix stream uses the same parallel shape without parentheses.
+
+**L4.5 shunting-yard:** operator stack with parenthesis marker; precedence `*/` > `+-`; **left-associative** pop rule (`>=`); deterministic infix order preserved in postfix output.
+
+**L4.5 arithmetic (program-local guards — not global GS overflow law):** `add_int64`, `sub_int64`, `mul_int64`, `div_int64` gate **`null`** on overflow, divide-by-zero, and **`INT_MIN / -1`**. **`mul_int64`** overflow checks use **`mul_pos_would_overflow`** with **`Int / Int` only when both operands are strictly positive** (unambiguous trunc-toward-zero for the specimen); magnitudes for negative factors come from **`sub_int64(0, ·)`** and explicit **`INT_MIN`** / **`-1`** special cases — **no** mixed-sign division in guards. **`div_int64`** still applies surface **`/`** only after guards; goldens use **exact** positive divisions only. Integer literals reuse L4.1-style **Int{64}** magnitude overflow checks during lex (`magnitude_would_overflow` / `parse_uint_lexeme`).
+
+**L4.5 result contract:** **`evaluate_expression(text: String) -> Int?`** — invalid lex/grammar/shunting/eval → **`null`**; success → **`Int`**.
+
+**L4.5 validation record (honest):** `shunting_yard_eval_verify() -> Bool` `shunting_yard_eval_sample` demonstrates evaluation only — precedence, left associativity, nested parentheses, whitespace, multi-digit literals, negative **results** via subtraction (`3-5`), division by zero, malformed/unary/implicit-mul cases; **Int{64}** max literal, lex overflow literal, add/mul overflow rejection; **multiply sign-quadrant** goldens (`12*34`, `(0-25)*4`, `4*(0-25)`, `(0-6)*(0-7)`); **zero** multiplication; **`INT_MAX*1`**, **`INT_MIN*1`** via subtraction-built **`INT_MIN`**; reject **`INT_MIN*2`**, **`INT_MIN*(0-1)`**, **`INT_MAX*INT_MAX`**. Verification is **source-level** only.
+
+**L4.5 verification readiness (tooling, 2026-10-09):** declared **`requires-python >= 3.12`** (`graph-memory-language/pyproject.toml`); default **`python3`** on host was **3.9.6** (environment mismatch). **`python3.12`** imports **`GSParser`** successfully; **parse** outcomes on Example specimens are recorded in §8.4.1 **parser slice** below — **not** runtime execution.
+
+**Known semantic gaps (corpus honesty):**
+
+- **GS `Int / Int` rounding/truncation** — **OPEN** in normative language contracts (`GS_V0_1_TYPE_SYSTEM.md`: arithmetic overflow **`DEFERRED_TO_VM_ERROR_MODEL`**). L4.5 **`div_int64`** still uses surface **`/`** after divide-by-zero and **`INT_MIN / -1`** guards; **no** golden depends on disputed **negative non-exact** division rounding.
+- **Global GS checked arithmetic** — **not** normatively closed; L4.5 guards are **specimen-local** policy aligned with L4.1 magnitude bounds, not a language owner decision.
+- **Parser vs corpus surface:** **`GSParser`** (Python **3.12**) may still reject specimens that use **`[Int]`** types, **`Int?`**, **`0..n` each**, or other **ahead-of-parser** surface — classify as **parser/surface gap**, not specimen arithmetic defect.
+
+`shunting_yard_eval.gs` was the **fifth** L4 target in the **CONFIRMED** queue (historical selection only).
+
 #### 8.4.2 L4 target queue (CONFIRMED order)
 
-| Order | Filename | Status | Structural role (reference intent) |
-| ----- | -------- | ------ | ---------------------------------- |
-| **L4-01** | `parse_decimal_strict.gs` | **landed** — see §8.4.1 | Strict decimal pipeline in one file |
-| **L4-02** | `rle_roundtrip.gs` | **not landed** | RLE encode + decode + roundtrip invariant |
-| **L4-03** | `n_queens_backtrack.gs` | **not landed** | Backtracking search with explicit board state and constraints |
-| **L4-04** | `bfs_shortest_path_flat.gs` | **not landed** | Unweighted shortest path on flat-encoded graph; BFS + distance invariant |
-| **L4-05** | `shunting_yard_eval.gs` | **not landed** | Infix expression: tokenize + shunting-yard + RPN evaluation |
+| ID | Program | Status |
+| --- | --- | --- |
+| **L4-01** | `parse_decimal_strict.gs` | **LANDED** — see §8.4.1 |
+| **L4-02** | `rle_roundtrip.gs` | **LANDED** — see §8.4.1 (L4.2) |
+| **L4-03** | `n_queens_backtrack.gs` | **LANDED** — see §8.4.1 (L4.3) |
+| **L4-04** | `bfs_shortest_path_flat.gs` | **LANDED** — see §8.4.1 (L4.4) |
+| **L4-05** | `shunting_yard_eval.gs` | **LANDED** — see §8.4.1 (L4.5) |
 
 - **L3** remains **saturated** at the corpus-organization level (§8.3).
-- Do **not** treat L4 as saturated, closed, or complete until the intended five-program queue is reviewed.
+- The **CONFIRMED** five-program L4 queue is **complete** on disk; **L4 saturation** is reviewed in §8.4.3 and is **not** declared **SATURATED** in this slice.
+
+#### 8.4.3 L4 saturation review (evidence — not a SATURATED declaration)
+
+**Queue status:** **5 / 5** landed at `programs/04-complex/*.gs` per §8.4.2. This subsection records **qualitative coverage** after closure of the approved queue; it does **not** promote L4 to **SATURATED** (contrast L2/L3 saturation judgments in §6.1 and §8.3).
+
+| Program | Primary L4 signals demonstrated |
+| ------- | ------------------------------ |
+| **L4.1** `parse_decimal_strict` | Multi-phase parse pipeline; lexical + numeric invariants; **`Int?`** invalid propagation; **Int{64}** boundary honesty |
+| **L4.2** `rle_roundtrip` | Encode → validate → decode → verify; cross-phase invariants; parallel collections; explicit rejection before later phases |
+| **L4.3** `n_queens_backtrack` | Recursive search; shared mutable state; backtracking restoration; counting contract with **`null`** invalid **`n`** |
+| **L4.4** `bfs_shortest_path_flat` | Flat graph encoding; coordinated BFS state; reconstruction; **A1=C** validation vs unreachable split |
+| **L4.5** `shunting_yard_eval` | Tokenization; grammar gate; shunting-yard; postfix eval; program-local arithmetic guards |
+
+**Coverage strengths:** orthogonal **string/parse**, **compression roundtrip**, **search/backtrack**, **graph traversal**, and **expression evaluation** shapes; repeated use of **explicit validation before interpretation** and **honest `null` failure** paths.
+
+**Residual weaknesses / gaps:** no landed specimen for **module/multi-file** composition (**multi-file** composition (deferred §8.6); **runtime-verified** L4 behavior **not** established; **OPEN** language gaps (**`String` from `[Char]`**, **`Int / Int` semantics**, optional collections) remain; **knapsack.gs**-class L3 reserve unused; no second graph or second parser specimen within L4.
+
+**L4.6 need:** **not evidenced** as required for the current **CONFIRMED** queue goal. A future **L4.6+** slot would be an **owner/registry** decision (e.g. second graph algorithm, Unicode-heavy lexer, or module-ready split) — **not** automatic because five programs landed.
+
+**SATURATED verdict (this slice):** **Withhold.** Landing all five **CONFIRMED** targets completes the **approved queue** but does **not**, by itself, justify an **L4 SATURATED** label comparable to L2/L3 without owner review of residual gaps above.
+
+**Owner decision surface (optional follow-up):** Whether to declare **L4 SATURATED** after queue completion.
+
+| Option | Summary | Pros | Cons |
+| ------ | ------- | ---- | ---- |
+| **A — SATURATED now** | Close L4 like L2/L3 after five landed | Clear milestone; matches queue intent | Overstates runtime proof; ignores OPEN language gaps |
+| **B — SATURATED after runtime slice** | Keep **not SATURATED** until compile/run spot-check | Honest vs implementation | Delayed closure; needs tooling |
+| **C — Extend queue (L4.6+)** | Add targets before saturation | Fills graph/module gaps | Scope creep without owner priorities |
+
+**Recommendation (corpus-organization only):** **B** — treat queue completion as **landed**, not **saturated**, until a future owner slice explicitly accepts residual gaps or extends the queue.
 
 ### 8.5 Superseded historical L4 direction (multi-file)
 
