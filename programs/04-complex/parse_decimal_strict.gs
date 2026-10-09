@@ -178,7 +178,7 @@ fn parse_rejects(text: String) -> Bool {
     return not exists parsed
 }
 
-fn parse_decimal_strict_sample() -> Int {
+fn parse_decimal_strict_verify() -> Bool {
     var rejectEmpty Bool = parse_rejects("")
     var rejectSignOnly Bool = parse_rejects("-")
     var rejectPlus Bool = parse_rejects("+")
@@ -208,31 +208,15 @@ fn parse_decimal_strict_sample() -> Int {
     var okMaxLeading Bool = parse_matches("0009223372036854775807", maxInt)
     var rejectMaxLeadingPlus Bool = parse_rejects("0009223372036854775808")
 
-    var ignored Bool = rejectEmpty
-    ignored = rejectSignOnly
-    ignored = rejectPlus
-    ignored = rejectPlusOne
-    ignored = rejectSpaceLead
-    ignored = rejectSpaceTrail
-    ignored = rejectDot
-    ignored = rejectAlpha
-    ignored = rejectEmbeddedSign
-    ignored = rejectArabic
-    ignored = okZero
-    ignored = okNegZero
-    ignored = okSeven
-    ignored = okPositive
-    ignored = okNegative
-    ignored = okLeading
-    ignored = okLeadingNeg
-    ignored = okMax
-    ignored = rejectMaxPlusOne
-    ignored = okMin
-    ignored = rejectMinMinusOne
-    ignored = okMinLeading
-    ignored = okMaxLeading
-    ignored = rejectMaxLeadingPlus
+    return rejectEmpty and rejectSignOnly and rejectPlus and rejectPlusOne
+        and rejectSpaceLead and rejectSpaceTrail and rejectDot and rejectAlpha
+        and rejectEmbeddedSign and rejectArabic and okZero and okNegZero
+        and okSeven and okPositive and okNegative and okLeading and okLeadingNeg
+        and okMax and rejectMaxPlusOne and okMin and rejectMinMinusOne
+        and okMinLeading and okMaxLeading and rejectMaxLeadingPlus
+}
 
+fn parse_decimal_strict_sample() -> Int {
     var last Int? = parse_decimal_strict("123")
     if not exists last:
         return 0

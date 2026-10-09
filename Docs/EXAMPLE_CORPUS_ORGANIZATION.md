@@ -198,7 +198,7 @@ Level **3** is treated as **saturated** for the current slice: the three landed 
 
 **L4.1 pipeline (landed specimen):** lexical validation → sign / digit-run handling → bounded accumulation → `apply_sign` → orchestration via `parse_decimal_strict`.
 
-**L4.1 validation record (honest):** `parse_decimal_strict_verify() -> Bool` `parse_decimal_strict_sample` demonstrates parsing only — prior golden cases plus **seven** signed `Int{64}` boundary cases (max, max+1, min, min−1, leading-zero variants). Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
+**L4.1 validation record (honest):** `parse_decimal_strict_verify() -> Bool` aggregates wired checks (§11); `parse_decimal_strict_sample` demonstrates parsing only — prior golden cases plus **seven** signed `Int{64}` boundary cases (max, max+1, min, min−1, leading-zero variants). Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
 
 `parse_decimal_strict.gs` was the **first** L4 target in the **CONFIRMED** queue (historical selection only).
 
@@ -212,7 +212,7 @@ Level **3** is treated as **saturated** for the current slice: the three landed 
 
 **L4.2 rejection:** invalid encodings (count mismatch, zero/negative length, adjacent duplicate runs) are rejected **before** decode proceeds (`validate_encoded_rle`; `decode_rle` returns false when validation fails).
 
-**L4.2 validation record (honest):** `rle_roundtrip_verify() -> Bool` `rle_roundtrip_sample` demonstrates encode/decode only — golden roundtrips: empty, singleton (`"a"`), repeated (`"aaaa"`), alternating (`"abc"`), mixed runs (`"aabbbcc"`, `"aaabbbaa"`); negative validation: count mismatch, zero length, negative length, adjacent duplicate; decode guard on invalid input; Unicode scalar roundtrip **`"aπb"`**. Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
+**L4.2 validation record (honest):** `rle_roundtrip_verify() -> Bool` aggregates wired checks (§11); `rle_roundtrip_sample` demonstrates encode/decode only — golden roundtrips: empty, singleton (`"a"`), repeated (`"aaaa"`), alternating (`"abc"`), mixed runs (`"aabbbcc"`, `"aaabbbaa"`); negative validation: count mismatch, zero length, negative length, adjacent duplicate; decode guard on invalid input; Unicode scalar roundtrip **`"aπb"`**. Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
 
 **Language gap (corpus honesty, not an owner decision):** Canonical construction of `String` from `[Char]` remains **OPEN**. L4.2 verifies Unicode scalar equivalence without claiming that `decode_rle` returns `String`.
 
@@ -230,7 +230,7 @@ Level **3** is treated as **saturated** for the current slice: the three landed 
 
 **L4.3 counting contract (program-specific, DECIDED — not a global GS rule):** `count_n_queens_solutions(n: Int) -> Int?` — **`n < 0` → `null`**; **`n = 0` → `1`** (empty-board convention); **`n > 0` →** count of valid complete placements.
 
-**L4.3 validation record (honest):** `n_queens_backtrack_verify() -> Bool` `n_queens_backtrack_sample` demonstrates search only — golden solution counts for **N = 0…8** (0→1, 1→1, 2→0, 3→0, 4→2, 5→10, 6→4, 7→40, 8→92); negative-**N** expects **`null`** for `n = -1`; restoration via `search_restores_board` for **N = 4** and **N = 8**. Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
+**L4.3 validation record (honest):** `n_queens_backtrack_verify() -> Bool` aggregates wired checks (§11); `n_queens_backtrack_sample` demonstrates search only — golden solution counts for **N = 0…8** (0→1, 1→1, 2→0, 3→0, 4→2, 5→10, 6→4, 7→40, 8→92); negative-**N** expects **`null`** for `n = -1`; restoration via `search_restores_board` for **N = 4** and **N = 8**. Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
 
 `n_queens_backtrack.gs` was the **third** L4 target in the **CONFIRMED** queue (historical selection only).
 
@@ -257,7 +257,7 @@ Level **3** is treated as **saturated** for the current slice: the three landed 
 
 **Two-call distinction (A1=C):** callers that need to separate **invalid input** from **unreachable** must consult **`bfs_input_valid`** before interpreting a **`null`** path from **`bfs_shortest_path_flat`**.
 
-**L4.4 validation record (honest):** `bfs_shortest_path_flat_verify() -> Bool` `bfs_shortest_path_flat_sample` demonstrates BFS only — direct edge, multi-hop chain, deterministic diamond tie (`[0, 1, 3]`), unreachable with valid input, `source == target`, directed asymmetry, invalid indices, invalid adjacency shape, empty **`n = 0`** graph with invalid indices, non-binary cells (**`2`**, **`-1`**); path edge-count and directed-edge checks on a chain specimen. Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
+**L4.4 validation record (honest):** `bfs_shortest_path_flat_verify() -> Bool` aggregates wired checks (§11); `bfs_shortest_path_flat_sample` demonstrates BFS only — direct edge, multi-hop chain, deterministic diamond tie (`[0, 1, 3]`), unreachable with valid input, `source == target`, directed asymmetry, invalid indices, invalid adjacency shape, empty **`n = 0`** graph with invalid indices, non-binary cells (**`2`**, **`-1`**); path edge-count and directed-edge checks on a chain specimen. Verification is **source-level** (specimen + sample wiring); **not** end-to-end compiler/runtime execution.
 
 **Language-contract verification gaps (corpus honesty):** optional collection **`[Int]?`** and mutable **`[Bool]`** with **`.set`** are used on the canonical GS surface in this specimen; they are **not** claimed verified by current compiler/runtime in this registry slice.
 
@@ -277,7 +277,7 @@ Level **3** is treated as **saturated** for the current slice: the three landed 
 
 **L4.5 result contract:** **`evaluate_expression(text: String) -> Int?`** — invalid lex/grammar/shunting/eval → **`null`**; success → **`Int`**.
 
-**L4.5 validation record (honest):** `shunting_yard_eval_verify() -> Bool` `shunting_yard_eval_sample` demonstrates evaluation only — precedence, left associativity, nested parentheses, whitespace, multi-digit literals, negative **results** via subtraction (`3-5`), division by zero, malformed/unary/implicit-mul cases; **Int{64}** max literal, lex overflow literal, add/mul overflow rejection; **multiply sign-quadrant** goldens (`12*34`, `(0-25)*4`, `4*(0-25)`, `(0-6)*(0-7)`); **zero** multiplication; **`INT_MAX*1`**, **`INT_MIN*1`** via subtraction-built **`INT_MIN`**; reject **`INT_MIN*2`**, **`INT_MIN*(0-1)`**, **`INT_MAX*INT_MAX`**. Verification is **source-level** only.
+**L4.5 validation record (honest):** `shunting_yard_eval_verify() -> Bool` aggregates wired checks (§11); `shunting_yard_eval_sample` demonstrates evaluation only — precedence, left associativity, nested parentheses, whitespace, multi-digit literals, negative **results** via subtraction (`3-5`), division by zero, malformed/unary/implicit-mul cases; **Int{64}** max literal, lex overflow literal, add/mul overflow rejection; **multiply sign-quadrant** goldens (`12*34`, `(0-25)*4`, `4*(0-25)`, `(0-6)*(0-7)`); **zero** multiplication; **`INT_MAX*1`**, **`INT_MIN*1`** via subtraction-built **`INT_MIN`**; reject **`INT_MIN*2`**, **`INT_MIN*(0-1)`**, **`INT_MAX*INT_MAX`**. Verification is **source-level** only.
 
 **L4.5 verification readiness (tooling, 2026-10-09):** declared **`requires-python >= 3.12`** (`graph-memory-language/pyproject.toml`); default **`python3`** on host was **3.9.6** (environment mismatch). **`python3.12`** imports **`GSParser`** successfully; **parse** outcomes on Example specimens are recorded in §8.4.1 **parser slice** below — **not** runtime execution.
 
@@ -316,7 +316,7 @@ Level **3** is treated as **saturated** for the current slice: the three landed 
 
 **Coverage strengths:** orthogonal **string/parse**, **compression roundtrip**, **search/backtrack**, **graph traversal**, and **expression evaluation** shapes; repeated use of **explicit validation before interpretation** and **honest `null` failure** paths.
 
-**Residual weaknesses / gaps:** no landed specimen for **module/multi-file** composition (**multi-file** composition (deferred §8.6); **runtime-verified** L4 behavior **not** established; **OPEN** language gaps (**`String` from `[Char]`**, **`Int / Int` semantics**, optional collections) remain; **knapsack.gs**-class L3 reserve unused; no second graph or second parser specimen within L4.
+**Residual weaknesses / gaps:** no landed specimen for **module/multi-file** composition (**L5** charter §15; queue §16); **runtime-verified** L4 behavior **not** established; **OPEN** language gaps (**`String` from `[Char]`**, **`Int / Int` semantics**, optional collections) remain; **knapsack.gs**-class L3 reserve unused; no second graph or second parser specimen within L4.
 
 **L4.6 need:** **not evidenced** as required for the current **CONFIRMED** queue goal. A future **L4.6+** slot would be an **owner/registry** decision (e.g. second graph algorithm, Unicode-heavy lexer, or module-ready split) — **not** automatic because five programs landed.
 
@@ -340,7 +340,7 @@ A prior registry slice selected **multi-file** L4 under `programs/04-modular/par
 
 **Active L4 specimen for `parse_decimal_strict`:** **landed** — `programs/04-complex/parse_decimal_strict.gs` (§8.4.1).
 
- L5+ placeholder
+### 8.6 Superseded L5+ placeholder
 
 Prior slices listed **hypothetical L5+** topics here as undecided. **Superseded** by **§15–§17** (owner decisions **A1=C**, **A2=C**, **L5-A1…L5-A10**, 2026-10-09). Do **not** use this subsection for new L5 planning.
 
@@ -356,7 +356,95 @@ The L2/L3/L4 **target registry** names intended reference programs and order of 
 
 The workflow and conventions for moving a target from **planned/proposed** to an **on-disk** `.gs` file (review steps, naming on disk, status updates) are **OPEN**. This document registers targets only; it does not define the landing process.
 
-**Also OPEN (not decided here):** target → landed workflow; automatic status machinery for registry rows; all **L5+** multi-file topics (§8.6).
+**Also OPEN (not decided here):** target → landed workflow; automatic status machinery for registry rows. **L5** charter and queue: **§15–§16** (not §8.6).
+
+---
+
+## 11. Entry, sample, and verify conventions (owner decisions)
+
+**Status:** CANONICAL (Example repository — corpus style; not GS language entry-point law)
+
+**Owner decisions (2026-10-09):** **A1=A** standalone call-as-statement; **A2=OPEN** (no explicit discard syntax); **A3=A** Bool aggregation via canonical `and` with eager check evaluation; **A4=C** (no `assert`/`expect` in GS v0.1); **A5=B** separate demonstration vs verification functions.
+
+Normative GS rules for ignored call results and standalone invocations: `graph-memory-language` — `GS_V0_1_LANGUAGE_CORE.md` §13a.
+
+### `*_sample` (demonstration)
+
+- **Role:** demonstration entry; wires representative calls and may return an algorithm result (e.g. sorted array, parsed `Int`, path length).
+- **Does not** mean automatic PASS or runtime verification success.
+- May use **call-as-statement** for side effects or discarded `Int` results where the call’s value is not part of the demonstration return.
+
+### `*_verify` (verification)
+
+- **Signature:** `fn <program>_verify() -> Bool` (or equivalent per-file naming aligned with the specimen).
+- **`true`:** every included check succeeded.
+- **`false`:** at least one included check failed.
+- **Eager evaluation:** each independent check is evaluated into its own `Bool` local **before** aggregation.
+- **Aggregation:** combine locals with canonical **`and`** (short-circuit on aggregation only; checks are already computed).
+- **Does not** replace an external test runner (**A4=C**).
+
+### Anti-patterns
+
+- Do **not** treat a trailing `ignored = okLast` assignment chain as aggregate success.
+- Do **not** treat a demonstration `return` value as proof that all wired checks passed unless the function is explicitly `*_verify() -> Bool` and the caller interprets it.
+
+---
+
+## 12. Reference targets vs implementation gaps
+
+A program remains a **valid reference target** when its intended semantics are defined on the **canonical Graph Script surface**, even if the current parser, semantic layer, or runtime cannot compile or execute it yet.
+
+- Track implementation gaps in audit/supporting docs (e.g. `Docs/CANONICAL_TARGET_AUDIT_FINDINGS.md`), not by removing or demoting targets from this registry.
+- **Language** “L1/L2” wording in `graph-memory-language` docs (e.g. semantic research tiers) is **unrelated** to Example corpus **Level L1/L2** in this document.
+
+---
+
+## 13. GS corpus ↔ GSParser compatibility (audit snapshot)
+
+**Status:** AUDIT RECORD (Example repository — tooling alignment; not language SoT)
+**Date:** 2026-10-09
+**Tooling:** `graph-memory-language` `GSParser` (`PYTHONPATH=src`), **Python 3.12.13** per `pyproject.toml` (`requires-python >= 3.12`). Default host `python3` **3.9.x** is an **environment mismatch** (class **D**).
+
+### Summary matrix
+
+| Metric | Count (46 programs) |
+| ------ | -------------------: |
+| **GSParser PASS** | **0** |
+| **Blocked by parser implementation gap (class A)** | **46** (every file; see dominant gap below) |
+| **Blocked by lexer internal defect (class E)** | **1** additionally (`n_queens_backtrack.gs` — `SyntaxError` on blank line inside indented `each` body; see below) |
+| **Proven Example noncanonical syntax (class B)** | **0** (no corpus rewrite performed) |
+| **Compiler success on corpus sources** | **0** (parse stage fails first) |
+| **Runtime verified** | **0** (unchanged — **RUNTIME NOT VERIFIED**) |
+
+### Dominant failure classes (minimal reproduction verified)
+
+| Class | Construct | Canonical ref | Parser behavior | Classification |
+| ----- | --------- | ------------- | --------------- | -------------- |
+| **A1** | `fn name(...) -> ReturnType {` | `GS_PARSER_CONTRACT_V0_1.md` §3.1 row 1; `GS_V0_1_RUNTIME_MODEL.md` §3 | Expects **`fn name(...) : ReturnType {`** (`declarations.py`); `->` tokenized as `-` then `>` → **FAIL** | **A** — valid GS, parser gap |
+| **A2** | `[T]` parameters / returns (`[Int]`, `[Char]`, `Int?` in types) | `GS_PARSER_CONTRACT_V0_1.md` §3.1 rows 27–28; `GS_V0_1_TYPE_SYSTEM.md` | Return/param type parser accepts **single `IDENT` only** → **`[`** FAIL | **A** — valid GS, parser gap |
+| **A3** | Multiline formal parameter lists | `GRAPH_LANGUAGE_COMMON_SYNTAX_V0_1.md` (shared layout) | `NEWLINE` after `(` in params → FAIL | **A** — valid GS, parser gap (`run_length_encode.gs` hits this **before** A1) |
+| **E1** | Blank line inside indentation block | Shared indentation rules (`GRAPH_LANGUAGE_COMMON_SYNTAX_V0_1.md`) | Lexer treats blank line as **indent 0** → **Inconsistent indentation** (`lexer.py`) | **E** — lexer defect; **not** fixed in corpus (valid GS must not be rewritten to parser limits) |
+
+**Note:** After retokenizing with workarounds for A1–A3, corpus constructs such as **`each` / ranges**, **`exists`**, **`is not`**, **standalone calls**, **`var` reassignment**, and **`Int?` locals** **do** parse in isolation (smoke snippets, Python 3.12). Failures on full files are dominated by **declaration-header** gaps, not by those statement forms alone.
+
+### Per-level first-failure distribution (heuristic, first `fn` signature)
+
+| Level | Files | Primary gap |
+| ----- | ----: | ----------- |
+| **L1** | 34 | **A2** (18) or **A1** (16) |
+| **L2** | 4 | **A2** (2), **A3** (1), **A1** (1) |
+| **L3** | 3 | **A2** (2), **A1** (1) |
+| **L4** | 5 | **A1** (4), **E1** (1 — `n_queens_backtrack.gs`) |
+
+### Blockers (honest)
+
+1. **Parser `->` return type** vs canonical **`->`** (implementation uses **`:`**).
+2. **Collection / optional type syntax** in annotations (`[T]`, `T?`) not parsed in headers.
+3. **Multiline parameter lists** not accepted.
+4. **Lexer blank-line / indent stack** interaction inside braced `fn` bodies with colon blocks (`n_queens_backtrack.gs`).
+5. **OPEN language** items unchanged (e.g. global **`Int / Int`**, arithmetic overflow **`DEFERRED_TO_VM_ERROR_MODEL`**) — not Example syntax defects.
+
+**L4.5 arithmetic (specimen-local):** `mul_int64` overflow guards use **`mul_pos_would_overflow`** (**positive / positive** `Int / Int` only) and **`sub_int64(0, ·)`** for magnitudes; **`INT_MIN`** / **`-1`** special-cased; final `*` / `/` remain surface operators after guards — see §8.4.1 L4.5.
 
 ---
 
@@ -720,21 +808,4 @@ See **§17** for the full OPEN / DEFERRED registry. Gates that **block** queue r
 | `graph-memory-language/Docs/Language/UNIFIED_MODULE_SYMBOL_SPACE.md` | Unified logical module across surfaces |
 | `graph-memory-language/Docs/Language/GS_PARSER_CONTRACT_V0_1.md` | Parser-ready syntax inventory |
 | `graph-memory-language/Docs/Language/GS_V0_1_LANGUAGE_CORE.md` | Core GS semantics (shadowing, etc.) |
-| `README.md` | High-level introduction; defer level/queue detail to **this file** |
-
-
-## 11. Reference targets vs implementation gaps
-
-A program remains a **valid reference target** when its intended semantics are defined on the **canonical Graph Script surface**, even if the current parser, semantic layer, or runtime cannot compile or execute it yet.
-
-- Track implementation gaps in audit/supporting docs (e.g. `Docs/CANONICAL_TARGET_AUDIT_FINDINGS.md`), not by removing or demoting targets from this registry.
-- **Language** “L1/L2” wording in `graph-memory-language` docs (e.g. semantic research tiers) is **unrelated** to Example corpus **Level L1/L2** in this document.
-
----
-
-## Related documents
-
-| Document | Role |
-| -------- | ---- |
-| `Docs/CANONICAL_TARGET_AUDIT_FINDINGS.md` | Supporting **audit record** (implementation gaps); not corpus level SoT |
 | `README.md` | High-level introduction; defer level/queue detail to **this file** |

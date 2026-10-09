@@ -49,8 +49,7 @@ fn encoded_length_sum(lens: [Int]) -> Int {
 fn run_length_encode(text: String) -> [Int] {
     var chars [Char] = []
     var lens [Int] = []
-    var encoded Int = encode_to_pairs(text, chars, lens)
-    var ignored Int = encoded
+    encode_to_pairs(text, chars, lens)
     return lens
 }
 

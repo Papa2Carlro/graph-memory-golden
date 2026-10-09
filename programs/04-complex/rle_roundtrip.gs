@@ -86,8 +86,7 @@ fn decode_rle(chars: [Char], lens: [Int], out: [Char]) -> Bool {
     each i in 0..chars.count():
         var ch Char = chars.get(i)
         var runLen Int = lens.get(i)
-        var appended Int = append_char_repeated(out, ch, runLen)
-        var ignored Int = appended
+        append_char_repeated(out, ch, runLen)
 
     return true
 }
@@ -109,8 +108,7 @@ fn text_equals_chars(text: String, chars: [Char]) -> Bool {
 fn rle_roundtrip_verified(text: String) -> Bool {
     var encChars [Char] = []
     var encLens [Int] = []
-    var encoded Int = rle_encode(text, encChars, encLens)
-    var ignoredEnc Int = encoded
+    rle_encode(text, encChars, encLens)
 
     if validate_encoded_rle(encChars, encLens):
         var encOk Int = 0
@@ -158,7 +156,7 @@ fn decode_rejects(chars: [Char], lens: [Int], out: [Char]) -> Bool {
     return true
 }
 
-fn rle_roundtrip_sample() -> Int {
+fn rle_roundtrip_verify() -> Bool {
     var okEmpty Bool = roundtrip_with_run_count("", 0)
     var okOne Bool = roundtrip_with_run_count("a", 1)
     var okFour Bool = roundtrip_with_run_count("aaaa", 1)
@@ -200,20 +198,12 @@ fn rle_roundtrip_sample() -> Int {
     var rejectDecode Bool = decode_rejects(dupChars, dupLens, decOut)
     var decStillEmpty Bool = decOut.count() == 0
 
-    var ignored Bool = okEmpty
-    ignored = okOne
-    ignored = okFour
-    ignored = okSpread
-    ignored = okClassic
-    ignored = okMixed
-    ignored = okUnicode
-    ignored = rejectMismatch
-    ignored = rejectZero
-    ignored = rejectNeg
-    ignored = rejectDup
-    ignored = rejectDecode
-    ignored = decStillEmpty
+    return okEmpty and okOne and okFour and okSpread and okClassic and okMixed
+        and okUnicode and rejectMismatch and rejectZero and rejectNeg
+        and rejectDup and rejectDecode and decStillEmpty
+}
 
+fn rle_roundtrip_sample() -> Int {
     var mixedChars [Char] = []
     var mixedLens [Int] = []
     rle_encode("aaabbbaa", mixedChars, mixedLens)

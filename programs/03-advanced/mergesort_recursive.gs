@@ -66,7 +66,7 @@ fn mergesort_recursive(items: [Int]) -> [Int] {
     return merge_two_sorted(sortedLeft, sortedRight)
 }
 
-fn mergesort_recursive_sample() -> [Int] {
+fn mergesort_recursive_verify() -> Bool {
     var empty [Int] = []
     var sortedEmpty [Int] = mergesort_recursive(empty)
 
@@ -96,13 +96,10 @@ fn mergesort_recursive_sample() -> [Int] {
     var mixOk Bool = is_non_decreasing(sortedMixed)
     var deepOk Bool = is_non_decreasing(sortedDeep)
 
-    var ignored Bool = emptyOk
-    ignored = oneOk
-    ignored = ascOk
-    ignored = descOk
-    ignored = dupOk
-    ignored = mixOk
-    ignored = deepOk
+    return emptyOk and oneOk and ascOk and descOk and dupOk and mixOk and deepOk
+}
 
-    return sortedDeep
+fn mergesort_recursive_sample() -> [Int] {
+    var deep [Int] = [8, 3, 6, 1, 9, 2, 7, 4]
+    return mergesort_recursive(deep)
 }

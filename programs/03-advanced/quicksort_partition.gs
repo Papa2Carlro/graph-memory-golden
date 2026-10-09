@@ -66,16 +66,15 @@ fn quicksort_partition(items: [Int]) -> [Int] {
     var less [Int] = []
     var equal [Int] = []
     var greater [Int] = []
-    var partitioned Int = partition_three(items, pivot, less, equal, greater)
+    partition_three(items, pivot, less, equal, greater)
 
     var sortedLess [Int] = quicksort_partition(less)
     var sortedGreater [Int] = quicksort_partition(greater)
 
-    var ignored Int = partitioned
     return concat_three(sortedLess, equal, sortedGreater)
 }
 
-fn quicksort_partition_sample() -> [Int] {
+fn quicksort_partition_verify() -> Bool {
     var empty [Int] = []
     var sortedEmpty [Int] = quicksort_partition(empty)
 
@@ -109,14 +108,10 @@ fn quicksort_partition_sample() -> [Int] {
     var okMixed Bool = is_non_decreasing(sortedMixed)
     var okDeep Bool = is_non_decreasing(sortedDeep)
 
-    var ignored Bool = okEmpty
-    ignored = okOne
-    ignored = okAsc
-    ignored = okDesc
-    ignored = okAlt
-    ignored = okSame
-    ignored = okMixed
-    ignored = okDeep
+    return okEmpty and okOne and okAsc and okDesc and okAlt and okSame and okMixed and okDeep
+}
 
-    return sortedDeep
+fn quicksort_partition_sample() -> [Int] {
+    var deep [Int] = [8, 3, 6, 1, 9, 2, 7, 4, 5, 0]
+    return quicksort_partition(deep)
 }

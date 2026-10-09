@@ -72,33 +72,31 @@ fn levenshtein_distance(left: String, right: String) -> Int {
     var cellCount Int = rows * cols
 
     var table [Int] = make_zero_table(cellCount)
-    var inited Int = init_dp_base_row_column(table, rows, cols)
-    var filled Int = fill_dp_table(table, left, right, rows, cols)
-
-    var ignored Int = inited
-    ignored = filled
+    init_dp_base_row_column(table, rows, cols)
+    fill_dp_table(table, left, right, rows, cols)
 
     var lastRow Int = rows - 1
     var lastCol Int = cols - 1
     return table_get(table, lastRow, lastCol, cols)
 }
 
+fn levenshtein_verify() -> Bool {
+    var okBothEmpty Bool = levenshtein_distance("", "") == 0
+    var okInsertAll Bool = levenshtein_distance("", "abc") == 3
+    var okDeleteAll Bool = levenshtein_distance("abc", "") == 3
+    var okIdentical Bool = levenshtein_distance("abc", "abc") == 0
+    var okKitten Bool = levenshtein_distance("kitten", "sitting") == 3
+    var okFlawLawn Bool = levenshtein_distance("flaw", "lawn") == 2
+    var okBookBack Bool = levenshtein_distance("book", "back") == 2
+
+    return okBothEmpty and okInsertAll and okDeleteAll and okIdentical
+        and okKitten and okFlawLawn and okBookBack
+}
+
 fn levenshtein_sample() -> Int {
-    var bothEmpty Int = levenshtein_distance("", "")
-    var insertAll Int = levenshtein_distance("", "abc")
-    var deleteAll Int = levenshtein_distance("abc", "")
-    var identical Int = levenshtein_distance("abc", "abc")
-
-    var kitten Int = levenshtein_distance("kitten", "sitting")
-    var flawLawn Int = levenshtein_distance("flaw", "lawn")
-    var bookBack Int = levenshtein_distance("book", "back")
-
-    var ignored0 Int = bothEmpty
-    var ignored1 Int = insertAll
-    var ignored2 Int = deleteAll
-    var ignored3 Int = identical
-    var ignored4 Int = flawLawn
-    var ignored5 Int = bookBack
-
-    return kitten
+    levenshtein_distance("", "abc")
+    levenshtein_distance("abc", "")
+    levenshtein_distance("flaw", "lawn")
+    levenshtein_distance("book", "back")
+    return levenshtein_distance("kitten", "sitting")
 }
