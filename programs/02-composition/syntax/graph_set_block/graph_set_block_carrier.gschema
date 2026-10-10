@@ -1,0 +1,6 @@
+module example.syntax.graph_set_block
+
+public entity TagHolder {
+    label: String
+    code: String
+}
