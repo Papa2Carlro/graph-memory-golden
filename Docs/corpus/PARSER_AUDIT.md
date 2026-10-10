@@ -1,7 +1,7 @@
 # GS corpus ↔ GSParser compatibility (audit snapshot)
 
-**Status:** AUDIT RECORD (Example repository — tooling alignment; not language SoT)  
-**Date:** 2026-10-09  
+**Status:** AUDIT RECORD (Example repository — tooling alignment; not language SoT)
+**Date:** 2026-10-09
 **Scope:** Historical **GSParser** snapshot for Example `.gs` programs at audit time. **Not** parser/runtime re-verification in this document. **RUNTIME NOT VERIFIED** (see [POLICY.md §4.5](POLICY.md#45-source-level-acceptance-vs-runtime-verification)).
 
 **Related (separate responsibility, DOC-Q5=B):** Broader implementation-gap audit — [CANONICAL_TARGET_AUDIT_FINDINGS.md](../CANONICAL_TARGET_AUDIT_FINDINGS.md) (not this parser snapshot; monolith §13/§18). Corpus gap registry: [GAPS.md](GAPS.md).

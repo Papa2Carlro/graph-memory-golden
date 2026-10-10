@@ -1,9 +1,9 @@
 # Example Corpus — Gaps, OPEN Questions, and Blockers
 
-**Status:** **CANONICAL** (Example repository — unresolved issues; not owner decision ledger)  
-**Decisions:** [DECISIONS.md](DECISIONS.md) (**VERIFY-A2**, **OQ-SY-2**, **L4-SATURATION**, …).  
-**Policy:** [POLICY.md](POLICY.md). **Parser evidence:** [PARSER_AUDIT.md](PARSER_AUDIT.md) (historical snapshot).  
-**Broader audit:** [CANONICAL_TARGET_AUDIT_FINDINGS.md](../CANONICAL_TARGET_AUDIT_FINDINGS.md) (**DOC-Q5=B**; separate from [PARSER_AUDIT.md](PARSER_AUDIT.md)).  
+**Status:** **CANONICAL** (Example repository — unresolved issues; not owner decision ledger)
+**Decisions:** [DECISIONS.md](DECISIONS.md) (**VERIFY-A2**, **OQ-SY-2**, **L4-SATURATION**, …).
+**Policy:** [POLICY.md](POLICY.md). **Parser evidence:** [PARSER_AUDIT.md](PARSER_AUDIT.md) (historical snapshot).
+**Broader audit:** [CANONICAL_TARGET_AUDIT_FINDINGS.md](../CANONICAL_TARGET_AUDIT_FINDINGS.md) (**DOC-Q5=B**; separate from [PARSER_AUDIT.md](PARSER_AUDIT.md)).
 **Monolith:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) (registry, specimens, queues).
 
 ---

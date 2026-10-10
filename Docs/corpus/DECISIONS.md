@@ -1,7 +1,7 @@
 # Example Corpus — Owner Decision Ledger
 
-**Status:** **CANONICAL** (Example repository — owner decisions only; not GS language SoT)  
-**Scope:** `graph-memory-example` decision IDs, selected options, and status. Normative consequences (verify ergonomics, L5 charter, Syntax Track specs, classic registry) live in [POLICY.md](POLICY.md), [L5_PROJECT_SYSTEM.md](L5_PROJECT_SYSTEM.md), [SYNTAX_TRACK.md](SYNTAX_TRACK.md), [CLASSIC_LEVELS.md](CLASSIC_LEVELS.md), and related `Docs/corpus/` documents — not in this ledger.  
+**Status:** **CANONICAL** (Example repository — owner decisions only; not GS language SoT)
+**Scope:** `graph-memory-example` decision IDs, selected options, and status. Normative consequences (verify ergonomics, L5 charter, Syntax Track specs, classic registry) live in [POLICY.md](POLICY.md), [L5_PROJECT_SYSTEM.md](L5_PROJECT_SYSTEM.md), [SYNTAX_TRACK.md](SYNTAX_TRACK.md), [CLASSIC_LEVELS.md](CLASSIC_LEVELS.md), and related `Docs/corpus/` documents — not in this ledger.
 **OPEN / gap detail:** IDs and status in [§3](#3-open-and-unresolved-status-preserved); expanded descriptions, blockers, and deferred work: **[GAPS.md](GAPS.md)** — **MIGRATED / CANONICAL** ([§2](GAPS.md#2-owner-open-decisions-decisionsmd-3) mirrors §3; [§3–§9](GAPS.md#3-workflow-and-documentation-gaps) inventory).
 
 ---

@@ -1,7 +1,7 @@
 # Example Corpus — Golden Syntax Track
 
-**Status:** **CANONICAL** (Example repository — syntax-first golden specimens; orthogonal to Classic L1–L4 and L5 modular track)  
-**Coverage:** **10 / 18** **LANDED** (see §19.6 queue). **Layout:** [POLICY.md](POLICY.md) §1–§2 (**SY-A1**, **SY-STR-A1/A2**). **Owner decisions:** [DECISIONS.md](DECISIONS.md). **OPEN gaps / blockers:** [GAPS.md §8](GAPS.md#8-syntax-track-coverage-gaps-monolith-195). **Level taxonomy:** [CHARTER.md](CHARTER.md).  
+**Status:** **CANONICAL** (Example repository — syntax-first golden specimens; orthogonal to Classic L1–L4 and L5 modular track)
+**Coverage:** **10 / 18** **LANDED** (see §19.6 queue). **Layout:** [POLICY.md](POLICY.md) §1–§2 (**SY-A1**, **SY-STR-A1/A2**). **Owner decisions:** [DECISIONS.md](DECISIONS.md). **OPEN gaps / blockers:** [GAPS.md §8](GAPS.md#8-syntax-track-coverage-gaps-monolith-195). **Level taxonomy:** [CHARTER.md](CHARTER.md).
 **Compat:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) §19 legacy stubs.
 
 **Physical layout (current):** explicit modules under `programs/<level>/syntax/<module-slug>/` (`pair/`, `graph_set/`, `graph_set_block/`); module-less specimens may remain flat under `syntax/` (**SY-STR-A2**). Queue **SY-L3.*** IDs do not require `programs/03-advanced/` placement.

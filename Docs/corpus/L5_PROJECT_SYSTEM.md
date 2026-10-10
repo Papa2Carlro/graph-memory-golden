@@ -1,8 +1,8 @@
 # Example Corpus — L5 Project System
 
-**Status:** **CANONICAL** (Example repository — L5 charter, golden project queue, per-project specs; not GS language SoT)  
-**Owner decisions:** [DECISIONS.md](DECISIONS.md) (**L5-PROG-A1/A2**, **L5-A1…A10**, **L5-N1/N2**). **OPEN / DEFERRED / BLOCKED L5 contracts:** [GAPS.md §7](GAPS.md#7-l5-open-contracts-and-design-gates-monolith-17).  
-**Level L5 taxonomy:** [CHARTER.md §2](CHARTER.md#2-level-taxonomy-classic-programs). **Filesystem / sample-verify:** [POLICY.md](POLICY.md). **Classic L4 parity:** [annexes/L4.1.md](annexes/L4.1.md).  
+**Status:** **CANONICAL** (Example repository — L5 charter, golden project queue, per-project specs; not GS language SoT)
+**Owner decisions:** [DECISIONS.md](DECISIONS.md) (**L5-PROG-A1/A2**, **L5-A1…A10**, **L5-N1/N2**). **OPEN / DEFERRED / BLOCKED L5 contracts:** [GAPS.md §7](GAPS.md#7-l5-open-contracts-and-design-gates-monolith-17).
+**Level L5 taxonomy:** [CHARTER.md §2](CHARTER.md#2-level-taxonomy-classic-programs). **Filesystem / sample-verify:** [POLICY.md](POLICY.md). **Classic L4 parity:** [annexes/L4.1.md](annexes/L4.1.md).
 **Compat:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) §15–§16 legacy stubs; language SoT links in monolith §18.
 
 ---

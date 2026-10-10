@@ -2,10 +2,10 @@
 
 **Status:** **MIGRATED / CANONICAL** (**DOC-Q4=B**) — per-specimen L4 validation narratives, contracts, and tooling qualifications.
 
-**Classic registry (summary table, queues, saturation):** [CLASSIC_LEVELS.md](../CLASSIC_LEVELS.md) §8.  
-**Compat entry:** [EXAMPLE_CORPUS_ORGANIZATION.md](../../EXAMPLE_CORPUS_ORGANIZATION.md) §8.4.1 (legacy headings + anchor stubs).  
-**Owner decisions:** [DECISIONS.md](../DECISIONS.md) (**L4.3-CONTRACT**, **L4.4-BFS-A1**, **L4-QUEUE**, …).  
-**OPEN gaps:** [GAPS.md](../GAPS.md) (**L4-SATURATION**, language/parser gaps).  
+**Classic registry (summary table, queues, saturation):** [CLASSIC_LEVELS.md](../CLASSIC_LEVELS.md) §8.
+**Compat entry:** [EXAMPLE_CORPUS_ORGANIZATION.md](../../EXAMPLE_CORPUS_ORGANIZATION.md) §8.4.1 (legacy headings + anchor stubs).
+**Owner decisions:** [DECISIONS.md](../DECISIONS.md) (**L4.3-CONTRACT**, **L4.4-BFS-A1**, **L4-QUEUE**, …).
+**OPEN gaps:** [GAPS.md](../GAPS.md) (**L4-SATURATION**, language/parser gaps).
 **Parser snapshot:** [PARSER_AUDIT.md](../PARSER_AUDIT.md) (corpus-wide; not specimen runtime proof).
 
 ## Index

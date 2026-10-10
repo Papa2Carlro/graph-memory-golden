@@ -1,10 +1,10 @@
 # Example Corpus — Charter
 
-**Status:** **CANONICAL** (Example repository — purpose, scope, qualitative levels; not GS language SoT)  
-**Compat registry:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) (status tables, queues, specimen specs).  
+**Status:** **CANONICAL** (Example repository — purpose, scope, qualitative levels; not GS language SoT)
+**Compat registry:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) (status tables, queues, specimen specs).
 **Owner decisions:** [DECISIONS.md](DECISIONS.md). **Filesystem layout:** [POLICY.md](POLICY.md). **Parser snapshot:** [PARSER_AUDIT.md](PARSER_AUDIT.md). **OPEN gaps:** [GAPS.md](GAPS.md).
 
-**Scope:** `graph-memory-example` — reference corpus layout, level taxonomy, and evolution principles.  
+**Scope:** `graph-memory-example` — reference corpus layout, level taxonomy, and evolution principles.
 **Non-scope:** Language/compiler/runtime implementation; automated test suites; owner decisions recorded in `graph-memory-language`.
 
 ---

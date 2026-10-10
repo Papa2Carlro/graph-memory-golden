@@ -1,8 +1,8 @@
 # Example Corpus — Classic Levels (L1–L4)
 
-**Status:** **CANONICAL** (Example repository — classic L1–L4 inventory, queues, saturation; not per-specimen L4 annex prose)  
-**Level taxonomy:** [CHARTER.md §2](CHARTER.md#2-level-taxonomy-classic-programs). **Paths / layout:** [POLICY.md](POLICY.md). **Owner decisions:** [DECISIONS.md](DECISIONS.md) (**L4-MODEL**, **L4-PATH**, **L4-QUEUE**, **L4.3-CONTRACT**, **L4.4-BFS-A1**, …). **OPEN gaps:** [GAPS.md](GAPS.md) (**L4-SATURATION**, language/parser gaps §4–§6).  
-**Compat:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) §8.4.1 legacy stubs; L4 annex prose → [annexes/](annexes/README.md) (**DOC-Q4=B**).  
+**Status:** **CANONICAL** (Example repository — classic L1–L4 inventory, queues, saturation; not per-specimen L4 annex prose)
+**Level taxonomy:** [CHARTER.md §2](CHARTER.md#2-level-taxonomy-classic-programs). **Paths / layout:** [POLICY.md](POLICY.md). **Owner decisions:** [DECISIONS.md](DECISIONS.md) (**L4-MODEL**, **L4-PATH**, **L4-QUEUE**, **L4.3-CONTRACT**, **L4.4-BFS-A1**, …). **OPEN gaps:** [GAPS.md](GAPS.md) (**L4-SATURATION**, language/parser gaps §4–§6).
+**Compat:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) §8.4.1 legacy stubs; L4 annex prose → [annexes/](annexes/README.md) (**DOC-Q4=B**).
 **Syntax Track** landed counts in §4 are a status snapshot; specimen registry → [SYNTAX_TRACK.md](SYNTAX_TRACK.md). **L5** summary rows → [L5_PROJECT_SYSTEM.md](L5_PROJECT_SYSTEM.md).
 
 ---
