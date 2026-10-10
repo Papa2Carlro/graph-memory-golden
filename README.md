@@ -21,6 +21,8 @@ Blocks are not formalized at this stage. They will emerge naturally as programs 
 
 ## Corpus organization
 
-Level taxonomy (L1–L4), current status, and the approved L2 target queue: **[Docs/EXAMPLE_CORPUS_ORGANIZATION.md](Docs/EXAMPLE_CORPUS_ORGANIZATION.md)**.
+Documentation index: **[Docs/README.md](Docs/README.md)** (canonical map of `Docs/corpus/`).
+
+Compatibility monolith (legacy §1–§19 headings): **[Docs/EXAMPLE_CORPUS_ORGANIZATION.md](Docs/EXAMPLE_CORPUS_ORGANIZATION.md)**. Charter, classic registry, L5, Syntax Track, decisions, gaps, and L4 annexes live under **`Docs/corpus/`**.
 
 Classical Level 1 programs live under `programs/01-classical/` (34 single-file `.gs` programs).
