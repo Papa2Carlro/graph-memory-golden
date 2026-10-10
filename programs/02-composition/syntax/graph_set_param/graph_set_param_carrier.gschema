@@ -1,0 +1,5 @@
+module example.syntax.graph_set_param
+
+public entity LabelHolder {
+    label: String
+}
