@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.strings.starts-with
+kind: positive
+home:
+  root: algorithms
+  category: strings
+  directory: algorithms/strings/specimens/starts-with
+artifacts:
+- role: primary
+  path: starts_with.gs
+  language: gs
+features:
+  primary: starts-with
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/strings/starts_with.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

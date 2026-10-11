@@ -103,16 +103,17 @@
 
 ---
 
-## R4-06 — Move algorithms L1 (33 specimens)
+## R4-06 — Move algorithms L1 (34 specimens)
 
 | Поле | Значення |
 | ---- | -------- |
-| **Scope** | numbers, collections, strings |
-| **Prerequisites** | R4-05 or parallel if no conflict |
-| **Affected** | `01-classical/{numbers,collections,strings}/` |
-| **Verification** | CLASSIC_LEVELS references |
-| **Rollback** | revert |
-| **Acceptance** | 33 algo manifests (minimal historical block) |
+| **Status** | **COMPLETE** — **R4-06.1** committed; див. [migration/README.md](README.md) §R4-06 |
+| **Scope** | Усі R3 §3.2 **L1** під `01-classical/numbers/`, `collections/`, `strings/` — **13+13+8=34** `gs.algo.*` (plan раніше «33» — reconciliation з §3.2, не окремий scope) |
+| **Prerequisites** | R4-05.1 |
+| **Affected** | 34× `git mv`; **55** production manifests загалом |
+| **Verification** | `validate` PASS; SHA **89/89**; [R3_MODULE_SAFETY.md](R3_MODULE_SAFETY.md) §4 **SAFE** |
+| **Rollback** | reverse 34 moves + drop manifests |
+| **Acceptance** | minimal `historical` + `acceptance`; runtime **не** перевірялось |
 
 ---
 

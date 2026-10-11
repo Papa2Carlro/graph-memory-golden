@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.collections.merge-sorted
+kind: positive
+home:
+  root: algorithms
+  category: collections
+  directory: algorithms/collections/specimens/merge-sorted
+artifacts:
+- role: primary
+  path: merge_sorted.gs
+  language: gs
+features:
+  primary: merge-sorted
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/collections/merge_sorted.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.numbers.count-digits
+kind: positive
+home:
+  root: algorithms
+  category: numbers
+  directory: algorithms/numbers/specimens/count-digits
+artifacts:
+- role: primary
+  path: count_digits.gs
+  language: gs
+features:
+  primary: count-digits
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/numbers/count_digits.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

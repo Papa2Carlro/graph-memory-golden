@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.strings.count-char
+kind: positive
+home:
+  root: algorithms
+  category: strings
+  directory: algorithms/strings/specimens/count-char
+artifacts:
+- role: primary
+  path: count_char.gs
+  language: gs
+features:
+  primary: count-char
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/strings/count_char.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

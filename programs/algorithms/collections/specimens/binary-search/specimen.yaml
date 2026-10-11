@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.collections.binary-search
+kind: positive
+home:
+  root: algorithms
+  category: collections
+  directory: algorithms/collections/specimens/binary-search
+artifacts:
+- role: primary
+  path: binary_search.gs
+  language: gs
+features:
+  primary: binary-search
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/collections/binary_search.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

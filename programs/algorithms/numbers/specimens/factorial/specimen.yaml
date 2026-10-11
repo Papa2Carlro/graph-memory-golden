@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.numbers.factorial
+kind: positive
+home:
+  root: algorithms
+  category: numbers
+  directory: algorithms/numbers/specimens/factorial
+artifacts:
+- role: primary
+  path: factorial.gs
+  language: gs
+features:
+  primary: factorial
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/numbers/factorial.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

@@ -1,0 +1,27 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.numbers.average-int
+kind: positive
+home:
+  root: algorithms
+  category: numbers
+  directory: algorithms/numbers/specimens/average-int
+artifacts:
+- role: primary
+  path: average_int.gs
+  language: gs
+features:
+  primary: average-int
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/numbers/average_int.gs
+  note: "classic reference (\u043D\u0435 Syntax Track)"
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

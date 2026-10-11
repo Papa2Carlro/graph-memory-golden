@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.collections.filter-positive
+kind: positive
+home:
+  root: algorithms
+  category: collections
+  directory: algorithms/collections/specimens/filter-positive
+artifacts:
+- role: primary
+  path: filter_positive.gs
+  language: gs
+features:
+  primary: filter-positive
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/collections/filter_positive.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

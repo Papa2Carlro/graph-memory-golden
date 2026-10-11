@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.numbers.reverse-integer
+kind: positive
+home:
+  root: algorithms
+  category: numbers
+  directory: algorithms/numbers/specimens/reverse-integer
+artifacts:
+- role: primary
+  path: reverse_integer.gs
+  language: gs
+features:
+  primary: reverse-integer
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/numbers/reverse_integer.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

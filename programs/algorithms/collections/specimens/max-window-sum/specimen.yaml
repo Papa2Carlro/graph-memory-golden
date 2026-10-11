@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.collections.max-window-sum
+kind: positive
+home:
+  root: algorithms
+  category: collections
+  directory: algorithms/collections/specimens/max-window-sum
+artifacts:
+- role: primary
+  path: max_window_sum.gs
+  language: gs
+features:
+  primary: max-window-sum
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/collections/max_window_sum.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

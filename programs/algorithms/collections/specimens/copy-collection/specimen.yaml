@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.collections.copy-collection
+kind: positive
+home:
+  root: algorithms
+  category: collections
+  directory: algorithms/collections/specimens/copy-collection
+artifacts:
+- role: primary
+  path: copy_collection.gs
+  language: gs
+features:
+  primary: copy-collection
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L1
+  classic_level_path: programs/01-classical/collections/copy_collection.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

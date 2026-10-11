@@ -1,6 +1,6 @@
 # Golden Syntax Corpus — міграція (R3 planning)
 
-**Status:** **R4 IN PROGRESS** — golden syntax **21/21** на target (**R4-05** physical move **COMPLETE**, commit **R4-05.1** pending; L1–L4 batches through **R4-04.1** committed)
+**Status:** **R4 IN PROGRESS** — language-features **21/21** (**R4-05.1** `f939a4b`); algorithms L1 **34/34** (**R4-06.1** committed); **12** classic algos + **6** modular — legacy (R4-07+)
 **Slice:** **GS-EXAMPLE-CORPUS-REORG-R3-MIGRATION-PLAN**
 
 ## R4-01 — target scaffolding (2026-10-11)
@@ -158,7 +158,46 @@
 
 **Rollback:** reverse 13 `git mv` + видалити 10 `specimen.yaml`.
 
-**Readiness:** готово до commit **R4-05.1** (stage 10× `specimen.yaml` + renames).
+**Readiness:** commit **R4-05.1** — **COMMITTED** (`f939a4bb64ff83cc2662fcb0aeb82611063465cb`).
+
+## R4-06 — algorithms L1 (numbers, collections, strings)
+
+**Status:** **COMPLETE** — commit **R4-06.1** `feat(corpus): migrate L1 classic algorithm specimens` (після `f939a4b`). Scope: усі **L1** рядки R3 §3.2 з `programs/01-classical/{numbers,collections,strings}/` (**34** specimens; plan «33» — reconciliation з §3.2).
+
+### Scope summary
+
+| Category | Count | canonical prefix |
+| -------- | ----- | ---------------- |
+| numbers | 13 | `gs.algo.numbers.*` |
+| collections | 13 | `gs.algo.collections.*` |
+| strings | 8 | `gs.algo.strings.*` |
+| **Total** | **34** | — |
+
+**Pattern:** `programs/01-classical/<cat>/<file>.gs` → `programs/algorithms/<cat>/specimens/<kebab-slug>/<file>.gs` (імена `.gs` без змін).
+
+### Module / import safety
+
+Усі **SAFE** per [R3_MODULE_SAFETY.md](R3_MODULE_SAFETY.md) §4 — single-file, без `module` / `use`; move-only.
+
+### Manifests
+
+34× `specimen.yaml` (`home.root: algorithms`, `historical.classic_level: L1`, `prerequisites: []`, `acceptance.runtime_verified: false`). Без syntax-track aliases (classic reference).
+
+### Verification
+
+| Check | Result |
+| ----- | ------ |
+| `corpus_manifest validate` | **PASS** — **55** production manifests (21 + 34) |
+| `generate` / `check-generated` (`/tmp/r4-06-registry.yaml`) | **55** specimens; byte-identical double generate |
+| SHA-256 | **89/89** vs baseline |
+| `pytest corpus_manifest/tests` | **20/20** |
+| Production `registry.yaml` | **не** створено |
+
+**Blockers:** немає (лише note: R4-06 plan count «33» vs map **34** — scope за §3.2 + affected dirs).
+
+**Rollback:** reverse 34 `git mv` + видалити 34 `specimen.yaml`.
+
+**Readiness:** **R4-06.1** — included in this commit.
 
 | Документ | Призначення |
 | -------- | ----------- |
