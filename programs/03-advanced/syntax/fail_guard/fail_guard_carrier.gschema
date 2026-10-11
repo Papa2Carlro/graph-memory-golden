@@ -1,0 +1,5 @@
+module example.syntax.fail_guard
+
+public entity GuardFixture {
+    tag: String
+}

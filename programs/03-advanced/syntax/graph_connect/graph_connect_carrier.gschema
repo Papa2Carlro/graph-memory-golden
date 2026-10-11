@@ -1,0 +1,17 @@
+module example.syntax.graph_connect
+
+public entity EndpointA {
+    label: String
+}
+
+public entity EndpointB {
+    label: String
+}
+
+public relation LINK {
+    from EndpointA [0..*]
+    to EndpointB [0..*]
+
+    properties:
+        weight: Int
+}

@@ -1,0 +1,9 @@
+module example.syntax.on_emit
+
+public entity StageHolder {
+    tag: String
+}
+
+public event SignalRaised {
+    code: String
+}
