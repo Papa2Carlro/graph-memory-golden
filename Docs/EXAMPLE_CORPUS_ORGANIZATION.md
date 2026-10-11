@@ -20,7 +20,13 @@
 
 ## 3. Corpus filesystem layout (owner decision)
 
-**Status:** OWNER-DECIDED (Example repository). Normative layout, Syntax Track paths, and module isolation: **[corpus/POLICY.md](corpus/POLICY.md)** §1–§2.
+**Status:** OWNER-DECIDED (Example repository). **Current on-disk layout:** **[corpus/POLICY.md](corpus/POLICY.md)** §1–§2 (`programs/01-classical/` … `05-modular/`, **SY-A1=B**).
+
+**Target architecture (R2):** **[corpus/GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](corpus/GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md)** — `programs/language-features/` + `programs/algorithms/` (**GS-REORG-R2-A1=B**).
+
+**Migration plan (R3 complete, execution R4):** **[corpus/migration/README.md](corpus/migration/README.md)** — full map, pipelines, module safety; **no** physical move in R3.
+
+**L3 Advanced Syntax subtrack:** [corpus/L3_ADVANCED_SYNTAX.md](corpus/L3_ADVANCED_SYNTAX.md) — specimens under `programs/03-advanced/syntax/` (**OQ-L3-ADV-A2=B**); orthogonal to §19 **SY-L*** queue (**15/18 LANDED**).
 
 ---
 
@@ -440,7 +446,7 @@ See [corpus/L5_PROJECT_SYSTEM.md](corpus/L5_PROJECT_SYSTEM.md#l511-unified-modul
 
 ## 19. Syntax Track (Golden Standard — language surface)
 
-**Status:** CANONICAL Syntax Track migrated. Normative body: **[corpus/SYNTAX_TRACK.md](corpus/SYNTAX_TRACK.md#19-syntax-track-golden-standard-language-surface)** (**10/18** **LANDED**).
+**Status:** CANONICAL Syntax Track migrated. Normative body: **[corpus/SYNTAX_TRACK.md](corpus/SYNTAX_TRACK.md#19-syntax-track-golden-standard-language-surface)** (**15/18** **LANDED**; **SY-L4.4** §19.6.15 **LANDED**).
 
 ### 19.1 Owner decisions (DECIDED)
 
@@ -509,3 +515,25 @@ See [corpus/SYNTAX_TRACK.md](corpus/SYNTAX_TRACK.md#1969-sy-l33-graph-set-action
 #### 19.6.10 SY-L3.2 — `graph_set_block` (**LANDED**)
 
 See [corpus/SYNTAX_TRACK.md](corpus/SYNTAX_TRACK.md#19610-sy-l32-graph-set-block-landed).
+
+#### 19.6.11 SY-L3.1 — `graph_set_param` (**LANDED**)
+
+See [corpus/SYNTAX_TRACK.md §19.6.11](corpus/SYNTAX_TRACK.md#19611-sy-l31-graph_set_param-landed).
+
+#### 19.6.12 SY-L4.1 — `on_emit` (**LANDED**)
+
+See [corpus/SYNTAX_TRACK.md §19.6.12](corpus/SYNTAX_TRACK.md#19612-sy-l41-on_emit-landed).
+
+#### 19.6.13 SY-L4.2 — `graph_connect` (**LANDED**)
+
+See [corpus/SYNTAX_TRACK.md §19.6.13](corpus/SYNTAX_TRACK.md#19613-sy-l42-graph_connect-landed).
+
+#### 19.6.14 SY-L4.3 — `fail_guard` (**LANDED**)
+
+See [corpus/SYNTAX_TRACK.md §19.6.14](corpus/SYNTAX_TRACK.md#19614-sy-l43-fail_guard-landed).
+
+#### 19.6.15 SY-L4.4 — `exists_if` family (**LANDED**)
+
+See [corpus/SYNTAX_TRACK.md §19.6.15](corpus/SYNTAX_TRACK.md#19615-sy-l44--exists_if-family-landed).
+
+**Physical note:** Landed **SY-L4.1**–**L4.3** syntax modules and planned **SY-L4.4** specimens use `programs/03-advanced/syntax/` (queue Level **L4** unchanged; **OQ-SY-L4.4-A7=B**). Classic L4 algorithm programs remain flat under `programs/04-complex/*.gs` per **L4-PATH**.

@@ -2,7 +2,7 @@
 
 **Status:** **CANONICAL** (Example repository — purpose, scope, qualitative levels; not GS language SoT)
 **Compat registry:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) (status tables, queues, specimen specs).
-**Owner decisions:** [DECISIONS.md](DECISIONS.md). **Filesystem layout:** [POLICY.md](POLICY.md). **Parser snapshot:** [PARSER_AUDIT.md](PARSER_AUDIT.md). **OPEN gaps:** [GAPS.md](GAPS.md).
+**Owner decisions:** [DECISIONS.md](DECISIONS.md). **Filesystem layout (current):** [POLICY.md](POLICY.md). **Target corpus architecture (R2):** [GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md). **Parser snapshot:** [PARSER_AUDIT.md](PARSER_AUDIT.md). **OPEN gaps:** [GAPS.md](GAPS.md).
 
 **Scope:** `graph-memory-example` — reference corpus layout, level taxonomy, and evolution principles.
 **Non-scope:** Language/compiler/runtime implementation; automated test suites; owner decisions recorded in `graph-memory-language`.
@@ -23,11 +23,13 @@ The **Graph Memory Example** repository is an **evolving reference corpus** of r
 | Topic | Canonical owner |
 | ----- | ----------------- |
 | Purpose, scope, qualitative **L1–L5** boundaries | **This charter** |
-| Physical paths, module isolation, sample/verify conventions | [POLICY.md](POLICY.md) |
+| Physical paths (current), module isolation, sample/verify conventions | [POLICY.md](POLICY.md) |
+| Target **language-features** / **algorithms** layout, manifests, pipelines (**GS-REORG-R2**) | [GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md) |
 | Owner decision IDs and selected options | [DECISIONS.md](DECISIONS.md) |
 | Classical L1–L4 inventories, queues, saturation tables | [CLASSIC_LEVELS.md](CLASSIC_LEVELS.md) |
 | L5 golden project charter, queue, per-project specs | [L5_PROJECT_SYSTEM.md](L5_PROJECT_SYSTEM.md) |
 | Syntax Track **SY-L*** queue and landed specimen specs | [SYNTAX_TRACK.md](SYNTAX_TRACK.md) |
+| L3 Advanced Syntax subtrack (**L3-ADV-SY-***, physical `03-advanced/syntax/`) | [L3_ADVANCED_SYNTAX.md](L3_ADVANCED_SYNTAX.md) |
 | OPEN / DEFERRED / BLOCKED issue registry | [GAPS.md](GAPS.md) |
 
 **Syntax Track** identifiers (**SY-L1.1**, **SY-L2.1**, …) name golden syntax specimens; they are **not** the same labels as classic qualitative **Level L1–L5** in §2. On-disk directories (`programs/01-classical/`, …) follow [POLICY.md](POLICY.md); landing and verification labels on registry rows are documented per specimen and must not be conflated (§3).
