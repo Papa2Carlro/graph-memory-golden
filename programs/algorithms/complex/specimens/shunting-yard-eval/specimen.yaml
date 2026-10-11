@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.complex.shunting-yard-eval
+kind: positive
+home:
+  root: algorithms
+  category: complex
+  directory: algorithms/complex/specimens/shunting-yard-eval
+artifacts:
+- role: primary
+  path: shunting_yard_eval.gs
+  language: gs
+features:
+  primary: shunting-yard-eval
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L4
+  classic_level_path: programs/04-complex/shunting_yard_eval.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

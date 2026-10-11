@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.composition.merge-overlapping-intervals
+kind: positive
+home:
+  root: algorithms
+  category: composition
+  directory: algorithms/composition/specimens/merge-overlapping-intervals
+artifacts:
+- role: primary
+  path: merge_overlapping_intervals.gs
+  language: gs
+features:
+  primary: merge-overlapping-intervals
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L2
+  classic_level_path: programs/02-composition/merge_overlapping_intervals.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

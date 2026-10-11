@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.complex.bfs-shortest-path-flat
+kind: positive
+home:
+  root: algorithms
+  category: complex
+  directory: algorithms/complex/specimens/bfs-shortest-path-flat
+artifacts:
+- role: primary
+  path: bfs_shortest_path_flat.gs
+  language: gs
+features:
+  primary: bfs-shortest-path-flat
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L4
+  classic_level_path: programs/04-complex/bfs_shortest_path_flat.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.advanced.mergesort-recursive
+kind: positive
+home:
+  root: algorithms
+  category: advanced
+  directory: algorithms/advanced/specimens/mergesort-recursive
+artifacts:
+- role: primary
+  path: mergesort_recursive.gs
+  language: gs
+features:
+  primary: mergesort-recursive
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L3
+  classic_level_path: programs/03-advanced/mergesort_recursive.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

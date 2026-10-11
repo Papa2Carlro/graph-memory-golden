@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.advanced.levenshtein
+kind: positive
+home:
+  root: algorithms
+  category: advanced
+  directory: algorithms/advanced/specimens/levenshtein
+artifacts:
+- role: primary
+  path: levenshtein.gs
+  language: gs
+features:
+  primary: levenshtein
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L3
+  classic_level_path: programs/03-advanced/levenshtein.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

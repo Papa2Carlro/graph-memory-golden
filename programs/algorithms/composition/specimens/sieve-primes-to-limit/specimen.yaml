@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.composition.sieve-primes-to-limit
+kind: positive
+home:
+  root: algorithms
+  category: composition
+  directory: algorithms/composition/specimens/sieve-primes-to-limit
+artifacts:
+- role: primary
+  path: sieve_primes_to_limit.gs
+  language: gs
+features:
+  primary: sieve-primes-to-limit
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L2
+  classic_level_path: programs/02-composition/sieve_primes_to_limit.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.composition.run-length-encode
+kind: positive
+home:
+  root: algorithms
+  category: composition
+  directory: algorithms/composition/specimens/run-length-encode
+artifacts:
+- role: primary
+  path: run_length_encode.gs
+  language: gs
+features:
+  primary: run-length-encode
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L2
+  classic_level_path: programs/02-composition/run_length_encode.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

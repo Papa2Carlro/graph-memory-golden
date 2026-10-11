@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.complex.parse-decimal-strict
+kind: positive
+home:
+  root: algorithms
+  category: complex
+  directory: algorithms/complex/specimens/parse-decimal-strict
+artifacts:
+- role: primary
+  path: parse_decimal_strict.gs
+  language: gs
+features:
+  primary: parse-decimal-strict
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L4
+  classic_level_path: programs/04-complex/parse_decimal_strict.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

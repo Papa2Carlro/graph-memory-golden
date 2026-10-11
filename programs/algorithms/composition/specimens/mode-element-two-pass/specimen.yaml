@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.composition.mode-element-two-pass
+kind: positive
+home:
+  root: algorithms
+  category: composition
+  directory: algorithms/composition/specimens/mode-element-two-pass
+artifacts:
+- role: primary
+  path: mode_element_two_pass.gs
+  language: gs
+features:
+  primary: mode-element-two-pass
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L2
+  classic_level_path: programs/02-composition/mode_element_two_pass.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

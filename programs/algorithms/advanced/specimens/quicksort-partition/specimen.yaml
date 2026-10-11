@@ -1,0 +1,26 @@
+specimen_schema_version: 1
+canonical_id: gs.algo.advanced.quicksort-partition
+kind: positive
+home:
+  root: algorithms
+  category: advanced
+  directory: algorithms/advanced/specimens/quicksort-partition
+artifacts:
+- role: primary
+  path: quicksort_partition.gs
+  language: gs
+features:
+  primary: quicksort-partition
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+historical:
+  classic_level: L3
+  classic_level_path: programs/03-advanced/quicksort_partition.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false
