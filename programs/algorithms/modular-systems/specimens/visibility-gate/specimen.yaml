@@ -1,0 +1,29 @@
+specimen_schema_version: 1
+canonical_id: gs.project.modular.visibility-gate
+kind: positive
+home:
+  root: algorithms
+  category: modular-systems
+  directory: algorithms/modular-systems/specimens/visibility-gate
+artifacts:
+- role: primary
+  path: client.gs
+  language: gs
+- role: module
+  path: internal.gs
+  language: gs
+features:
+  primary: visibility-gate
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: multi
+prerequisites: []
+historical:
+  classic_level: L5
+  classic_level_path: programs/05-modular/visibility_gate/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

@@ -1,0 +1,29 @@
+specimen_schema_version: 1
+canonical_id: gs.project.modular.two-module-hello
+kind: positive
+home:
+  root: algorithms
+  category: modular-systems
+  directory: algorithms/modular-systems/specimens/two-module-hello
+artifacts:
+- role: primary
+  path: greet.gs
+  language: gs
+- role: module
+  path: main.gs
+  language: gs
+features:
+  primary: two-module-hello
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: multi
+prerequisites: []
+historical:
+  classic_level: L5
+  classic_level_path: programs/05-modular/two_module_hello/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

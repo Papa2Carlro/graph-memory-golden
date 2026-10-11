@@ -1,0 +1,30 @@
+specimen_schema_version: 1
+canonical_id: gs.project.modular.negative.cycle-import-bad
+kind: negative
+home:
+  root: algorithms
+  category: modular-systems
+  directory: algorithms/modular-systems/_negative/cycle-import-bad
+artifacts:
+- role: primary
+  path: a.gs
+  language: gs
+- role: module
+  path: b.gs
+  language: gs
+features:
+  primary: cycle-import-bad
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: multi
+prerequisites: []
+historical:
+  classic_level: L5
+  classic_level_path: programs/05-modular/negative/cycle_import_bad/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false
+expected: compile_error

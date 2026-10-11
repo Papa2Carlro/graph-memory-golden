@@ -1,0 +1,32 @@
+specimen_schema_version: 1
+canonical_id: gs.project.modular.reexport-facade
+kind: positive
+home:
+  root: algorithms
+  category: modular-systems
+  directory: algorithms/modular-systems/specimens/reexport-facade
+artifacts:
+- role: primary
+  path: api.gs
+  language: gs
+- role: module
+  path: client.gs
+  language: gs
+- role: module
+  path: implementation.gs
+  language: gs
+features:
+  primary: reexport-facade
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: multi
+prerequisites: []
+historical:
+  classic_level: L5
+  classic_level_path: programs/05-modular/reexport_facade/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

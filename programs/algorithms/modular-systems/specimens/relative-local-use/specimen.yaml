@@ -1,0 +1,32 @@
+specimen_schema_version: 1
+canonical_id: gs.project.modular.relative-local-use
+kind: positive
+home:
+  root: algorithms
+  category: modular-systems
+  directory: algorithms/modular-systems/specimens/relative-local-use
+artifacts:
+- role: primary
+  path: lib/helper.gs
+  language: gs
+- role: module
+  path: lib/support.gs
+  language: gs
+- role: module
+  path: main.gs
+  language: gs
+features:
+  primary: relative-local-use
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: multi
+prerequisites: []
+historical:
+  classic_level: L5
+  classic_level_path: programs/05-modular/relative_local_use/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

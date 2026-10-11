@@ -1,0 +1,32 @@
+specimen_schema_version: 1
+canonical_id: gs.project.modular.import-alias-collision
+kind: positive
+home:
+  root: algorithms
+  category: modular-systems
+  directory: algorithms/modular-systems/specimens/import-alias-collision
+artifacts:
+- role: primary
+  path: a.gs
+  language: gs
+- role: module
+  path: b.gs
+  language: gs
+- role: module
+  path: main.gs
+  language: gs
+features:
+  primary: import-alias-collision
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: multi
+prerequisites: []
+historical:
+  classic_level: L5
+  classic_level_path: programs/05-modular/import_alias_collision/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false
