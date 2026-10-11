@@ -16,7 +16,7 @@
 
 ## CLI
 
-З кореня `graph-memory-example`, `PYTHONPATH=tools`:
+З кореня `graph-memory-golden`, `PYTHONPATH=tools`:
 
 ```bash
 python -m corpus_manifest validate --corpus-root .

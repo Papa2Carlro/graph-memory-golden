@@ -6,7 +6,7 @@ REGISTRY_SCHEMA_VERSION = 1
 
 GENERATOR_NAME = "corpus_manifest"
 
-# Relative to corpus root (repo root for graph-memory-example).
+# Relative to corpus root (repo root for graph-memory-golden).
 PROGRAMS_DIRNAME = "programs"
 PRODUCTION_REGISTRY_REL = (
     "programs/language-features/_generated/registry.yaml"

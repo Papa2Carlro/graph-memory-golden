@@ -1,4 +1,4 @@
-# Graph Memory Example — Documentation
+# Graph Memory Golden — Documentation
 
 **Migration:** Documentation decomposition per **SY-STR-A3=C** — **structural migration complete** (slices **DOC-DECOMP-0** … **DOC-DECOMP-8**). This index is the canonical entry point for corpus documentation.
 

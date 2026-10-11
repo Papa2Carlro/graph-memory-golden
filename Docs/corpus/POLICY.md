@@ -1,6 +1,6 @@
 # Example Corpus — Policy
 
-**Status:** **CANONICAL** (Example repository — corpus organization and specimen conventions; not GS language SoT)
+**Status:** **CANONICAL** (Graph Memory Golden — corpus organization and specimen conventions; not GS language SoT)
 **Decisions:** [DECISIONS.md](DECISIONS.md) (**SY-A1**, **SY-STR-A1/A2**, **VERIFY-A1…A5**, **L3-A4**, **L5-A10**, **L5-N1**, …).
 **Registry / queues:** [CLASSIC_LEVELS.md](CLASSIC_LEVELS.md), [L5_PROJECT_SYSTEM.md](L5_PROJECT_SYSTEM.md), [SYNTAX_TRACK.md](SYNTAX_TRACK.md); compat index in [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md).
 **Architecture:** [GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md) (**GS-REORG-R2-A1=B**).

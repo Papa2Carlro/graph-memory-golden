@@ -157,7 +157,7 @@
 ### 5.3 Verification перед commit (owner/agent)
 
 ```bash
-cd graph-memory-example
+cd graph-memory-golden
 test "$(find programs -type f \( -name '*.gs' -o -name '*.gschema' \) | wc -l)" = 89
 shasum -a 256 -c Docs/corpus/migration/R4_BASELINE_ARTIFACTS.sha256  # після оновлення manifest якщо змінились лише doc
 git status   # жодних випадкових paths

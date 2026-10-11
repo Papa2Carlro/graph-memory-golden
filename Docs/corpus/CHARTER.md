@@ -4,14 +4,14 @@
 **Compat registry:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) (status tables, queues, specimen specs).
 **Owner decisions:** [DECISIONS.md](DECISIONS.md). **Filesystem layout (current):** [POLICY.md](POLICY.md). **Target corpus architecture (R2):** [GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md). **Parser snapshot:** [PARSER_AUDIT.md](PARSER_AUDIT.md). **OPEN gaps:** [GAPS.md](GAPS.md).
 
-**Scope:** `graph-memory-example` — reference corpus layout, level taxonomy, and evolution principles.
+**Scope:** `graph-memory-golden` — reference corpus layout, level taxonomy, and evolution principles.
 **Non-scope:** Language/compiler/runtime implementation; automated test suites; owner decisions recorded in `graph-memory-language`.
 
 ---
 
 ## 1. Purpose and role of the Example corpus
 
-The **Graph Memory Example** repository is an **evolving reference corpus** of real, small Graph Script (`.gs`) programs used as ecosystem specimens.
+The **Graph Memory Golden** repository (`graph-memory-golden`) is an **evolving reference corpus** of real, small Graph Script (`.gs`) programs used as ecosystem specimens.
 
 - It is **not** a test suite.
 - It is **not** a collection of synthetic fixtures whose primary job is to pass CI.

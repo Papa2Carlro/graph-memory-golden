@@ -1,7 +1,7 @@
 # Example Corpus Organization — Canonical Reference
 
 **Status:** **COMPAT** (Example repository — legacy §1–§19 headings and anchors; normative bodies in `Docs/corpus/`)
-**Scope:** `graph-memory-example` — compatibility entry point and navigation index.
+**Scope:** `graph-memory-golden` — compatibility entry point and navigation index.
 **Non-scope:** Language/compiler/runtime implementation; automated test suites; owner decisions recorded in `graph-memory-language`.
 
 ---

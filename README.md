@@ -1,6 +1,6 @@
-# Graph Memory Example
+# Graph Memory Golden
 
-Reference corpus / ecosystem specimen for Graph Memory.
+Reference corpus / ecosystem specimen for Graph Memory (**repository slug:** `graph-memory-golden`).
 
 This is **not a test suite** and not a collection of synthetic fixtures. It is a reference corpus of real, small coding tasks that evolves over time.
 
@@ -25,4 +25,4 @@ Documentation index: **[Docs/README.md](Docs/README.md)** (canonical map of `Doc
 
 Compatibility monolith (legacy §1–§19 headings): **[Docs/EXAMPLE_CORPUS_ORGANIZATION.md](Docs/EXAMPLE_CORPUS_ORGANIZATION.md)**. Charter, classic registry, L5, Syntax Track, decisions, gaps, and L4 annexes live under **`Docs/corpus/`**.
 
-Classical Level 1 programs live under `programs/01-classical/` (34 single-file `.gs` programs).
+**Canonical on-disk layout (post-R4):** `programs/language-features/` and `programs/algorithms/` — see **[Docs/corpus/POLICY.md](Docs/corpus/POLICY.md)** §1 and **[programs/language-features/README.md](programs/language-features/README.md)**.
