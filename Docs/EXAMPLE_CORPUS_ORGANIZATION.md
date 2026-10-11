@@ -20,13 +20,31 @@
 
 ## 3. Corpus filesystem layout (owner decision)
 
-**Status:** OWNER-DECIDED (Example repository). **Current on-disk layout:** **[corpus/POLICY.md](corpus/POLICY.md)** §1–§2 (`programs/01-classical/` … `05-modular/`, **SY-A1=B**).
+**Status:** OWNER-DECIDED + **R4 COMPLETE** on `master` (**A1=B** — canonical layout + historical mapping).
 
-**Target architecture (R2):** **[corpus/GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](corpus/GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md)** — `programs/language-features/` + `programs/algorithms/` (**GS-REORG-R2-A1=B**).
+**Current on-disk layout (canonical):** `programs/language-features/` + `programs/algorithms/` only — **[corpus/POLICY.md](corpus/POLICY.md)** §1–§2.
 
-**Migration plan (R3 complete, execution R4):** **[corpus/migration/README.md](corpus/migration/README.md)** — full map, pipelines, module safety; **no** physical move in R3.
+| Inventory | Count |
+| --------- | ----- |
+| Specimens | **73** |
+| Golden artifacts | **89** |
+| READY `pipeline.yaml` | **18** |
+| BLOCKED pipelines (documented) | **2** — [corpus/migration/R3_PIPELINE_PLAN.md](corpus/migration/R3_PIPELINE_PLAN.md) §7 |
 
-**L3 Advanced Syntax subtrack:** [corpus/L3_ADVANCED_SYNTAX.md](corpus/L3_ADVANCED_SYNTAX.md) — specimens under `programs/03-advanced/syntax/` (**OQ-L3-ADV-A2=B**); orthogonal to §19 **SY-L*** queue (**15/18 LANDED**).
+**Architecture (R2):** **[corpus/GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](corpus/GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md)** (**GS-REORG-R2-A1=B**).
+
+**Migration record (R3 plan + R4 execution):** **[corpus/migration/README.md](corpus/migration/README.md)**; authoritative path map **[corpus/migration/R3_MIGRATION_MAP.md](corpus/migration/R3_MIGRATION_MAP.md)**.
+
+### 3.1 Historical paths (not current directories)
+
+Legacy trees `programs/01-classical/` … `programs/05-modular/` were removed after R4. They remain in:
+
+- **`specimen.yaml` → `historical.classic_level_path`**
+- Acceptance rows in [corpus/SYNTAX_TRACK.md](corpus/SYNTAX_TRACK.md), [corpus/L3_ADVANCED_SYNTAX.md](corpus/L3_ADVANCED_SYNTAX.md), [corpus/CLASSIC_LEVELS.md](corpus/CLASSIC_LEVELS.md)
+
+**Syntax Track:** **15/18 LANDED**; **SY-L5.1–L5.3 NOT LANDED**. **L3 Advanced Syntax:** **4/4 SOURCE-LEVEL ACCEPTED**. Runtime verification **not** claimed. Migration does not upgrade acceptance.
+
+**L3 Advanced Syntax subtrack:** [corpus/L3_ADVANCED_SYNTAX.md](corpus/L3_ADVANCED_SYNTAX.md) — canonical homes under `language-features/`; historical authoring paths cited in spec bodies (**OQ-L3-ADV-A2=B**).
 
 ---
 
@@ -536,4 +554,4 @@ See [corpus/SYNTAX_TRACK.md §19.6.14](corpus/SYNTAX_TRACK.md#19614-sy-l43-fail_
 
 See [corpus/SYNTAX_TRACK.md §19.6.15](corpus/SYNTAX_TRACK.md#19615-sy-l44--exists_if-family-landed).
 
-**Physical note:** Landed **SY-L4.1**–**L4.3** syntax modules and planned **SY-L4.4** specimens use `programs/03-advanced/syntax/` (queue Level **L4** unchanged; **OQ-SY-L4.4-A7=B**). Classic L4 algorithm programs remain flat under `programs/04-complex/*.gs` per **L4-PATH**.
+**Historical physical note (acceptance evidence):** At land time, **SY-L4.1**–**L4.4** modules were documented under `programs/03-advanced/syntax/` (queue Level **L4** unchanged; **OQ-SY-L4.4-A7=B**). **Canonical** homes after R4: `programs/language-features/…` per [corpus/migration/R3_MIGRATION_MAP.md](corpus/migration/R3_MIGRATION_MAP.md). Classic L4 algorithms were flat `programs/04-complex/*.gs` (**L4-PATH**); canonical: `programs/algorithms/complex/specimens/…`.
