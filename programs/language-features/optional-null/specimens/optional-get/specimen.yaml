@@ -1,0 +1,31 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.optional-get
+kind: positive
+aliases:
+  - SY-L2.3
+home:
+  root: language-features
+  category: optional-null
+  directory: language-features/optional-null/specimens/optional-get
+artifacts:
+  - role: primary
+    path: optional-get.gs
+    language: gs
+features:
+  primary: optional-from-get
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: optional_get_sample
+  verify: optional_get_verify
+historical:
+  syntax_track_id: SY-L2.3
+  classic_level_path: programs/02-composition/syntax/optional_get.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

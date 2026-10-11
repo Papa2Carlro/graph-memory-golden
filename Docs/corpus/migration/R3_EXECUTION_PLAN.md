@@ -77,12 +77,13 @@
 
 | Поле | Значення |
 | ---- | -------- |
-| **Scope** | destructuring-flat, int32-bounds, optional-get, graph-set-* |
-| **Prerequisites** | R4-03 |
-| **Affected** | `02-composition/syntax/` |
-| **Verification** | unified carriers move with `.gs`; §2 module table |
-| **Rollback** | single revert |
-| **Acceptance** | 6 manifests; no duplicate `graph_set` dirs in target |
+| **Status** | **COMPLETE** (2026-10-11) — **R4-04.1** committed; див. [migration/README.md](README.md) §R4-04 |
+| **Scope** | `destructuring-flat`, `int32-bounds`, `optional-get`, `graph-set-param`, `graph-set-block`, `graph-set-action` |
+| **Prerequisites** | R4-03.1 |
+| **Affected** | `02-composition/syntax/` (10 artifact renames); **11** production manifests загалом |
+| **Verification** | `validate` PASS; carriers з `.gs`; [R3_MODULE_SAFETY.md](R3_MODULE_SAFETY.md) §2 **SAFE** |
+| **Rollback** | revert slice + drop 6 `specimen.yaml` |
+| **Acceptance** | 6 manifests; окремі target dirs `graph-set-*` (без колізії) |
 
 ---
 

@@ -1,0 +1,35 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.graph-set-action
+kind: positive
+aliases:
+  - SY-L3.3
+home:
+  root: language-features
+  category: graph-mutation
+  directory: language-features/graph-mutation/specimens/graph-set-action
+module: example.syntax.graph_set
+artifacts:
+  - role: primary
+    path: graph_set_action.gs
+    language: gs
+  - role: carrier
+    path: graph_set_carrier.gschema
+    language: gschema
+features:
+  primary: action-set
+  secondary: []
+complexity:
+  syntax_depth: S2
+  control_flow: graph-action
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: graph_set_action_sample
+  verify: graph_set_action_verify
+historical:
+  syntax_track_id: SY-L3.3
+  classic_level_path: programs/02-composition/syntax/graph_set/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

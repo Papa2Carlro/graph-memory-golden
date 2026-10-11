@@ -1,6 +1,6 @@
 # Golden Syntax Corpus — міграція (R3 planning)
 
-**Status:** **R4 IN PROGRESS** — pilot L1 syntax **5/21** golden на target layout; решта golden/algorithms — legacy paths
+**Status:** **R4 IN PROGRESS** — golden syntax **11/21** на target (L1 + L2/graph-set batch committed у **R4-04.1**)
 **Slice:** **GS-EXAMPLE-CORPUS-REORG-R3-MIGRATION-PLAN**
 
 ## R4-01 — target scaffolding (2026-10-11)
@@ -74,6 +74,44 @@
 | Production `registry.yaml` | **не** створено |
 
 **Rollback:** reverse `git mv` + видалити 5 `specimen.yaml`.
+
+## R4-04 — L2 syntax + graph-set batch (2026-10-11)
+
+**Status:** **COMPLETE** — commit **R4-04.1** `feat(corpus): migrate L2 syntax and graph mutation specimens` (після `7f30085`). Scope за [R3_EXECUTION_PLAN.md](R3_EXECUTION_PLAN.md) §R4-04.
+
+### Scope (6 canonical IDs)
+
+| canonical_id | alias | artifacts | module safety |
+| ------------ | ----- | ----------- | ------------- |
+| `gs.specimen.destructuring-flat` | SY-L2.1 | `.gs` + `.gschema` | **SAFE** — `example.syntax.pair`, move-only |
+| `gs.specimen.int32-bounds` | SY-L2.2 | 1× `.gs` | **SAFE** — module-less |
+| `gs.specimen.optional-get` | SY-L2.3 | 1× `.gs` | **SAFE** — module-less |
+| `gs.specimen.graph-set-param` | SY-L3.1 | `.gs` + carrier | **SAFE** — `example.syntax.graph_set_param` |
+| `gs.specimen.graph-set-block` | SY-L3.2 | `.gs` + carrier | **SAFE** — `example.syntax.graph_set_block` |
+| `gs.specimen.graph-set-action` | SY-L3.3 | `.gs` + carrier | **SAFE** — `example.syntax.graph_set`; target `graph-set-action/` |
+
+**Prerequisites:** `[]` (R3 §5.2). **Blockers:** немає.
+
+### Source → target (summary)
+
+- `02-composition/syntax/pair/*` → `language-features/destructuring/specimens/destructuring-flat/` (імена файлів збережені)
+- `int32_bounds.gs` → `types-width/specimens/int32-bounds/int32-bounds.gs`
+- `optional_get.gs` → `optional-null/specimens/optional-get/optional-get.gs`
+- `graph_set_param/` → `graph-mutation/specimens/graph-set-param/`
+- `graph_set_block/` → `graph-mutation/specimens/graph-set-block/`
+- `graph_set/` → `graph-mutation/specimens/graph-set-action/`
+
+### Verification
+
+| Check | Result |
+| ----- | ------ |
+| `corpus_manifest validate` | **PASS** — **11** production `specimen.yaml` |
+| `generate` / `check-generated` (`/tmp/r4-04-registry.yaml`) | **11** specimens; byte-identical double generate |
+| SHA-256 | **89/89** content vs baseline |
+| `pytest corpus_manifest/tests` | **20/20** |
+| Production `registry.yaml` | **не** створено |
+
+**Rollback:** reverse 10 `git mv` + видалити 6 `specimen.yaml`.
 
 | Документ | Призначення |
 | -------- | ----------- |

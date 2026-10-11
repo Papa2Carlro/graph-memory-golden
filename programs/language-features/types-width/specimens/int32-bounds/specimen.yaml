@@ -1,0 +1,31 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.int32-bounds
+kind: positive
+aliases:
+  - SY-L2.2
+home:
+  root: language-features
+  category: types-width
+  directory: language-features/types-width/specimens/int32-bounds
+artifacts:
+  - role: primary
+    path: int32-bounds.gs
+    language: gs
+features:
+  primary: int32-literal
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: int32_bounds_sample
+  verify: int32_bounds_verify
+historical:
+  syntax_track_id: SY-L2.2
+  classic_level_path: programs/02-composition/syntax/int32_bounds.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

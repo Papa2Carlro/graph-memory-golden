@@ -1,0 +1,35 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.graph-set-block
+kind: positive
+aliases:
+  - SY-L3.2
+home:
+  root: language-features
+  category: graph-mutation
+  directory: language-features/graph-mutation/specimens/graph-set-block
+module: example.syntax.graph_set_block
+artifacts:
+  - role: primary
+    path: graph_set_block.gs
+    language: gs
+  - role: carrier
+    path: graph_set_block_carrier.gschema
+    language: gschema
+features:
+  primary: set-block
+  secondary: []
+complexity:
+  syntax_depth: S1
+  control_flow: graph-action
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: graph_set_block_sample
+  verify: graph_set_block_verify
+historical:
+  syntax_track_id: SY-L3.2
+  classic_level_path: programs/02-composition/syntax/graph_set_block/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

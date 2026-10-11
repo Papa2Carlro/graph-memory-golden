@@ -1,0 +1,36 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.destructuring-flat
+kind: positive
+aliases:
+  - SY-L2.1
+home:
+  root: language-features
+  category: destructuring
+  directory: language-features/destructuring/specimens/destructuring-flat
+module: example.syntax.pair
+artifacts:
+  - role: primary
+    path: destructuring_flat.gs
+    language: gs
+  - role: carrier
+    path: pair_carrier.gschema
+    language: gschema
+features:
+  primary: let-destructure
+  secondary:
+    - return-field-schema
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: destructuring_flat_sample
+  verify: destructuring_flat_verify
+historical:
+  syntax_track_id: SY-L2.1
+  classic_level_path: programs/02-composition/syntax/pair/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false
