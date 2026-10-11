@@ -35,12 +35,13 @@
 
 | Поле | Значення |
 | ---- | -------- |
-| **Scope** | Створити `programs/language-features/`, `programs/algorithms/`, `_generated/`, `pipelines/` **без** move |
-| **Prerequisites** | R4-00 |
-| **Affected** | new dirs only; `.gitkeep` optional |
-| **Verification** | dirs exist; no specimens moved |
-| **Rollback** | remove empty dirs |
-| **Acceptance** | POLICY addendum pointer to dual layout (compat) |
+| **Status** | **COMPLETE** (2026-10-11) — **R4-01.1** committed (README + `.gitkeep` + migration pointers); on-disk empty dirs **ephemeral**; див. [migration/README.md](README.md) §R4-01 |
+| **Scope** | Категорії + `specimens/` + `pipelines/<id>/` + `_generated/` + `_negative/` за [R3_MIGRATION_MAP.md](R3_MIGRATION_MAP.md); **без** 72 leaf specimen dirs |
+| **Prerequisites** | R4-00.1, R4-00.2 |
+| **Affected** | `programs/language-features/`, `programs/algorithms/` (+ README, `_generated/.gitkeep`) |
+| **Verification** | 89/89 legacy artifacts; SHA-256 baseline unchanged |
+| **Rollback** | `rm -rf programs/language-features programs/algorithms` |
+| **Acceptance** | README scaffolding; OQ-SY-2 лишається OPEN |
 
 ---
 

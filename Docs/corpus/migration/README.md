@@ -1,7 +1,22 @@
 # Golden Syntax Corpus — міграція (R3 planning)
 
-**Status:** **PLANNING** (без on-disk move)
+**Status:** **R4 IN PROGRESS** — target scaffolding у Git (README + `_generated/.gitkeep`); порожні каталоги on-disk **ephemeral**; specimens **не** перенесені
 **Slice:** **GS-EXAMPLE-CORPUS-REORG-R3-MIGRATION-PLAN**
+
+## R4-01 — target scaffolding (2026-10-11)
+
+**Status:** **COMPLETE** — commit **R4-01.1** `chore(corpus): scaffold feature-first target layout` (після `35dca9e`).
+
+| Створено | Деталі |
+| -------- | ------ |
+| `programs/language-features/` | 10 feature categories × `specimens/`; `pipelines/` (9 IDs); `_generated/`; `_negative/` |
+| `programs/algorithms/` | 7 subject categories × `specimens/`; `modular-systems/_negative/`; `pipelines/` (9 IDs) |
+| README | `programs/language-features/README.md`, `programs/algorithms/README.md` |
+| `.gitkeep` | лише `language-features/_generated/.gitkeep` |
+
+**Не створено:** 72 specimen leaf dirs; `specimen.yaml` / `pipeline.yaml` / `registry.yaml`; placeholder `.gs`.
+
+**Safety:** 89/89 artifacts на legacy шляхах; SHA-256 = [R4_BASELINE_ARTIFACTS.sha256](R4_BASELINE_ARTIFACTS.sha256).
 
 | Документ | Призначення |
 | -------- | ----------- |
