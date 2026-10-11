@@ -1,0 +1,8 @@
+pipeline_schema_version: 1
+pipeline_id: algorithms-composition-l2
+title: 'Classic algorithms: composition (L2)'
+members:
+- gs.algo.composition.merge-overlapping-intervals
+- gs.algo.composition.mode-element-two-pass
+- gs.algo.composition.run-length-encode
+- gs.algo.composition.sieve-primes-to-limit

@@ -1,0 +1,9 @@
+pipeline_schema_version: 1
+pipeline_id: algorithms-sorts-and-search
+title: 'Algorithms: sorts and search (thematic)'
+members:
+- gs.algo.collections.binary-search
+- gs.algo.collections.linear-search
+- gs.algo.collections.sorting
+- gs.algo.advanced.mergesort-recursive
+- gs.algo.advanced.quicksort-partition

@@ -1,0 +1,5 @@
+pipeline_schema_version: 1
+pipeline_id: modular-systems-negative
+title: Modular systems (L5 negative)
+members:
+- gs.project.modular.negative.cycle-import-bad

@@ -1,0 +1,7 @@
+pipeline_schema_version: 1
+pipeline_id: syntax-track-l2-types-and-optionals
+title: Syntax Track L2 types and optionals
+members:
+- gs.specimen.destructuring-flat
+- gs.specimen.int32-bounds
+- gs.specimen.optional-get

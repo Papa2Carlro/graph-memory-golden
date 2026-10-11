@@ -1,0 +1,7 @@
+pipeline_schema_version: 1
+pipeline_id: syntax-track-graph-mutation
+title: Syntax Track graph mutation (SY-L3)
+members:
+- gs.specimen.graph-set-param
+- gs.specimen.graph-set-block
+- gs.specimen.graph-set-action

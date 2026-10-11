@@ -1,0 +1,17 @@
+pipeline_schema_version: 1
+pipeline_id: algorithms-numbers-l1
+title: 'Classic algorithms: numbers (L1)'
+members:
+- gs.algo.numbers.average-int
+- gs.algo.numbers.collatz-step
+- gs.algo.numbers.count-digits
+- gs.algo.numbers.factorial
+- gs.algo.numbers.fibonacci
+- gs.algo.numbers.gcd-lcm
+- gs.algo.numbers.min-max
+- gs.algo.numbers.power
+- gs.algo.numbers.prime-numbers
+- gs.algo.numbers.reverse-integer
+- gs.algo.numbers.running-sum
+- gs.algo.numbers.sum-1-to-n
+- gs.algo.numbers.sum-digits

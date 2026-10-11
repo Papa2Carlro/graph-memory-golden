@@ -1,0 +1,7 @@
+pipeline_schema_version: 1
+pipeline_id: control-flow-flat-and-nested
+title: Control flow flat and nested (thematic)
+members:
+- gs.specimen.if-elif-else
+- gs.specimen.nested-if-branch
+- gs.specimen.nested-if-optional

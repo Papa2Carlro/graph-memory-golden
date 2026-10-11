@@ -1,0 +1,8 @@
+pipeline_schema_version: 1
+pipeline_id: optional-null-track
+title: Optional and null track (thematic)
+members:
+- gs.specimen.optional-get
+- gs.specimen.exists-if-present
+- gs.specimen.exists-if-guard
+- gs.specimen.null-narrowing

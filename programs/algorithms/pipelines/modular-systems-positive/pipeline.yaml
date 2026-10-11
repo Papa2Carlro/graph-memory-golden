@@ -1,0 +1,9 @@
+pipeline_schema_version: 1
+pipeline_id: modular-systems-positive
+title: Modular systems (L5 positive)
+members:
+- gs.project.modular.two-module-hello
+- gs.project.modular.relative-local-use
+- gs.project.modular.visibility-gate
+- gs.project.modular.reexport-facade
+- gs.project.modular.import-alias-collision

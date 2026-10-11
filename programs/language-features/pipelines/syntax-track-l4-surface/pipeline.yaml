@@ -1,0 +1,10 @@
+pipeline_schema_version: 1
+pipeline_id: syntax-track-l4-surface
+title: Syntax Track L4 surface
+members:
+- gs.specimen.on-emit
+- gs.specimen.graph-connect
+- gs.specimen.fail-guard
+- gs.specimen.exists-if-present
+- gs.specimen.exists-if-guard
+- gs.specimen.null-narrowing

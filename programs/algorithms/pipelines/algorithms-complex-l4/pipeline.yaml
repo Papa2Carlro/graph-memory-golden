@@ -1,0 +1,9 @@
+pipeline_schema_version: 1
+pipeline_id: algorithms-complex-l4
+title: 'Classic algorithms: complex (L4)'
+members:
+- gs.algo.complex.bfs-shortest-path-flat
+- gs.algo.complex.n-queens-backtrack
+- gs.algo.complex.parse-decimal-strict
+- gs.algo.complex.rle-roundtrip
+- gs.algo.complex.shunting-yard-eval

@@ -1,0 +1,7 @@
+pipeline_schema_version: 1
+pipeline_id: algorithms-advanced-l3
+title: 'Classic algorithms: advanced (L3)'
+members:
+- gs.algo.advanced.levenshtein
+- gs.algo.advanced.mergesort-recursive
+- gs.algo.advanced.quicksort-partition

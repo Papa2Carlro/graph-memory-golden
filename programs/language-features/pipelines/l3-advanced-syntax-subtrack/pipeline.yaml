@@ -1,0 +1,8 @@
+pipeline_schema_version: 1
+pipeline_id: l3-advanced-syntax-subtrack
+title: L3 advanced syntax subtrack
+members:
+- gs.specimen.let-block-pub
+- gs.specimen.var-block-mut
+- gs.specimen.nested-if-branch
+- gs.specimen.nested-if-optional

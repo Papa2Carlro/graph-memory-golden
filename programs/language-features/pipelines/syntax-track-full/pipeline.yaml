@@ -1,0 +1,21 @@
+pipeline_schema_version: 1
+pipeline_id: syntax-track-full
+title: "Syntax Track full (L1\u2013L4, excl. L3-ADV)"
+members:
+- gs.specimen.let-vs-var
+- gs.specimen.equality-operators
+- gs.specimen.if-elif-else
+- gs.specimen.match-literals
+- gs.specimen.each-range
+- gs.specimen.destructuring-flat
+- gs.specimen.int32-bounds
+- gs.specimen.optional-get
+- gs.specimen.graph-set-param
+- gs.specimen.graph-set-block
+- gs.specimen.graph-set-action
+- gs.specimen.on-emit
+- gs.specimen.graph-connect
+- gs.specimen.fail-guard
+- gs.specimen.exists-if-present
+- gs.specimen.exists-if-guard
+- gs.specimen.null-narrowing

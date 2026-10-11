@@ -1,0 +1,9 @@
+pipeline_schema_version: 1
+pipeline_id: syntax-track-l1-core
+title: Syntax Track L1 core (SY-L1)
+members:
+- gs.specimen.let-vs-var
+- gs.specimen.equality-operators
+- gs.specimen.if-elif-else
+- gs.specimen.match-literals
+- gs.specimen.each-range

@@ -1,0 +1,17 @@
+pipeline_schema_version: 1
+pipeline_id: algorithms-collections-l1
+title: 'Classic algorithms: collections (L1)'
+members:
+- gs.algo.collections.binary-search
+- gs.algo.collections.copy-collection
+- gs.algo.collections.count-frequency
+- gs.algo.collections.dedupe-sorted
+- gs.algo.collections.filter-positive
+- gs.algo.collections.intersect-sorted
+- gs.algo.collections.is-sorted
+- gs.algo.collections.linear-search
+- gs.algo.collections.max-window-sum
+- gs.algo.collections.merge-sorted
+- gs.algo.collections.reverse-items
+- gs.algo.collections.sorting
+- gs.algo.collections.two-sum

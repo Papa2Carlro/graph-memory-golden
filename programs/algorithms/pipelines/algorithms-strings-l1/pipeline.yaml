@@ -1,0 +1,12 @@
+pipeline_schema_version: 1
+pipeline_id: algorithms-strings-l1
+title: 'Classic algorithms: strings (L1)'
+members:
+- gs.algo.strings.count-char
+- gs.algo.strings.count-runs
+- gs.algo.strings.ends-with
+- gs.algo.strings.find-char
+- gs.algo.strings.longest-run
+- gs.algo.strings.palindrome
+- gs.algo.strings.scalar-count
+- gs.algo.strings.starts-with
