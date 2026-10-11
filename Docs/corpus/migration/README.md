@@ -1,6 +1,14 @@
 # Golden Syntax Corpus — міграція (R3 planning)
 
-**Status:** **R4 IN PROGRESS** — language-features **21/21** (**R4-05.1** `f939a4b`); algorithms L1 **34/34** (**R4-06.1** committed); **12** classic algos + **6** modular — legacy (R4-07+)
+**Status:** **R4 EXECUTION (working tree)** — **73/73** specimens + **18** pipelines authored (**uncommitted**); last **committed** migration slice **R4-06.1** (`bcc1945`); **R4-07…R4-09** WIP; **R4-10** doc sweep — [R4_10_CONSISTENCY_REPORT.md](R4_10_CONSISTENCY_REPORT.md)
+
+| Inventory | Count |
+| --------- | ----- |
+| Specimens | **73** (21 language-features + 46 classic algorithms + 6 modular projects) |
+| Golden artifacts | **89** (28 + 46 + 15) — SHA-256 vs baseline **89/89** at canonical paths |
+| `specimen.yaml` | **73** |
+| `pipeline.yaml` (READY) | **18** (+ **2** BLOCKED per [R3_PIPELINE_PLAN.md](R3_PIPELINE_PLAN.md) §7) |
+| Syntax Track | **15/18 LANDED**; **SY-L5.1–L5.3 NOT LANDED**; runtime **not** verified |
 **Slice:** **GS-EXAMPLE-CORPUS-REORG-R3-MIGRATION-PLAN**
 
 ## R4-01 — target scaffolding (2026-10-11)
@@ -115,7 +123,7 @@
 
 ## R4-05 — L3/L4 advanced syntax (10 specimens)
 
-**Status:** **COMPLETE** (2026-10-11) — **не** committed; HEAD **`c43a780`** (unchanged). Scope: решта **10** language-feature specimens з R3 §3.1 (`21 − 11` після R4-04.1). Усі artifacts були під `programs/03-advanced/syntax/` (13 files → 10 logical specimens).
+**Status:** **COMPLETE** — commit **R4-05.1** `feat(corpus): migrate L3/L4 advanced syntax specimens` (`f939a4b`). Scope: решта **10** language-feature specimens з R3 §3.1 (`21 − 11` після R4-04.1). Усі artifacts були під `programs/03-advanced/syntax/` (13 files → 10 logical specimens).
 
 ### Canonical IDs (10)
 
@@ -197,7 +205,62 @@
 
 **Rollback:** reverse 34 `git mv` + видалити 34 `specimen.yaml`.
 
-**Readiness:** **R4-06.1** — included in this commit.
+**Readiness:** **R4-06.1** — **COMMITTED** (`bcc1945`).
+
+## R4-07 — algorithms L2–L4 (12 specimens)
+
+**Status:** **COMPLETE** (2026-10-11) — **не** committed (owner gate); HEAD **`bcc1945`**. Scope: R3 §3.2 rows **L2/L3/L4** — flat `.gs` у `02-composition/`, `03-advanced/`, `04-complex/` (не `syntax/`, не **R4-08** modular).
+
+### Canonical IDs (12)
+
+| Level | canonical_id | source → target category |
+| ----- | ------------ | ------------------------ |
+| L2 | `gs.algo.composition.merge-overlapping-intervals` | `02-composition/merge_overlapping_intervals.gs` → `algorithms/composition/specimens/merge-overlapping-intervals/` |
+| L2 | `gs.algo.composition.mode-element-two-pass` | `…/mode_element_two_pass.gs` → `…/mode-element-two-pass/` |
+| L2 | `gs.algo.composition.run-length-encode` | `…/run_length_encode.gs` → `…/run-length-encode/` |
+| L2 | `gs.algo.composition.sieve-primes-to-limit` | `…/sieve_primes_to_limit.gs` → `…/sieve-primes-to-limit/` |
+| L3 | `gs.algo.advanced.levenshtein` | `03-advanced/levenshtein.gs` → `algorithms/advanced/specimens/levenshtein/` |
+| L3 | `gs.algo.advanced.mergesort-recursive` | `…/mergesort_recursive.gs` → `…/mergesort-recursive/` |
+| L3 | `gs.algo.advanced.quicksort-partition` | `…/quicksort_partition.gs` → `…/quicksort-partition/` |
+| L4 | `gs.algo.complex.bfs-shortest-path-flat` | `04-complex/bfs_shortest_path_flat.gs` → `algorithms/complex/specimens/bfs-shortest-path-flat/` |
+| L4 | `gs.algo.complex.n-queens-backtrack` | `…/n_queens_backtrack.gs` → `…/n-queens-backtrack/` |
+| L4 | `gs.algo.complex.parse-decimal-strict` | `…/parse_decimal_strict.gs` → `…/parse-decimal-strict/` |
+| L4 | `gs.algo.complex.rle-roundtrip` | `…/rle_roundtrip.gs` → `…/rle-roundtrip/` |
+| L4 | `gs.algo.complex.shunting-yard-eval` | `…/shunting_yard_eval.gs` → `…/shunting-yard-eval/` |
+
+**Artifacts:** 12× `git mv` (R100); імена `.gs` без змін.
+
+### Module / import safety
+
+**SAFE** per [R3_MODULE_SAFETY.md](R3_MODULE_SAFETY.md) §4 — module-less single-file; move-only.
+
+### Verification
+
+| Check | Result |
+| ----- | ------ |
+| `corpus_manifest validate` | **PASS** — **67** production manifests |
+| `generate` / `check-generated` (`/tmp/r4-07-registry.yaml`) | **67** specimens; byte-identical double generate |
+| SHA-256 | **89/89** vs baseline |
+| `pytest corpus_manifest/tests` | **20/20** |
+| Production `registry.yaml` | **не** створено |
+
+**Blockers:** немає.
+
+**Rollback:** reverse 12 `git mv` + видалити 12 `specimen.yaml`.
+
+**Readiness:** await owner for **R4-07.1** commit (no commit in slice).
+
+## R4-08 — modular / L5 (6 projects)
+
+**Status:** **COMPLETE** — **uncommitted**; див. [R4_08_MIGRATION_REPORT.md](R4_08_MIGRATION_REPORT.md). **6** projects, **15** artifacts → `programs/algorithms/modular-systems/…`.
+
+## R4-09 — pipeline manifests (18 READY)
+
+**Status:** **COMPLETE** — **uncommitted**; див. [R4_09_PIPELINE_REPORT.md](R4_09_PIPELINE_REPORT.md). **18**× `pipeline.yaml`; **2** pipelines **BLOCKED** (`syntax-track-l5-modules`, `syntax-negative-per-level`).
+
+## R4-10 — documentation consistency
+
+**Status:** **COMPLETE** — [R4_10_CONSISTENCY_REPORT.md](R4_10_CONSISTENCY_REPORT.md). **OQ-SY-2** лишається **OPEN**.
 
 | Документ | Призначення |
 | -------- | ----------- |
@@ -208,6 +271,9 @@
 | [R4_BASELINE.md](R4_BASELINE.md) | **R4-00** baseline, SHA-256, safety gate |
 | [R4_BASELINE_ARTIFACTS.sha256](R4_BASELINE_ARTIFACTS.sha256) | Pre-commit baseline (HEAD `d96f5ed`) |
 | [R4_BASELINE_ARTIFACTS.post_r4_00_1.sha256](R4_BASELINE_ARTIFACTS.post_r4_00_1.sha256) | Post **R4-00.1** (`4d03e60`) — all artifacts **tracked** |
+| [R4_08_MIGRATION_REPORT.md](R4_08_MIGRATION_REPORT.md) | **R4-08** modular slice (uncommitted) |
+| [R4_09_PIPELINE_REPORT.md](R4_09_PIPELINE_REPORT.md) | **R4-09** pipeline manifests (uncommitted) |
+| [R4_10_CONSISTENCY_REPORT.md](R4_10_CONSISTENCY_REPORT.md) | **R4-10** doc sweep |
 
 **Цільова архітектура:** [GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](../GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md)
 

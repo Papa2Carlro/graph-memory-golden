@@ -91,7 +91,7 @@
 
 | Поле | Значення |
 | ---- | -------- |
-| **Status** | **COMPLETE** (2026-10-11) — physical + manifests **uncommitted**; див. [migration/README.md](README.md) §R4-05; commit slice **R4-05.1** pending |
+| **Status** | **COMPLETE** — **R4-05.1** committed (`f939a4b`); див. [migration/README.md](README.md) §R4-05 |
 | **Scope** | 10 canonical IDs: `on-emit`, `graph-connect`, `fail-guard`, `exists-if-present`, `exists-if-guard`, `null-narrowing`, `let-block-pub`, `var-block-mut`, `nested-if-branch`, `nested-if-optional` — усі з `03-advanced/syntax/` per [R3_MIGRATION_MAP.md](R3_MIGRATION_MAP.md) §3.1 |
 | **Prerequisites** | R4-04.1 |
 | **Affected** | 13 artifact renames (R100); 10× `specimen.yaml`; **21** production manifests загалом |
@@ -121,12 +121,13 @@
 
 | Поле | Значення |
 | ---- | -------- |
-| **Scope** | composition + advanced + complex flat |
-| **Prerequisites** | R4-06 |
-| **Affected** | `02-composition/*.gs`, `03-advanced/*.gs`, `04-complex/*.gs` |
-| **Verification** | annex refs if any |
-| **Rollback** | revert |
-| **Acceptance** | empty legacy level dirs policy (keep or remove — owner) |
+| **Status** | **COMPLETE** (2026-10-11) — physical + manifests **uncommitted** (owner commit gate); див. [migration/README.md](README.md) §R4-07 |
+| **Scope** | 12× `gs.algo.*` L2/L3/L4 per §3.2 — flat algos only (не `syntax/`, не modular) |
+| **Prerequisites** | R4-06.1 |
+| **Affected** | 12× `git mv`; **67** production manifests загалом |
+| **Verification** | `validate` PASS; SHA **89/89**; §4 **SAFE** |
+| **Rollback** | reverse 12 moves + drop manifests |
+| **Acceptance** | minimal historical; runtime **не** перевірялось |
 
 ---
 
@@ -134,12 +135,13 @@
 
 | Поле | Значення |
 | ---- | -------- |
-| **Scope** | 5 positive + 1 negative project trees |
-| **Prerequisites** | R4-07 |
-| **Affected** | `05-modular/` |
-| **Verification** | R3_MODULE_SAFETY §5 |
-| **Rollback** | revert |
-| **Acceptance** | L5_PROJECT_SYSTEM path table updated |
+| **Status** | **COMPLETE** — physical + manifests **uncommitted**; [R4_08_MIGRATION_REPORT.md](R4_08_MIGRATION_REPORT.md) |
+| **Scope** | 5 positive + 1 negative project trees (15 artifacts) |
+| **Prerequisites** | R4-07.1 (process) |
+| **Affected** | `05-modular/` → `algorithms/modular-systems/`; **73** `specimen.yaml` |
+| **Verification** | `validate` PASS; SHA **89/89**; R3_MODULE_SAFETY §5 **SAFE** |
+| **Rollback** | reverse 6 tree moves + drop manifests |
+| **Acceptance** | `historical.classic_level_path` preserved; runtime **не** перевірялось |
 
 ---
 
@@ -147,12 +149,13 @@
 
 | Поле | Значення |
 | ---- | -------- |
-| **Scope** | Author `pipeline.yaml` per [R3_PIPELINE_PLAN.md](R3_PIPELINE_PLAN.md); generate `language-features/_generated/registry.yaml` |
-| **Prerequisites** | R4-03…08 manifests exist |
-| **Affected** | pipelines/, _generated/ |
-| **Verification** | validator: IDs, aliases, no cycles, files exist |
-| **Rollback** | delete generated; keep manifests |
-| **Acceptance** | CI hook optional (out of scope if no CI) |
+| **Status** | **COMPLETE** — **18** `pipeline.yaml` **uncommitted**; [R4_09_PIPELINE_REPORT.md](R4_09_PIPELINE_REPORT.md) |
+| **Scope** | READY pipelines per [R3_PIPELINE_PLAN.md](R3_PIPELINE_PLAN.md); **не** production `registry.yaml` |
+| **Prerequisites** | Specimens on disk (R4-03…08 WIP OK) |
+| **Affected** | `programs/*/pipelines/<id>/pipeline.yaml` |
+| **Verification** | `validate`: 73 specimens + 18 pipelines; `/tmp` registry deterministic |
+| **Rollback** | delete 18 `pipeline.yaml` |
+| **Acceptance** | 2 pipelines залишаються **BLOCKED** (§7 plan) |
 
 ---
 
@@ -160,12 +163,13 @@
 
 | Поле | Значення |
 | ---- | -------- |
-| **Scope** | POLICY dual-state; EXAMPLE_CORPUS_ORGANIZATION; SYNTAX_TRACK paths; fix **D2** GAPS §8.6 drift |
+| **Status** | **COMPLETE** — [R4_10_CONSISTENCY_REPORT.md](R4_10_CONSISTENCY_REPORT.md); **R4** physical migration **done** in working tree; commits **pending** owner |
+| **Scope** | Migration README/plan sync; dual-state pointers; **не** повний rewrite SYNTAX_TRACK §19.6 paths |
 | **Prerequisites** | R4-09 |
-| **Affected** | `Docs/corpus/*`, monolith stubs |
-| **Verification** | grep old `programs/0N-` paths — only historical/historical blocks |
+| **Affected** | `Docs/corpus/migration/*`, selected corpus doc banners |
+| **Verification** | counts 73/89/18; `validate`; SHA **89/89** |
 | **Rollback** | doc revert |
-| **Acceptance** | migration README status → EXECUTED; R4 complete |
+| **Acceptance** | **OQ-SY-2** лишається OPEN; historical acceptance unchanged |
 
 ---
 

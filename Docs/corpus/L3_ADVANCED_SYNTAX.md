@@ -5,6 +5,8 @@
 **Owner decisions:** [DECISIONS.md](DECISIONS.md) (**OQ-L3-ADV-A1** … **A4**). **OPEN / gaps:** [GAPS.md §8.6](GAPS.md#86-l3-advanced-syntax-subtrack).
 **Related (unchanged):** [SYNTAX_TRACK.md](SYNTAX_TRACK.md) — historical **SY-L1.1**–**SY-L5.3** queue (**15/18 LANDED**); [POLICY.md](POLICY.md) §1–§2 (current paths); [GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md) (target layout, **R3** migration); [CHARTER.md](CHARTER.md) §2 (classic L3 algorithms).
 
+**Post-R4 paths:** **L3-ADV-SY-01…04** specimens — `programs/language-features/…` (див. `specimen.yaml` → `historical.classic_level_path` was `programs/03-advanced/syntax/…`). §7–§10 нижче описують **authoring contract**; **4/4 SOURCE-LEVEL ACCEPTED**; runtime **not** verified.
+
 ---
 
 ## 1. Purpose and boundaries

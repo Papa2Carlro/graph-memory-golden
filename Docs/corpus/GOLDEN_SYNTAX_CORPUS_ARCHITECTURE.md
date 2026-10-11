@@ -1,6 +1,6 @@
 # Golden Syntax Corpus — цільова архітектура (R2)
 
-**Status:** **CANONICAL** (Example repository — цільова організація корпусу; **не** мова GS; **не** виконана міграція)
+**Status:** **CANONICAL** (Example repository — цільова організація корпусу; **не** мова GS). **R4 physical migration:** **COMPLETE** у working tree (**73** specimens, **89** artifacts, **18** pipelines); git commits для R4-07…09 **pending** owner — [migration/R4_10_CONSISTENCY_REPORT.md](migration/R4_10_CONSISTENCY_REPORT.md).
 **Slice:** **GS-EXAMPLE-CORPUS-REORG-R2-ARCHITECTURE-FINALIZATION**
 **Owner decisions:** [DECISIONS.md §2.5](DECISIONS.md#25-reorg-r2--golden-syntax-corpus-owner-decisions-gs-reorg-r2-a1a9)
 **Derived engineering:** [DECISIONS.md §2.6](DECISIONS.md#26-reorg-r2--derived-engineering-decisions)
@@ -22,7 +22,7 @@ programs/
 └── algorithms/            # алгоритмічні еталони (предметні категорії)
 ```
 
-Класичні шляхи `programs/01-classical/` … `05-modular/` залишаються **чинними до R3**; їхні історичні рівні та acceptance **не переписуються** цим документом.
+Класичні шляхи `programs/01-classical/` … `05-modular/` — **historical** у реєстрах і `specimen.yaml` → `historical.classic_level_path`; після **R4** (working tree) golden artifacts фізично під `language-features/` та `algorithms/`. Acceptance **не** підвищується міграцією.
 
 ---
 

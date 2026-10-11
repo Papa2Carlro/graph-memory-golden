@@ -80,10 +80,10 @@ cd tools && python -m pytest corpus_manifest/tests -q
 
 Fixtures лише під `corpus_manifest/tests/` (тимчасові каталоги через `tmp_path`).
 
-## Межі R4-02
+## Межі R4-02 (tooling) vs R4 execution
 
-- Немає production `specimen.yaml` / `pipeline.yaml` у `programs/`.
-- Немає запису production `registry.yaml`.
+- **R4-02 slice:** не створювало production manifests у `programs/`.
+- **Після R4-03…09 (working tree):** `specimen.yaml` / `pipeline.yaml` під `programs/` — валідуються `validate`; **registry.yaml** лише через `generate --output` (production path потребує `--allow-production-output`).
 - Немає runner / strict execution.
 - Historical `acceptance` лише валідується, **не** змінюється tooling.
 

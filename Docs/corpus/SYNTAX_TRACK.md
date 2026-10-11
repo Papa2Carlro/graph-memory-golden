@@ -8,6 +8,8 @@
 
 **Physical layout (current):** explicit modules under `programs/<level>/syntax/<module-slug>/` (`pair/`, `graph_set/`, `graph_set_block/`, `graph_set_param/`, …); **SY-L4.1**–**L4.4** under `programs/03-advanced/syntax/` (`on_emit/`, `graph_connect/`, `fail_guard/`, `exists_if_present/`, `exists_if_guard/`, `null_narrowing/`) — queue Level **L4** unchanged (**OQ-SY-L4.4-A7=B**); module-less specimens may remain flat under `syntax/` (**SY-STR-A2**). Queue **SY-L3.*** IDs do not require `programs/03-advanced/` placement.
 
+**Post-R4 target layout (working tree, uncommitted):** on-disk specimens live under `programs/language-features/<category>/specimens/<slug>/` per [R3_MIGRATION_MAP.md](migration/R3_MIGRATION_MAP.md) and `specimen.yaml` → `home.directory`. §19.6 rows below keep **registry narrative paths** (pre-migration / SY-A1) unless a dedicated owner slice rewrites a row; **acceptance** (LANDED, SOURCE-LEVEL, RUNTIME NOT VERIFIED) is unchanged by migration.
+
 **Compat:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) §19 legacy stubs.
 
 

@@ -235,3 +235,18 @@ git status   # жодних випадкових paths
 **§2 вище** фіксує gate **R4-00** (очікування **72** logical specimens за тодішнім §1 map). Після звірки таблиць **R4-03** canonical inventory: **73** logical (**21** + **46** classic algo + **6** modular), **89** artifacts — без зміни вмісту файлів.
 
 - [R3_MIGRATION_MAP.md](R3_MIGRATION_MAP.md) §1 оновлено; immutable [R4_BASELINE_ARTIFACTS.sha256](R4_BASELINE_ARTIFACTS.sha256) **не** переписується (шляхи в manifest — historical; content hash перевіряється з target/legacy mapping після move).
+
+---
+
+## 11. Post-R4 integrity (working tree)
+
+Після **R4-03…08** (і **R4-09** pipelines) у working tree:
+
+| Check | Expected |
+| ----- | -------- |
+| Logical specimens | **73** (`specimen.yaml`) |
+| Golden artifacts | **89** — content SHA vs [R4_BASELINE_ARTIFACTS.sha256](R4_BASELINE_ARTIFACTS.sha256) з **path remap** (baseline key = legacy path, file read = canonical target) |
+| Pipelines (READY) | **18** `pipeline.yaml` |
+| Production `registry.yaml` | **не** committed |
+
+**HEAD** після останнього **committed** migration slice: **`bcc194544a55da70e4de28bf3314a81a130619df`** (**R4-06.1**). Подальші slices — **uncommitted** до owner gate.

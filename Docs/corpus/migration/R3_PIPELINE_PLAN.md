@@ -1,6 +1,6 @@
 # R3 — pipeline migration plan
 
-**Status:** **PLANNING** (без production `pipeline.yaml`)
+**Status:** **AUTHORING** — **18** READY `pipeline.yaml` in working tree (**R4-09**, uncommitted); **2** BLOCKED (§7); production `registry.yaml` — **не** створено
 **Slice:** **GS-EXAMPLE-CORPUS-REORG-R3-MIGRATION-PLAN**
 **Map:** [R3_MIGRATION_MAP.md](R3_MIGRATION_MAP.md)
 
