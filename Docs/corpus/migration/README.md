@@ -1,6 +1,6 @@
 # Golden Syntax Corpus — міграція (R3 planning)
 
-**Status:** **R4 IN PROGRESS** — golden syntax **11/21** на target (L1 + L2/graph-set batch committed у **R4-04.1**)
+**Status:** **R4 IN PROGRESS** — golden syntax **21/21** на target (**R4-05** physical move **COMPLETE**, commit **R4-05.1** pending; L1–L4 batches through **R4-04.1** committed)
 **Slice:** **GS-EXAMPLE-CORPUS-REORG-R3-MIGRATION-PLAN**
 
 ## R4-01 — target scaffolding (2026-10-11)
@@ -112,6 +112,53 @@
 | Production `registry.yaml` | **не** створено |
 
 **Rollback:** reverse 10 `git mv` + видалити 6 `specimen.yaml`.
+
+## R4-05 — L3/L4 advanced syntax (10 specimens)
+
+**Status:** **COMPLETE** (2026-10-11) — **не** committed; HEAD **`c43a780`** (unchanged). Scope: решта **10** language-feature specimens з R3 §3.1 (`21 − 11` після R4-04.1). Усі artifacts були під `programs/03-advanced/syntax/` (13 files → 10 logical specimens).
+
+### Canonical IDs (10)
+
+| canonical_id | historical (syntax track) | source → target |
+| ------------ | ------------------------- | --------------- |
+| `gs.specimen.on-emit` | SY-L3.1 | `03-advanced/syntax/on_emit/` → `language-features/events/specimens/on-emit/` |
+| `gs.specimen.graph-connect` | SY-L3.2 | `…/graph_connect/` → `graph-edges/specimens/graph-connect/` |
+| `gs.specimen.fail-guard` | SY-L3.3 | `…/fail_guard/` → `control-abort/specimens/fail-guard/` |
+| `gs.specimen.exists-if-present` | SY-L4.4 (§19.6.15.1) | `…/exists_if_present.gs` → `optional-null/specimens/exists-if-present/` |
+| `gs.specimen.exists-if-guard` | SY-L4.4 (§19.6.15.2) | `…/exists_if_guard.gs` → `optional-null/specimens/exists-if-guard/` |
+| `gs.specimen.null-narrowing` | SY-L4.4 (§19.6.15.3) | `…/null_narrowing.gs` → `optional-null/specimens/null-narrowing/` |
+| `gs.specimen.let-block-pub` | SY-L4.1 | `…/let_block_pub.gs` → `bindings/specimens/let-block-pub/` |
+| `gs.specimen.var-block-mut` | SY-L4.2 | `…/var_block_mut.gs` → `bindings/specimens/var-block-mut/` |
+| `gs.specimen.nested-if-branch` | SY-L4.3 | `…/nested_if_branch.gs` → `control-flow/specimens/nested-if-branch/` |
+| `gs.specimen.nested-if-optional` | SY-L4.5 | `…/nested_if_optional.gs` → `control-flow/specimens/nested-if-optional/` |
+
+**Artifacts:** 13× `git mv` (R100): 7× single `.gs`, 3× `.gs` + `.gschema` pairs (`on_emit`, `graph_connect`, `fail_guard`). Імена файлів без змін (snake_case + carriers).
+
+### Module / import safety
+
+Усі **SAFE** per [R3_MODULE_SAFETY.md](R3_MODULE_SAFETY.md) §2 (move-only; `module` / `use` / relative paths не змінювались). Приклади: `example.syntax.on_emit`, `example.syntax.graph_connect`, `example.syntax.fail_guard`; решта — module-less flat `.gs`.
+
+### Alias note (validator, не послаблення)
+
+Три optional-null specimens ділять historical track id **SY-L4.4** (різні підрозділи §19.6.15.x). У `specimen.yaml` поле `aliases` для них **`[]`**; narrative збережено в `historical.syntax_track_id` + `historical.syntax_track_subsection`. Унікальність alias у registry — **0** `E_DUP_ALIAS`.
+
+### Verification
+
+| Check | Result |
+| ----- | ------ |
+| `corpus_manifest validate` | **PASS** — **21** production `specimen.yaml`, 21 unique canonical IDs |
+| `generate` → `/tmp/r4-05-registry.yaml` | **21** specimens; fingerprint `bffd6ffd…`; byte-identical double generate |
+| `check-generated` | **PASS** |
+| SHA-256 (89 artifacts, legacy baseline paths → current paths) | **89/89** vs [R4_BASELINE_ARTIFACTS.sha256](R4_BASELINE_ARTIFACTS.sha256) |
+| `pytest corpus_manifest/tests` | **20/20** |
+| Production `registry.yaml` | **не** створено |
+| Parser/runtime acceptance | **не** запускалось (SOURCE-LEVEL ACCEPTED ≠ RUNTIME VERIFIED) |
+
+**Blockers:** немає.
+
+**Rollback:** reverse 13 `git mv` + видалити 10 `specimen.yaml`.
+
+**Readiness:** готово до commit **R4-05.1** (stage 10× `specimen.yaml` + renames).
 
 | Документ | Призначення |
 | -------- | ----------- |

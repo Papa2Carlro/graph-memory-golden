@@ -87,16 +87,19 @@
 
 ---
 
-## R4-05 — Move L3-advanced / L4 syntax (11 specimens)
+## R4-05 — Move L3-advanced / L4 syntax (10 specimens)
 
 | Поле | Значення |
 | ---- | -------- |
-| **Scope** | усі `03-advanced/syntax/*` per map |
-| **Prerequisites** | R4-04; **untracked files committed** in R4-00 |
-| **Affected** | 11 directories |
-| **Verification** | 89-file inventory → target paths; L3_ADVANCED_SYNTAX paths |
-| **Rollback** | revert |
-| **Acceptance** | GAPS §8.6 doc sync slice (optional separate) — **не** змінювати acceptance labels |
+| **Status** | **COMPLETE** (2026-10-11) — physical + manifests **uncommitted**; див. [migration/README.md](README.md) §R4-05; commit slice **R4-05.1** pending |
+| **Scope** | 10 canonical IDs: `on-emit`, `graph-connect`, `fail-guard`, `exists-if-present`, `exists-if-guard`, `null-narrowing`, `let-block-pub`, `var-block-mut`, `nested-if-branch`, `nested-if-optional` — усі з `03-advanced/syntax/` per [R3_MIGRATION_MAP.md](R3_MIGRATION_MAP.md) §3.1 |
+| **Prerequisites** | R4-04.1 |
+| **Affected** | 13 artifact renames (R100); 10× `specimen.yaml`; **21** production manifests загалом |
+| **Verification** | `validate` PASS; SHA **89/89**; registry `/tmp/r4-05-registry.yaml` only; `pytest` **20/20** |
+| **Module safety** | [R3_MODULE_SAFETY.md](R3_MODULE_SAFETY.md) §2 — усі **SAFE** (move-only) |
+| **Aliases** | SY-L4.4 trio: `aliases: []` + `historical.syntax_track_*` (unique alias rule; не змінювати validator) |
+| **Rollback** | reverse 13 `git mv` + drop 10 `specimen.yaml` |
+| **Acceptance** | historical acceptance **без зміни**; runtime **не** перевірялось |
 
 ---
 

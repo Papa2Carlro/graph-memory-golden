@@ -1,0 +1,35 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.on-emit
+kind: positive
+aliases:
+  - SY-L4.1
+home:
+  root: language-features
+  category: events
+  directory: language-features/events/specimens/on-emit
+module: example.syntax.on_emit
+artifacts:
+  - role: primary
+    path: on_emit.gs
+    language: gs
+  - role: carrier
+    path: on_emit_carrier.gschema
+    language: gschema
+features:
+  primary: on-emit
+  secondary: []
+complexity:
+  syntax_depth: S1
+  control_flow: graph-action
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: on_emit_sample
+  verify: on_emit_verify
+historical:
+  syntax_track_id: SY-L4.1
+  classic_level_path: programs/03-advanced/syntax/on_emit/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

@@ -1,0 +1,33 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.var-block-mut
+kind: positive
+aliases:
+  - L3-ADV-SY-02
+home:
+  root: language-features
+  category: bindings
+  directory: language-features/bindings/specimens/var-block-mut
+module: example.syntax.var_block_mut
+artifacts:
+  - role: primary
+    path: var_block_mut.gs
+    language: gs
+features:
+  primary: var-block-mut
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: var_block_mut_sample
+  verify: var_block_mut_verify
+historical:
+  syntax_track_id: L3-ADV-SY-02
+  l3_adv_id: L3-ADV-SY-02
+  classic_level_path: programs/03-advanced/syntax/var_block_mut/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

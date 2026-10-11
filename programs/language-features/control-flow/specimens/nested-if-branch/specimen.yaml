@@ -1,0 +1,33 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.nested-if-branch
+kind: positive
+aliases:
+  - L3-ADV-SY-03
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/nested-if-branch
+module: example.syntax.nested_if_branch
+artifacts:
+  - role: primary
+    path: nested_if_branch.gs
+    language: gs
+features:
+  primary: nested-if
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: nested
+  files: single
+prerequisites: []
+entrypoints:
+  sample: nested_if_branch_sample
+  verify: nested_if_branch_verify
+historical:
+  syntax_track_id: L3-ADV-SY-03
+  l3_adv_id: L3-ADV-SY-03
+  classic_level_path: programs/03-advanced/syntax/nested_if_branch/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

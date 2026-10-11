@@ -1,0 +1,32 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.exists-if-guard
+kind: positive
+aliases: []
+home:
+  root: language-features
+  category: optional-null
+  directory: language-features/optional-null/specimens/exists-if-guard
+module: example.syntax.exists_if_guard
+artifacts:
+  - role: primary
+    path: exists_if_guard.gs
+    language: gs
+features:
+  primary: exists-guard
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: exists_if_guard_sample
+  verify: exists_if_guard_verify
+historical:
+  syntax_track_id: SY-L4.4
+  syntax_track_subsection: "§19.6.15.2"
+  classic_level_path: programs/03-advanced/syntax/exists_if_guard/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

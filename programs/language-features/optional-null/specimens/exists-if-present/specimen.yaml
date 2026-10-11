@@ -1,0 +1,32 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.exists-if-present
+kind: positive
+aliases: []
+home:
+  root: language-features
+  category: optional-null
+  directory: language-features/optional-null/specimens/exists-if-present
+module: example.syntax.exists_if_present
+artifacts:
+  - role: primary
+    path: exists_if_present.gs
+    language: gs
+features:
+  primary: exists-if
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: exists_if_present_sample
+  verify: exists_if_present_verify
+historical:
+  syntax_track_id: SY-L4.4
+  syntax_track_subsection: "§19.6.15.1"
+  classic_level_path: programs/03-advanced/syntax/exists_if_present/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

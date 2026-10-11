@@ -1,0 +1,35 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.graph-connect
+kind: positive
+aliases:
+  - SY-L4.2
+home:
+  root: language-features
+  category: graph-edges
+  directory: language-features/graph-edges/specimens/graph-connect
+module: example.syntax.graph_connect
+artifacts:
+  - role: primary
+    path: graph_connect.gs
+    language: gs
+  - role: carrier
+    path: graph_connect_carrier.gschema
+    language: gschema
+features:
+  primary: connect-create
+  secondary: []
+complexity:
+  syntax_depth: S1
+  control_flow: graph-action
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: graph_connect_sample
+  verify: graph_connect_verify
+historical:
+  syntax_track_id: SY-L4.2
+  classic_level_path: programs/03-advanced/syntax/graph_connect/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

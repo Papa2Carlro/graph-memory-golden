@@ -1,0 +1,32 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.null-narrowing
+kind: positive
+aliases: []
+home:
+  root: language-features
+  category: optional-null
+  directory: language-features/optional-null/specimens/null-narrowing
+module: example.syntax.null_narrowing
+artifacts:
+  - role: primary
+    path: null_narrowing.gs
+    language: gs
+features:
+  primary: null-narrowing
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: null_narrowing_sample
+  verify: null_narrowing_verify
+historical:
+  syntax_track_id: SY-L4.4
+  syntax_track_subsection: "§19.6.15.3"
+  classic_level_path: programs/03-advanced/syntax/null_narrowing/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

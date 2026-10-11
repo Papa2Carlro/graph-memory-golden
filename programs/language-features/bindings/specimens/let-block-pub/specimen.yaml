@@ -1,0 +1,33 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.let-block-pub
+kind: positive
+aliases:
+  - L3-ADV-SY-01
+home:
+  root: language-features
+  category: bindings
+  directory: language-features/bindings/specimens/let-block-pub
+module: example.syntax.let_block_pub
+artifacts:
+  - role: primary
+    path: let_block_pub.gs
+    language: gs
+features:
+  primary: let-block-pub
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: let_block_pub_sample
+  verify: let_block_pub_verify
+historical:
+  syntax_track_id: L3-ADV-SY-01
+  l3_adv_id: L3-ADV-SY-01
+  classic_level_path: programs/03-advanced/syntax/let_block_pub/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

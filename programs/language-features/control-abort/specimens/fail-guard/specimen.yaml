@@ -1,0 +1,35 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.fail-guard
+kind: positive
+aliases:
+  - SY-L4.3
+home:
+  root: language-features
+  category: control-abort
+  directory: language-features/control-abort/specimens/fail-guard
+module: example.syntax.fail_guard
+artifacts:
+  - role: primary
+    path: fail_guard.gs
+    language: gs
+  - role: carrier
+    path: fail_guard_carrier.gschema
+    language: gschema
+features:
+  primary: fail-guard
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: graph-action
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: fail_guard_sample
+  verify: fail_guard_verify
+historical:
+  syntax_track_id: SY-L4.3
+  classic_level_path: programs/03-advanced/syntax/fail_guard/
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false
