@@ -1,11 +1,12 @@
 # Example Corpus — Golden Syntax Track
 
 **Status:** **CANONICAL** (Example repository — syntax-first golden specimens; orthogonal to Classic L1–L4 and L5 modular track)
-**Coverage:** **14 / 18** **LANDED** (see §19.6 queue). **Layout (current):** [POLICY.md](POLICY.md) §1–§2 (**SY-A1**, **SY-STR-A1/A2**). **Owner decisions:** [DECISIONS.md](DECISIONS.md). **OPEN gaps / blockers:** [GAPS.md §8](GAPS.md#8-syntax-track-coverage-gaps-monolith-195). **Level taxonomy:** [CHARTER.md](CHARTER.md).
+**Coverage:** **15 / 18** **LANDED** (see §19.6 queue). **Layout (current):** [POLICY.md](POLICY.md) §1–§2 (**SY-A1**, **SY-STR-A1/A2**). **Target corpus architecture (post-R2, migration R3):** [GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md). **Owner decisions:** [DECISIONS.md](DECISIONS.md). **OPEN gaps / blockers:** [GAPS.md §8](GAPS.md#8-syntax-track-coverage-gaps-monolith-195). **Level taxonomy:** [CHARTER.md](CHARTER.md).
 
 
-**L3 Advanced Syntax (subtrack):** Additional golden specimens under `programs/03-advanced/syntax/` are documented in **[L3_ADVANCED_SYNTAX.md](L3_ADVANCED_SYNTAX.md)** (**OQ-L3-ADV-A2=B**) — **not** in this file. **SY-L*** queue count below excludes L3-ADV rows.
+**L3 Advanced Syntax (subtrack):** Additional golden specimens under `programs/03-advanced/syntax/` are documented in **[L3_ADVANCED_SYNTAX.md](L3_ADVANCED_SYNTAX.md)** (**OQ-L3-ADV-A2=B**) — **not** in this file. **SY-L*** queue (**15/18 LANDED**) unchanged.
 
+**Physical layout (current):** explicit modules under `programs/<level>/syntax/<module-slug>/` (`pair/`, `graph_set/`, `graph_set_block/`, `graph_set_param/`, …); **SY-L4.1**–**L4.4** under `programs/03-advanced/syntax/` (`on_emit/`, `graph_connect/`, `fail_guard/`, `exists_if_present/`, `exists_if_guard/`, `null_narrowing/`) — queue Level **L4** unchanged (**OQ-SY-L4.4-A7=B**); module-less specimens may remain flat under `syntax/` (**SY-STR-A2**). Queue **SY-L3.*** IDs do not require `programs/03-advanced/` placement.
 
 **Compat:** [EXAMPLE_CORPUS_ORGANIZATION.md](../EXAMPLE_CORPUS_ORGANIZATION.md) §19 legacy stubs.
 
@@ -14,7 +15,7 @@
 
 ## 19. Syntax Track (Golden Standard — language surface)
 
-**Status:** **ACTIVE** — registry + queue; on-disk Syntax Track **SY-L1.1**–**SY-L1.5**, **SY-L2.1**–**SY-L2.3**, **SY-L3.2**, **SY-L3.3**, **SY-L4.1**, **SY-L4.2**, **SY-L4.3**, **SY-L4.4** landed (§19.6.1–§19.6.10, §19.6.12–§19.6.15). Remaining queue rows **NOT LANDED** until approved spec (where applicable) and files exist under `syntax/` (**SY-L5.1**–**L5.3**).
+**Status:** **ACTIVE** — registry + queue; on-disk Syntax Track **SY-L1.1**–**SY-L1.5**, **SY-L2.1**–**SY-L2.3**, **SY-L3.1**, **SY-L3.2**, **SY-L3.3**, **SY-L4.1**, **SY-L4.2**, **SY-L4.3**, **SY-L4.4** landed (§19.6.1–§19.6.11, §19.6.12–§19.6.15). Remaining queue rows **NOT LANDED** until approved spec (where applicable) and files exist under `syntax/` (**SY-L5.1**–**L5.3**).
 **Scope:** Isolated **syntax-first** golden programs under `programs/<level>/syntax/` — orthogonal to Classic (L1–L4 algorithm) and Modular (L5 project) tracks.
 
 **Queue IDs vs on-disk level:** Registry rows **SY-L3.*** (and **S1** / **S2** metadata) name **syntax-depth queue** slots — **not** a requirement that the specimen file live under `programs/03-advanced/`. Physical placement follows **SY-A1** + **SY-STR-A1** / **SY-STR-A2** (§19.1 below; [DECISIONS.md](DECISIONS.md)).
@@ -41,7 +42,7 @@ Read-only sources for Syntax Track acceptance (parser implementation **does not*
 | ---- | -------- | ---- |
 | Core | `GS_V0_1_LANGUAGE_CORE.md` | Bindings, collections, `each`, ranges, `if`/`match`, destructuring, scope |
 | Core | `GS_V0_1_TYPE_SYSTEM.md` | Signatures, inference, `Int{N}`, `Type?`, enums, no overload/generics MVP |
-| `fail` | Runtime §8 | **N** | **N** | **N** | **N** | **N** | **P** (**SY-L4.3** — scalar **`if`** guard + **`fail "message"`** — source-level only; parser support / executed abort / rollback / gm-error mapping **not** verified) |
+| Core | `GS_V0_1_RUNTIME_MODEL.md` | `fn` / `action` / `on`, transactions, `set` / `emit` / graph ops, `fail` |
 | Shared | `GRAPH_LANGUAGE_COMMON_SYNTAX_V0_1.md` | Lexical, expressions, `is` / `is not`, visibility keywords |
 | Parser | `GS_PARSER_CONTRACT_V0_1.md` | Class A/B parser-ready inventory (syntax vs deferred semantics) |
 | Match | `GS_MATCH_DECISIONS_V0_1.md`, `ADR/0001-gs-match-v0.1-canonical-decisions.md` | `match` / pattern arms |
@@ -72,9 +73,9 @@ Legend: **Y** = exercised in landed golden `.gs`; **P** = partial / indirect; **
 | `let { }` destructuring | Core §10; TYPE-16 | **N** | **N** | **N** | **N** | **N** | **Y** (**SY-L2.1** — flat; `.gschema` carrier) |
 | `Int{N}` / `Type?` annotations | Types §8b, Common §13 | P | P | P | P | P | **Y** (**SY-L2.2** `Int{32}`; **SY-L2.3** `String?` + `null`) |
 | Collection `[T]` ops / index | Collection ref §5 | P | P | P | Y | **N** | **Y** (**SY-L2.3** — `[String]` literal + `.get` in/out of bounds) |
-| `set` / `set:` block | Runtime §15 | **N** | **N** | **N** | **N** | **N** | **Y** (**SY-L3.2** — `set:` two fields; **SY-L3.3** — single `set`; SY-L3.1 **N**) |
+| `set` / `set:` block | Runtime §15 | **N** | **N** | **N** | **N** | **N** | **Y** (**SY-L3.1** — single `set` via entity param; **SY-L3.2** — `set:` two fields; **SY-L3.3** — inline single `set`) |
 | `action` / `on` / `emit` / graph ops | Runtime §4, §9+ | **N** | **N** | **N** | **N** | **N** | **P** (**SY-L3.3** — `action` + `create`/`set`; **SY-L4.1** — `on` + `emit` + domain event; **SY-L4.2** — typed **`connect`** + one relation property — source-level only; **`delete`** / **`disconnect`** **N**; relation persistence/runtime **not** verified) |
-| `fail` | Runtime §8 | **N** | **N** | **N** | **N** | **N** | **PROPOSED** |
+| `fail` | Runtime §8 | **N** | **N** | **N** | **N** | **N** | **P** (**SY-L4.3** — scalar **`if`** guard + **`fail "message"`** — source-level only; parser support / executed abort / rollback / gm-error mapping **not** verified) |
 | `exists` | Common §22 | **N** | **N** | **N** | **N** | **N** | **Y** (**SY-L2.3** — `exists` / `not exists` as **Bool** locals; **SY-L4.4** — `if exists` / `if not exists` statement guards + narrowing — source-level only §19.6.15) |
 | `module` / `use` / `pub use` | Module decisions | **N** | **N** | **N** | **N** | Y | P (modular track) |
 | Import negatives (cycle, alias) | #22.* | **N** | **N** | **N** | **N** | Y + R | **PROPOSED** SY negatives |
@@ -102,7 +103,7 @@ Smallest programs first; IDs are **SY-L*.*.*** registry labels. Rows without a �
 | SY-L2.1 | L2 | S0 | `let {a,b}` | — | flat destructuring | S0 | **LANDED** — §19.6.6 |
 | SY-L2.2 | L2 | S0 | `Int{32}` + literal | overflow narrative | width boundary (negative registry) | S0 | **LANDED** — §19.6.7 |
 | SY-L2.3 | L2 | S0 | `String?` / absent | `.get` OOB | optional from collection access | S0 | **LANDED** — §19.6.8 |
-| SY-L3.1 | L3 | S1 | `set` single | graph ref param | one property write | S1 | NOT LANDED |
+| SY-L3.1 | L3 | S1 | `set` single | graph ref param | one property write | S1 | **LANDED** — §19.6.11 |
 | SY-L3.2 | L3 | S1 | `set:` block | multiple fields | batched mutation | S1 | **LANDED** — §19.6.10 |
 | SY-L3.3 | L3 | S2 | `action` + `set` | `return` | minimal action body | S2 | **LANDED** — §19.6.9 |
 | SY-L4.1 | L4 | S1 | `on` handler | `emit` | event + handler pairing | S2 | **LANDED** — §19.6.12 |
@@ -277,7 +278,7 @@ let too_wide Int{32} = 2147483648
 | **Metadata** | **S2** (registry column; **SY-A2=B**) |
 | **GS surface** | `graph_set_action_sample() -> Bool`; `graph_set_action_verify() -> Bool` (**L3-A4** — not `fn` sample/verify) |
 | **Expected behavior (positive)** | **sample:** after `set`, `holder.label is "wired"` → **`true`**; **verify:** `okValue` and `okNotSeed` → **`true`**. Each action runs its own transaction when invoked as outermost action (Runtime §5). |
-| **SY-L3.1** | **NOT LANDED** — this specimen includes one single **`set`** per action (surface overlap with L3.1) but does **not** register **SY-L3.1** as landed. |
+| **SY-L3.1** | **LANDED** — [§19.6.11](SYNTAX_TRACK.md#19611-sy-l31-graph_set_param-landed) (delegated param); this row remains inline single **`set`**. |
 | **Parser / runtime** | **GS-C001** and other [PARSER_AUDIT.md](PARSER_AUDIT.md) / parser gaps remain **OPEN**; no claim of parser/runtime execution. |
 | **Normative refs** | Runtime §3–§6, §15–§16, §24; Parser §5.2, §6.1, §7.2, §7.5; Core §16; `GSCHEMA_V0_1.md` §7; §11 exception |
 
@@ -295,18 +296,38 @@ let too_wide Int{32} = 2147483648
 | **Metadata** | **S1** (registry column; **SY-A2=B**) |
 | **Transaction note** | **Outermost `action`** = transaction boundary (Runtime §5); rollback on failure applies to the **action**, not a separate `set:` micro-transaction. Block vs single `set` — semantically equivalent **where applicable** (Runtime §15). |
 | **Expected behavior (positive)** | **sample:** after `set:`, `label is "alpha"` and `code is "v1"` → **`true`**; **verify:** `okLabel`, `okCode`, `okNotSeed` → **`true`**. |
-| **SY-L3.1** | **NOT LANDED** — compact single-line **`set`** not isolated as its own specimen row. |
+| **SY-L3.1** | **LANDED** — [§19.6.11](SYNTAX_TRACK.md#19611-sy-l31-graph_set_param-landed) (`graph_set_param/`). |
 | **SY-L3.3** | Sibling module under `02-composition/syntax/graph_set/` — separate fixture. |
 | **Parser / runtime** | [PARSER_AUDIT.md](PARSER_AUDIT.md) / parser gaps remain **OPEN**; no parser/runtime execution claim. |
 | **Normative refs** | Runtime §5–§6, §15–§16; Parser §7.5; Core §16; `GSCHEMA_V0_1.md` §7; §11 exception; L3-A1…A4 |
 
 **OPEN blockers for queue authoring:** see [GAPS.md §8.1](GAPS.md#81-syntax-track-queue-authoring-blockers-196-footer).
 
-### 19.7 Blocking owner questions (Syntax Track)
 
-Canonical **OQ-SY-*** and Syntax Track gaps: **[GAPS.md §8.2](GAPS.md#82-syntax-track-owner-questions-monolith-197)**. **DECIDED** outcomes: [DECISIONS.md](DECISIONS.md). **OQ-SY-2** remains **OPEN**.
+#### 19.6.11 SY-L3.1 — `graph_set_param` (**LANDED**)
 
-**L5 saturation:** Modular track remains **NOT SATURATED** (queue [L5_PROJECT_SYSTEM.md §16](L5_PROJECT_SYSTEM.md#16-l5-golden-project-queue): L5.6–L5.7 **CONFIRMED**, L5.8 **BLOCKED**, L5.10 **CONFIRMED**, L5.11 **PROPOSED**). Syntax Track does not change L5 saturation criteria.
+| Field | Specification |
+| ----- | ------------- |
+| **Slice** | **GS-GOLDEN-SYNTAX-SY-L3.1-LAND-1** (contract **GS-EXAMPLE-CORPUS-SY-L3.1-SPEC-2**; program **SY-L3.1-LAND-1** `d96f5ed`) |
+| **Purpose** | Minimal **delegated** persisted mutation: typed **entity parameter** on a helper `action` with exactly **one** single-line **`set`**; caller **`create`** + **`action` invocation** + read-back — distinct from **SY-L3.3** inline `set` in the same entry `action`. |
+| **Status** | **LANDED** — `programs/02-composition/syntax/graph_set_param/graph_set_param.gs` + `graph_set_param_carrier.gschema`; **SOURCE-LEVEL ACCEPTED**; **RUNTIME NOT VERIFIED** |
+| **Queue ID** | **SY-L3.1** — Level **L3**, depth **S1**; Primary **`set` single**; Secondary **graph ref param** (typed entity parameter per language SoT — no separate `ref`/`mut` keyword) |
+| **Module** | `example.syntax.graph_set_param` (**OQ-SY-L3.1-A2=A**) |
+| **GS path** | `programs/02-composition/syntax/graph_set_param/graph_set_param.gs` (**SY-A1=B**, **SY-STR-A1=A**) |
+| **Schema path** | `programs/02-composition/syntax/graph_set_param/graph_set_param_carrier.gschema` — unified `module`; **minimal `public entity`** with one property suitable for a single `set` (**L3-A1=B**, **OQ-SY-3=B**) |
+| **Owner decisions** | **OQ-SY-L3.1-A1=B** (outer sample/verify + nested helper); **OQ-SY-L3.1-A3=B** (unique coverage); **L3-A4=C**; **VERIFY-A3=A**; global **L3-A3=C** unchanged — SY-L3.1 interprets self-contained boundary per **OQ-SY-L3.1-A1** |
+| **Required structure** | **`private` helper `action`** with typed entity parameter; **exactly one** `set holder.field = value` in helper; **no** `set:` block in helper; **sample `action`:** `create` entity → invoke helper → read-back property (CMP-01); **verify `action`:** independent `create` → invoke helper → read-back checks; **no** `set` in caller bodies |
+| **GS surface** | `graph_set_param_sample() -> Bool`; `graph_set_param_verify() -> Bool` (**L3-A4**); eager **`Bool`** locals + **`and`** in verify (**VERIFY-A3**) |
+| **Primary construct** | `private action writeLabel(holder: LabelHolder)` with `set holder.label = …` (Runtime §15); caller `writeLabel(holder)` after `create` (Runtime §6) |
+| **Secondary** | Typed entity parameter (`holder: LabelHolder`); CMP-01 read-after-write in outer `action` |
+| **Metadata** | **S1** (registry column; **SY-A2=B**) |
+| **Expected behavior (positive)** | **sample:** after `writeLabel(holder)`, `holder.label is "wired"` → **`true`**; **verify:** `okValue` and `okNotSeed` → **`true`**. Outermost sample/verify `action` owns transaction boundary (Runtime §5). |
+| **Source-level acceptance** | Reviewed **SY-L3.1-STATUS-1**: delegated mutation via param + helper; one `set` in helper only; no inline `set` in callers; module/carrier match — **SOURCE-LEVEL ACCEPTED**; **RUNTIME NOT VERIFIED** |
+| **SY-L3.2** | Sibling `graph_set_block/` — `set:` block; no param delegation. |
+| **SY-L3.3** | Sibling `graph_set/` — inline single `set` in entry `action`; **does not** satisfy **SY-L3.1** registry row. |
+| **Parser / runtime** | [PARSER_AUDIT.md](PARSER_AUDIT.md) gaps remain **OPEN**; no parser/runtime execution claim in this contract slice. |
+| **Normative refs** | Runtime §3–§6, §15–§16, §24; Parser §5.2, §7.5; `GSCHEMA_V0_1.md` §7; [POLICY.md](POLICY.md) §4.3; [DECISIONS.md](DECISIONS.md) **OQ-SY-L3.1-A1…A4** |
+
 
 #### 19.6.12 SY-L4.1 — `on_emit` (**LANDED**)
 
