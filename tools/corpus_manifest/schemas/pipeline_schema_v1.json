@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://graph-memory.example/schemas/pipeline_schema_v1.json",
+  "title": "Golden Syntax Corpus pipeline.yaml v1",
+  "type": "object",
+  "required": [
+    "pipeline_schema_version",
+    "pipeline_id",
+    "title",
+    "members"
+  ],
+  "properties": {
+    "pipeline_schema_version": { "const": 1 },
+    "pipeline_id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "members": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "prerequisites_policy": { "type": "string" },
+    "description": { "type": "string" }
+  }
+}

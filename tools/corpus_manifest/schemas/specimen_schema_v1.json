@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://graph-memory.example/schemas/specimen_schema_v1.json",
+  "title": "Golden Syntax Corpus specimen.yaml v1",
+  "type": "object",
+  "required": [
+    "specimen_schema_version",
+    "canonical_id",
+    "kind",
+    "home",
+    "artifacts",
+    "features",
+    "complexity",
+    "prerequisites",
+    "historical",
+    "acceptance"
+  ],
+  "properties": {
+    "specimen_schema_version": { "const": 1 },
+    "canonical_id": { "type": "string", "minLength": 1 },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "kind": { "enum": ["positive", "negative", "warning"] },
+    "home": {
+      "type": "object",
+      "required": ["root", "category", "directory"],
+      "properties": {
+        "root": { "enum": ["language-features", "algorithms"] },
+        "category": { "type": "string" },
+        "directory": { "type": "string" }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["role", "path", "language"],
+        "properties": {
+          "role": { "type": "string" },
+          "path": { "type": "string" },
+          "language": { "type": "string" }
+        }
+      }
+    },
+    "features": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": { "type": "string" },
+        "secondary": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "complexity": {
+      "type": "object",
+      "required": ["syntax_depth", "control_flow", "files"],
+      "properties": {
+        "syntax_depth": { "enum": ["S0", "S1", "S2"] },
+        "control_flow": {
+          "enum": ["none", "branch", "nested", "graph-action"]
+        },
+        "files": { "enum": ["single", "multi"] }
+      }
+    },
+    "prerequisites": { "type": "array", "items": { "type": "string" } },
+    "historical": { "type": "object" },
+    "acceptance": {
+      "type": "object",
+      "required": [
+        "landed",
+        "source_level_accepted",
+        "runtime_verified"
+      ],
+      "properties": {
+        "landed": { "type": "boolean" },
+        "source_level_accepted": { "type": "boolean" },
+        "runtime_verified": { "type": "boolean" }
+      }
+    },
+    "expected": { "type": "string" }
+  }
+}

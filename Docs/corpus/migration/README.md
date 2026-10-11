@@ -14,9 +14,27 @@
 | README | `programs/language-features/README.md`, `programs/algorithms/README.md` |
 | `.gitkeep` | лише `language-features/_generated/.gitkeep` |
 
-**Не створено:** 72 specimen leaf dirs; `specimen.yaml` / `pipeline.yaml` / `registry.yaml`; placeholder `.gs`.
+**Не створено:** 72 specimen leaf dirs; production `specimen.yaml` / `pipeline.yaml` / `registry.yaml`; placeholder `.gs`.
 
 **Safety:** 89/89 artifacts на legacy шляхах; SHA-256 = [R4_BASELINE_ARTIFACTS.sha256](R4_BASELINE_ARTIFACTS.sha256).
+
+## R4-02 — manifest tooling foundation (2026-10-11)
+
+**Status:** **COMPLETE** — commit **R4-02.1** `feat(corpus): add deterministic manifest validation and registry tooling` (після `d0e5794`).
+
+**Tooling:** [tools/corpus_manifest/README.md](../../../tools/corpus_manifest/README.md).
+
+| Компонент | Шлях |
+| --------- | ---- |
+| Validator + generator + stale check | `tools/corpus_manifest/` |
+| JSON Schema (довідка) | `tools/corpus_manifest/schemas/` |
+| Unit tests + fixtures | `tools/corpus_manifest/tests/` |
+
+**CLI** (`PYTHONPATH=tools` з кореня example): `python -m corpus_manifest validate|generate|check-generated`.
+
+**Межі slice:** немає production manifests; запис у `programs/language-features/_generated/registry.yaml` заблоковано без `--allow-production-output`; runner / strict execution — **не** в scope. Порожній production corpus на `validate` — OK.
+
+**OQ-SY-2** лишається **OPEN**; historical acceptance tooling **не** змінює.
 
 | Документ | Призначення |
 | -------- | ----------- |

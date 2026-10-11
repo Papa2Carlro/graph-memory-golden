@@ -49,12 +49,13 @@
 
 | Поле | Значення |
 | ---- | -------- |
-| **Scope** | JSON/YAML schema v1; CLI stub emitting `registry.yaml` from **draft** manifests |
-| **Prerequisites** | R4-01 |
-| **Affected** | `tools/` or `scripts/corpus/` (TBD); **not** production data in specimens yet |
-| **Verification** | validator dry-run on 1 illustrative manifest |
-| **Rollback** | revert tool commit |
-| **Acceptance** | stale detection design documented |
+| **Status** | **COMPLETE** (2026-10-11) — **R4-02.1** committed; `tools/corpus_manifest/`; див. [migration/README.md](README.md) §R4-02 |
+| **Scope** | Schema v1 (specimen, pipeline, registry); validator; deterministic `generate`; `check-generated` stale detection; unit tests (fixtures only) |
+| **Prerequisites** | R4-01.1 |
+| **Affected** | `tools/corpus_manifest/` — **not** production manifests under `programs/` |
+| **Verification** | `cd tools && python -m pytest corpus_manifest/tests -q`; `validate` на порожній production corpus → exit 0 |
+| **Rollback** | видалити `tools/corpus_manifest/` |
+| **Acceptance** | 17 тестів; production `registry.yaml` не генерується в slice |
 
 ---
 
