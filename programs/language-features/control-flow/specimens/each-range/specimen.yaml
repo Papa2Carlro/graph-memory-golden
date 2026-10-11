@@ -1,0 +1,31 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.each-range
+kind: positive
+aliases:
+  - SY-L1.5
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/each-range
+artifacts:
+  - role: primary
+    path: each-range.gs
+    language: gs
+features:
+  primary: each-range
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: nested
+  files: single
+prerequisites: []
+entrypoints:
+  sample: each_range_sample
+  verify: each_range_verify
+historical:
+  syntax_track_id: SY-L1.5
+  classic_level_path: programs/01-classical/syntax/each_range.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

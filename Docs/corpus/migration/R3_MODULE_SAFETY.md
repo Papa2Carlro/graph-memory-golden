@@ -59,7 +59,7 @@
 
 ## 4. algorithms — single-file (no module)
 
-Усі **45** classic programs — без `module` / `use`. **SAFE** move-only.
+Усі **46** classic algorithm programs (§3.2 map) — без `module` / `use`. **SAFE** move-only. *(Раніше **45** — підрахунок §1; виправлено **R4-03** inventory reconciliation.)*
 
 ---
 
@@ -119,7 +119,7 @@ Alias `use … as …`. **SAFE**.
 
 | canonical_id | status |
 | ------------ | ------ |
-| *(немає)* | Усі 72 specimens — **SAFE** за move-only default |
+| *(немає)* | Усі **73** specimens (map §3.1–§3.3) — **SAFE** за move-only default |
 
 **Альтернатива (не рекомендована без owner):** перейменувати `module` під новий path — **BLOCKED** семантично (зміна logical identity).
 

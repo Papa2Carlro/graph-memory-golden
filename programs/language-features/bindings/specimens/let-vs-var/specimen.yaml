@@ -1,0 +1,32 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.let-vs-var
+kind: positive
+aliases:
+  - SY-L1.1
+home:
+  root: language-features
+  category: bindings
+  directory: language-features/bindings/specimens/let-vs-var
+artifacts:
+  - role: primary
+    path: let-vs-var.gs
+    language: gs
+features:
+  primary: let-var
+  secondary:
+    - reassignment-narrative
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: let_vs_var_sample
+  verify: let_vs_var_verify
+historical:
+  syntax_track_id: SY-L1.1
+  classic_level_path: programs/01-classical/syntax/let_vs_var.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

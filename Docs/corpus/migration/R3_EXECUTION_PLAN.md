@@ -36,7 +36,7 @@
 | Поле | Значення |
 | ---- | -------- |
 | **Status** | **COMPLETE** (2026-10-11) — **R4-01.1** committed (README + `.gitkeep` + migration pointers); on-disk empty dirs **ephemeral**; див. [migration/README.md](README.md) §R4-01 |
-| **Scope** | Категорії + `specimens/` + `pipelines/<id>/` + `_generated/` + `_negative/` за [R3_MIGRATION_MAP.md](R3_MIGRATION_MAP.md); **без** 72 leaf specimen dirs |
+| **Scope** | Категорії + `specimens/` + `pipelines/<id>/` + `_generated/` + `_negative/` за [R3_MIGRATION_MAP.md](R3_MIGRATION_MAP.md); **без** 73 leaf specimen dirs (inventory **R4-03**) |
 | **Prerequisites** | R4-00.1, R4-00.2 |
 | **Affected** | `programs/language-features/`, `programs/algorithms/` (+ README, `_generated/.gitkeep`) |
 | **Verification** | 89/89 legacy artifacts; SHA-256 baseline unchanged |
@@ -63,12 +63,13 @@
 
 | Поле | Значення |
 | ---- | -------- |
+| **Status** | **COMPLETE** (2026-10-11) — **R4-03.1** committed; див. [migration/README.md](README.md) §R4-03 |
 | **Scope** | `gs.specimen.let-vs-var` … `each-range` per map |
-| **Prerequisites** | R4-01, R4-02 optional |
-| **Affected** | 5 dirs under `language-features/`; remove empty `01-classical/syntax/` only after all L1 syntax out |
-| **Verification** | byte-identical file content; module safety §3 |
-| **Rollback** | `git mv` reverse |
-| **Acceptance** | 5 `specimen.yaml` authored; docs SYNTAX_TRACK paths updated OR compat aliases |
+| **Prerequisites** | R4-01.1, R4-02.1 |
+| **Affected** | 5 dirs under `language-features/`; `01-classical/syntax/` порожній (dir лишається до policy cleanup) |
+| **Verification** | `validate` PASS; SHA 89/89 content; registry `/tmp` only |
+| **Rollback** | `git mv` reverse + drop `specimen.yaml` |
+| **Acceptance** | 5 `specimen.yaml`; historical acceptance unchanged; SYNTAX_TRACK paths via `historical.classic_level_path` + aliases |
 
 ---
 

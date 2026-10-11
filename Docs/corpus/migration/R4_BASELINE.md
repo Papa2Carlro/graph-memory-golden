@@ -227,3 +227,11 @@ git status   # жодних випадкових paths
 ### 9.1 R4-00.2 — documentation baseline (planned in slice)
 
 Другий documentation commit: architecture + migration docs + **SYNTAX_TRACK** recovery (**15/18**, §19.6.11, R2 pointer, fix §19.3 Runtime row).
+
+---
+
+## 10. R4-03 inventory reconciliation (correction note)
+
+**§2 вище** фіксує gate **R4-00** (очікування **72** logical specimens за тодішнім §1 map). Після звірки таблиць **R4-03** canonical inventory: **73** logical (**21** + **46** classic algo + **6** modular), **89** artifacts — без зміни вмісту файлів.
+
+- [R3_MIGRATION_MAP.md](R3_MIGRATION_MAP.md) §1 оновлено; immutable [R4_BASELINE_ARTIFACTS.sha256](R4_BASELINE_ARTIFACTS.sha256) **не** переписується (шляхи в manifest — historical; content hash перевіряється з target/legacy mapping після move).

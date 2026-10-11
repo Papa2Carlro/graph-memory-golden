@@ -11,9 +11,9 @@
 
 | Метрика | Значення |
 | ------- | -------- |
-| **Logical specimens (усього)** | **72** |
+| **Logical specimens (усього)** | **73** |
 | **language-features (golden syntax)** | **21** |
-| **algorithms (classic reference)** | **45** |
+| **algorithms (classic reference)** | **46** |
 | **modular projects (L5)** | **6** (5 positive + 1 negative) |
 | **Artifact files (.gs/.gschema)** | **89** |
 | **Mapped artifacts** | **89** |
@@ -75,7 +75,7 @@
 
 **Примітка ownership:** `graph-set-action` target dir slug `graph-set-action` (не `graph_set`) — уникнення колізії з іншими `graph_set_*` modules; **module** лишається `example.syntax.graph_set` (**L5-A1**).
 
-### 3.2 algorithms — classic reference (45)
+### 3.2 algorithms — classic reference (46)
 
 Кожен рядок: один `.gs` → target `algorithms/<category>/specimens/<slug>/<filename>.gs`.
 
@@ -225,7 +225,7 @@ historical:
 
 ## 8. Перевірка map (R3 acceptance)
 
-- [x] 72/72 specimens з target directory
+- [x] 73/73 specimens з target directory (§1; reconciliation **R4-03** — раніше §1 помилково **72**/**45** algo)
 - [x] 89/89 artifacts прив’язані
 - [x] 0 duplicate canonical_id
 - [x] 0 target path collision (перевірено побудовою таблиці)

@@ -122,11 +122,11 @@
 
 ### 3.1 `algorithms-numbers-l1`
 
-Усі `gs.algo.numbers.*` (12 members) — див. [R3_MIGRATION_MAP.md §3.2](R3_MIGRATION_MAP.md#32-algorithms--classic-reference-45).
+Усі `gs.algo.numbers.*` (13 members) — див. [R3_MIGRATION_MAP.md §3.2](R3_MIGRATION_MAP.md#32-algorithms--classic-reference-46).
 
 ### 3.2 `algorithms-collections-l1`
 
-12 members `gs.algo.collections.*`.
+14 members `gs.algo.collections.*`.
 
 ### 3.3 `algorithms-strings-l1`
 
@@ -205,6 +205,6 @@
 ## 8. Перевірка
 
 - [x] Усі 21 golden syntax ID покриті §1.x
-- [x] Усі 45 + 6 algorithm/project ID покриті §3–4
+- [x] Усі **46** + **6** algorithm/project ID покриті §3–4 (inventory **R4-03**; раніше **45** у §1 summary)
 - [x] Немає вигаданих **confirmed** prerequisites
 - [x] Cross-pipeline дозволено (**A3**)

@@ -1,0 +1,32 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.equality-operators
+kind: positive
+aliases:
+  - SY-L1.2
+home:
+  root: language-features
+  category: comparisons
+  directory: language-features/comparisons/specimens/equality-operators
+artifacts:
+  - role: primary
+    path: equality-operators.gs
+    language: gs
+features:
+  primary: equality
+  secondary:
+    - cmp-01-word-based
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: equality_operators_sample
+  verify: equality_operators_verify
+historical:
+  syntax_track_id: SY-L1.2
+  classic_level_path: programs/01-classical/syntax/equality_operators.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

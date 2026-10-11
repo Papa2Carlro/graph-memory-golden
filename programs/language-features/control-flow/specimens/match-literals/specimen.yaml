@@ -1,0 +1,31 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.match-literals
+kind: positive
+aliases:
+  - SY-L1.4
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/match-literals
+artifacts:
+  - role: primary
+    path: match-literals.gs
+    language: gs
+features:
+  primary: match
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: match_literals_sample
+  verify: match_literals_verify
+historical:
+  syntax_track_id: SY-L1.4
+  classic_level_path: programs/01-classical/syntax/match_literals.gs
+acceptance:
+  landed: true
+  source_level_accepted: true
+  runtime_verified: false

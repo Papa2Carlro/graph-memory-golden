@@ -61,7 +61,7 @@ Documentation index section **§14** in the monolith is **reserved** ([EXAMPLE_C
 
 **Architecture (DECIDED, R2):** [GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md](GOLDEN_SYNTAX_CORPUS_ARCHITECTURE.md) (**GS-REORG-R2-A1…A9**).
 
-**R3 planning (COMPLETE):** [migration/R3_MIGRATION_MAP.md](migration/R3_MIGRATION_MAP.md), [R3_PIPELINE_PLAN.md](migration/R3_PIPELINE_PLAN.md), [R3_MODULE_SAFETY.md](migration/R3_MODULE_SAFETY.md), [R3_EXECUTION_PLAN.md](migration/R3_EXECUTION_PLAN.md) — **72** specimens, **89** artifacts mapped; **no** on-disk move in R3.
+**R3 planning (COMPLETE):** [migration/R3_MIGRATION_MAP.md](migration/R3_MIGRATION_MAP.md), [R3_PIPELINE_PLAN.md](migration/R3_PIPELINE_PLAN.md), [R3_MODULE_SAFETY.md](migration/R3_MODULE_SAFETY.md), [R3_EXECUTION_PLAN.md](migration/R3_EXECUTION_PLAN.md) — **89** artifacts mapped; **no** on-disk move in R3. **Inventory (поточний):** **73** logical specimens (21+46+6) — [migration/README.md](migration/README.md) §R4-03 reconciliation (раніше в §1 map помилково **72**/**45** algo).
 
 **Still OPEN for R4 execution:** physical moves; production **specimen.yaml**; **pipeline.yaml**; registry generator; validator; doc sweep; untracked `03-advanced/syntax/` commit policy.
 
