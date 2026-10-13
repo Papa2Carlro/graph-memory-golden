@@ -1,0 +1,5 @@
+module example.syntax.graph_delete_entity
+
+public entity RemovableNode {
+    tag: String
+}

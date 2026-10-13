@@ -1,0 +1,17 @@
+module example.syntax.graph_disconnect_endpoint
+
+public entity PatternEndpointA {
+    label: String
+}
+
+public entity PatternEndpointB {
+    label: String
+}
+
+public relation PATTERN_LINK {
+    from PatternEndpointA [0..*]
+    to PatternEndpointB [0..*]
+
+    properties:
+        weight: Int
+}

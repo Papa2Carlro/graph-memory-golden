@@ -1,0 +1,31 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.graph-disconnect-endpoint
+kind: positive
+home:
+  root: language-features
+  category: graph-mutation
+  directory: language-features/graph-mutation/specimens/graph-disconnect-endpoint
+module: example.syntax.graph_disconnect_endpoint
+artifacts:
+  - role: primary
+    path: graph_disconnect_endpoint.gs
+    language: gs
+  - role: carrier
+    path: graph_disconnect_endpoint_carrier.gschema
+    language: gschema
+features:
+  primary: graph-disconnect-endpoint
+  secondary: []
+complexity:
+  syntax_depth: S1
+  control_flow: graph-action
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: graph_disconnect_endpoint_sample
+  verify: graph_disconnect_endpoint_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

@@ -1,0 +1,17 @@
+module example.syntax.graph_disconnect_relation
+
+public entity DisconnectEndpointA {
+    label: String
+}
+
+public entity DisconnectEndpointB {
+    label: String
+}
+
+public relation DISCONNECT_LINK {
+    from DisconnectEndpointA [0..*]
+    to DisconnectEndpointB [0..*]
+
+    properties:
+        weight: Int
+}

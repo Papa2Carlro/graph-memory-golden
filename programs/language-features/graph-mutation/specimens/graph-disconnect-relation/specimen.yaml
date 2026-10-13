@@ -1,0 +1,31 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.graph-disconnect-relation
+kind: positive
+home:
+  root: language-features
+  category: graph-mutation
+  directory: language-features/graph-mutation/specimens/graph-disconnect-relation
+module: example.syntax.graph_disconnect_relation
+artifacts:
+  - role: primary
+    path: graph_disconnect_relation.gs
+    language: gs
+  - role: carrier
+    path: graph_disconnect_relation_carrier.gschema
+    language: gschema
+features:
+  primary: graph-disconnect-relation
+  secondary: []
+complexity:
+  syntax_depth: S1
+  control_flow: graph-action
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: graph_disconnect_relation_sample
+  verify: graph_disconnect_relation_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
