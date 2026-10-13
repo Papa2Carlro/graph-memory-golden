@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.collection-alias
+kind: positive
+home:
+  root: language-features
+  category: collections
+  directory: language-features/collections/specimens/collection-alias
+module: example.syntax.collection_alias
+artifacts:
+  - role: primary
+    path: collection-alias.gs
+    language: gs
+features:
+  primary: collection-alias
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: collection_alias_sample
+  verify: collection_alias_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

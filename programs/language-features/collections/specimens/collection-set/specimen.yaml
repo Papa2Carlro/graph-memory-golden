@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.collection-set
+kind: positive
+home:
+  root: language-features
+  category: collections
+  directory: language-features/collections/specimens/collection-set
+module: example.syntax.collection_set
+artifacts:
+  - role: primary
+    path: collection-set.gs
+    language: gs
+features:
+  primary: collection-set
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: collection_set_sample
+  verify: collection_set_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
