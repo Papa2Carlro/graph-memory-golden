@@ -1,0 +1,29 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.ordering-comparisons
+kind: positive
+home:
+  root: language-features
+  category: comparisons
+  directory: language-features/comparisons/specimens/ordering-comparisons
+module: example.syntax.ordering_comparisons
+artifacts:
+  - role: primary
+    path: ordering-comparisons.gs
+    language: gs
+features:
+  primary: ordering-comparisons
+  secondary:
+    - cmp-01-word-based
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: ordering_comparisons_sample
+  verify: ordering_comparisons_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
