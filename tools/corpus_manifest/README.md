@@ -2,6 +2,12 @@
 
 Мінімальний фундамент для **specimen.yaml**, **pipeline.yaml** та **generated registry.yaml** без production manifests у `programs/`.
 
+**Language integration (canonical):** [GML_GOLDEN_INTEGRATION_CONTRACT.md](../../../graph-memory-language/Docs/Tooling/GML_GOLDEN_INTEGRATION_CONTRACT.md) — `graph-memory-language` consumes this package via a **Golden adapter** (`gml` / GML MCP shared operations). Golden does not depend on Language MCP.
+
+**Negative coverage (GS-VAR-108-A1=B):** `kind: negative` specimens, `expected` metadata, and acceptance flags are **Golden-owned**. The Language grammar rule index does **not** define `negative_specimen_refs`; cross-linking is positive `golden_specimen_refs` only (see [GRAMMAR_RULE_INDEX_CONTRACT.md](../../../graph-memory-language/Docs/Language/GRAMMAR_RULE_INDEX_CONTRACT.md) §5.1).
+
+**CI (GS-VAR-111):** Language repo workflow `.github/workflows/grammar-golden-validation.yml` clones Golden as a **sibling** of `graph-memory-language` (matches `uv` path `../graph-memory-golden/tools`). Override remote via GitHub variable `GOLDEN_REPOSITORY` if needed.
+
 ## Контракти схем
 
 | Файл | Версія | Довідка |
@@ -14,9 +20,20 @@
 
 Обов’язкові поля specimen (v1): `specimen_schema_version`, `canonical_id`, `kind`, `home`, `artifacts`, `features`, `complexity`, `prerequisites`, `historical`, `acceptance`. Опційно: `aliases`, `expected` (для `kind: negative`).
 
+## Install (package)
+
+From `graph-memory-golden/tools`:
+
+```bash
+pip install -e .
+# or: uv pip install -e .
+```
+
+Dependency: **PyYAML** (declared in `tools/pyproject.toml`).
+
 ## CLI
 
-З кореня `graph-memory-golden`, `PYTHONPATH=tools`:
+After install, from any directory (corpus root = `graph-memory-golden` repo root):
 
 ```bash
 python -m corpus_manifest validate --corpus-root .
@@ -75,7 +92,7 @@ Canonical registry YAML **не** містить `generated_at` (детермін
 ## Тести
 
 ```bash
-cd tools && python -m pytest corpus_manifest/tests -q
+cd tools && pip install -e . && python -m pytest corpus_manifest/tests -q
 ```
 
 Fixtures лише під `corpus_manifest/tests/` (тимчасові каталоги через `tmp_path`).

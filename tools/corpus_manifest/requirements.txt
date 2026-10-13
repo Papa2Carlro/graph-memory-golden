@@ -1,1 +1,2 @@
+# Prefer: pip install -e ..  (see tools/pyproject.toml)
 PyYAML>=6.0
