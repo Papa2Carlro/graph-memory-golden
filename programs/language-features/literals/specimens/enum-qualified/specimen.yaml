@@ -1,0 +1,31 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.enum-qualified
+kind: positive
+home:
+  root: language-features
+  category: literals
+  directory: language-features/literals/specimens/enum-qualified
+module: example.syntax.enum_qualified
+artifacts:
+  - role: primary
+    path: enum_qualified.gs
+    language: gs
+  - role: carrier
+    path: enum_qualified_carrier.gschema
+    language: gschema
+features:
+  primary: enum-qualified
+  secondary: []
+complexity:
+  syntax_depth: S1
+  control_flow: none
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: enum_qualified_sample
+  verify: enum_qualified_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

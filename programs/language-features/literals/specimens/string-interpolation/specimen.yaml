@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.string-interpolation
+kind: positive
+home:
+  root: language-features
+  category: literals
+  directory: language-features/literals/specimens/string-interpolation
+module: example.syntax.string_interpolation
+artifacts:
+  - role: primary
+    path: string_interpolation.gs
+    language: gs
+features:
+  primary: string-interpolation
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: string_interpolation_sample
+  verify: string_interpolation_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
