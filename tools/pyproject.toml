@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "corpus-manifest"
+version = "0.1.0"
+description = "Golden Syntax Corpus manifest validation and registry tooling"
+readme = "corpus_manifest/README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+dependencies = [
+  "PyYAML>=6.0",
+]
+
+[project.urls]
+Repository = "https://github.com/graph-memory/graph-memory-golden"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["corpus_manifest*"]
+
+[tool.setuptools.package-data]
+corpus_manifest = ["schemas/*.json"]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["corpus_manifest/tests"]
+pythonpath = ["."]
