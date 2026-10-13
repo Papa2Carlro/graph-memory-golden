@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.public-function
+kind: positive
+home:
+  root: language-features
+  category: functions
+  directory: language-features/functions/specimens/public-function
+module: example.syntax.public_function
+artifacts:
+  - role: primary
+    path: public-function.gs
+    language: gs
+features:
+  primary: public-function
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: public_function_sample
+  verify: public_function_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

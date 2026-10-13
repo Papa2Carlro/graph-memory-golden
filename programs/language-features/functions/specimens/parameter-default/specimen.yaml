@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.parameter-default
+kind: positive
+home:
+  root: language-features
+  category: functions
+  directory: language-features/functions/specimens/parameter-default
+module: example.syntax.parameter_default
+artifacts:
+  - role: primary
+    path: parameter_default.gs
+    language: gs
+features:
+  primary: parameter-default
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: parameter_default_sample
+  verify: parameter_default_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
