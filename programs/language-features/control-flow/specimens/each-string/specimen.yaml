@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.each-string
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/each-string
+module: example.syntax.each_string
+artifacts:
+  - role: primary
+    path: each-string.gs
+    language: gs
+features:
+  primary: each-string
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: nested
+  files: single
+prerequisites: []
+entrypoints:
+  sample: each_string_sample
+  verify: each_string_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

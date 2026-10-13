@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.match-nested
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/match-nested
+module: example.syntax.match_nested
+artifacts:
+  - role: primary
+    path: match-nested.gs
+    language: gs
+features:
+  primary: match-nested
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: nested
+  files: single
+prerequisites: []
+entrypoints:
+  sample: match_nested_sample
+  verify: match_nested_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.match-pattern-or-chain
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/match-pattern-or-chain
+module: example.syntax.match_pattern_or_chain
+artifacts:
+  - role: primary
+    path: match-pattern-or-chain.gs
+    language: gs
+features:
+  primary: match-pattern-or-chain
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: match_pattern_or_chain_sample
+  verify: match_pattern_or_chain_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

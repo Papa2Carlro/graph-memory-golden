@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.each-break
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/each-break
+module: example.syntax.each_break
+artifacts:
+  - role: primary
+    path: each-break.gs
+    language: gs
+features:
+  primary: each-break
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: nested
+  files: single
+prerequisites: []
+entrypoints:
+  sample: each_break_sample
+  verify: each_break_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

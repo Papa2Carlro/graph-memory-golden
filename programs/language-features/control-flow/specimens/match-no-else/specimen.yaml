@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.match-no-else
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/match-no-else
+module: example.syntax.match_no_else
+artifacts:
+  - role: primary
+    path: match-no-else.gs
+    language: gs
+features:
+  primary: match-no-else
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: match_no_else_sample
+  verify: match_no_else_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

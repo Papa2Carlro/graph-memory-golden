@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.inline-if-null-expected
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/inline-if-null-expected
+module: example.syntax.inline_if_null_expected
+artifacts:
+  - role: primary
+    path: inline-if-null-expected.gs
+    language: gs
+features:
+  primary: inline-if-null-expected
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: inline_if_null_expected_sample
+  verify: inline_if_null_expected_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

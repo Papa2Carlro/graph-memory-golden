@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.if-multiple-elif
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/if-multiple-elif
+module: example.syntax.if_multiple_elif
+artifacts:
+  - role: primary
+    path: if-multiple-elif.gs
+    language: gs
+features:
+  primary: if-multiple-elif
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: if_multiple_elif_sample
+  verify: if_multiple_elif_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

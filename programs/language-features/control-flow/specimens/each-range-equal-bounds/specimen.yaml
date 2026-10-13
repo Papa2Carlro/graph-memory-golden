@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.each-range-equal-bounds
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/each-range-equal-bounds
+module: example.syntax.each_range_equal_bounds
+artifacts:
+  - role: primary
+    path: each-range-equal-bounds.gs
+    language: gs
+features:
+  primary: each-range-equal-bounds
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: nested
+  files: single
+prerequisites: []
+entrypoints:
+  sample: each_range_equal_bounds_sample
+  verify: each_range_equal_bounds_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

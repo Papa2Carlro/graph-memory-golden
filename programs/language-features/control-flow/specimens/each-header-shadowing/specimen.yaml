@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.each-header-shadowing
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/each-header-shadowing
+module: example.syntax.each_header_shadowing
+artifacts:
+  - role: primary
+    path: each-header-shadowing.gs
+    language: gs
+features:
+  primary: each-header-shadowing
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: nested
+  files: single
+prerequisites: []
+entrypoints:
+  sample: each_header_shadowing_sample
+  verify: each_header_shadowing_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

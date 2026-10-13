@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.inline-if-multiline
+kind: positive
+home:
+  root: language-features
+  category: control-flow
+  directory: language-features/control-flow/specimens/inline-if-multiline
+module: example.syntax.inline_if_multiline
+artifacts:
+  - role: primary
+    path: inline-if-multiline.gs
+    language: gs
+features:
+  primary: inline-if-multiline
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: inline_if_multiline_sample
+  verify: inline_if_multiline_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
