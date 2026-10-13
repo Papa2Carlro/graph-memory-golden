@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.float-binding
+kind: positive
+home:
+  root: language-features
+  category: types-width
+  directory: language-features/types-width/specimens/float-binding
+module: example.syntax.float_binding
+artifacts:
+  - role: primary
+    path: float-binding.gs
+    language: gs
+features:
+  primary: float-binding
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: float_binding_sample
+  verify: float_binding_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
