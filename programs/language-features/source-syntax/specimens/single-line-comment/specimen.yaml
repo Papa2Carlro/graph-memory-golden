@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.single-line-comment
+kind: positive
+home:
+  root: language-features
+  category: source-syntax
+  directory: language-features/source-syntax/specimens/single-line-comment
+module: example.syntax.single_line_comment
+artifacts:
+  - role: primary
+    path: single-line-comment.gs
+    language: gs
+features:
+  primary: single-line-comment
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: single_line_comment_sample
+  verify: single_line_comment_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
