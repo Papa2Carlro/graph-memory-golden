@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.arithmetic-multiply
+kind: positive
+home:
+  root: language-features
+  category: expressions
+  directory: language-features/expressions/specimens/arithmetic-multiply
+module: example.syntax.arithmetic_multiply
+artifacts:
+  - role: primary
+    path: arithmetic-multiply.gs
+    language: gs
+features:
+  primary: arithmetic-multiply
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: arithmetic_multiply_sample
+  verify: arithmetic_multiply_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

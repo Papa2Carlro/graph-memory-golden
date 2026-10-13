@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.logical-and
+kind: positive
+home:
+  root: language-features
+  category: expressions
+  directory: language-features/expressions/specimens/logical-and
+module: example.syntax.logical_and
+artifacts:
+  - role: primary
+    path: logical-and.gs
+    language: gs
+features:
+  primary: logical-and
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: logical_and_sample
+  verify: logical_and_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

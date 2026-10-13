@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.logical-short-circuit
+kind: positive
+home:
+  root: language-features
+  category: expressions
+  directory: language-features/expressions/specimens/logical-short-circuit
+module: example.syntax.logical_short_circuit
+artifacts:
+  - role: primary
+    path: logical-short-circuit.gs
+    language: gs
+features:
+  primary: logical-short-circuit
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: logical_short_circuit_sample
+  verify: logical_short_circuit_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.arithmetic-divide
+kind: positive
+home:
+  root: language-features
+  category: expressions
+  directory: language-features/expressions/specimens/arithmetic-divide
+module: example.syntax.arithmetic_divide
+artifacts:
+  - role: primary
+    path: arithmetic-divide.gs
+    language: gs
+features:
+  primary: arithmetic-divide
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: arithmetic_divide_sample
+  verify: arithmetic_divide_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

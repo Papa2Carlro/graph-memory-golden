@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.arithmetic-remainder
+kind: positive
+home:
+  root: language-features
+  category: expressions
+  directory: language-features/expressions/specimens/arithmetic-remainder
+module: example.syntax.arithmetic_remainder
+artifacts:
+  - role: primary
+    path: arithmetic-remainder.gs
+    language: gs
+features:
+  primary: arithmetic-remainder
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: arithmetic_remainder_sample
+  verify: arithmetic_remainder_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
