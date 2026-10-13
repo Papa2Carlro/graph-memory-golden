@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.module-private-let
+kind: positive
+home:
+  root: language-features
+  category: bindings
+  directory: language-features/bindings/specimens/module-private-let
+module: example.syntax.module_private_let
+artifacts:
+  - role: primary
+    path: module-private-let.gs
+    language: gs
+features:
+  primary: module-private-let
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: none
+  files: single
+prerequisites: []
+entrypoints:
+  sample: module_private_let_sample
+  verify: module_private_let_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
