@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.explicit-null-fallback
+kind: positive
+home:
+  root: language-features
+  category: optional-null
+  directory: language-features/optional-null/specimens/explicit-null-fallback
+module: example.syntax.explicit_null_fallback
+artifacts:
+  - role: primary
+    path: explicit_null_fallback.gs
+    language: gs
+features:
+  primary: explicit-null-fallback
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: explicit_null_fallback_sample
+  verify: explicit_null_fallback_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

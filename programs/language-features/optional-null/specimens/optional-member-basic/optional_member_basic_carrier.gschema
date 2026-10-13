@@ -1,0 +1,5 @@
+module example.syntax.optional_member_basic
+
+public entity Person {
+    name: String
+}

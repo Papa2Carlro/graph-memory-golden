@@ -1,0 +1,5 @@
+module example.syntax.optional_access_coalesce
+
+public entity Person {
+    name: String
+}

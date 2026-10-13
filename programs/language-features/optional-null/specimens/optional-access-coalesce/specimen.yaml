@@ -1,0 +1,31 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.optional-access-coalesce
+kind: positive
+home:
+  root: language-features
+  category: optional-null
+  directory: language-features/optional-null/specimens/optional-access-coalesce
+module: example.syntax.optional_access_coalesce
+artifacts:
+  - role: primary
+    path: optional_access_coalesce.gs
+    language: gs
+  - role: carrier
+    path: optional_access_coalesce_carrier.gschema
+    language: gschema
+features:
+  primary: optional-access-coalesce
+  secondary: []
+complexity:
+  syntax_depth: S1
+  control_flow: graph-action
+  files: multi
+prerequisites: []
+entrypoints:
+  sample: optional_access_coalesce_sample
+  verify: optional_access_coalesce_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false

@@ -1,0 +1,28 @@
+specimen_schema_version: 1
+canonical_id: gs.specimen.nullable-fallback
+kind: positive
+home:
+  root: language-features
+  category: optional-null
+  directory: language-features/optional-null/specimens/nullable-fallback
+module: example.syntax.nullable_fallback
+artifacts:
+  - role: primary
+    path: nullable_fallback.gs
+    language: gs
+features:
+  primary: nullable-fallback
+  secondary: []
+complexity:
+  syntax_depth: S0
+  control_flow: branch
+  files: single
+prerequisites: []
+entrypoints:
+  sample: nullable_fallback_sample
+  verify: nullable_fallback_verify
+historical: {}
+acceptance:
+  landed: true
+  source_level_accepted: false
+  runtime_verified: false
