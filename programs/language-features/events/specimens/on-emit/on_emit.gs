@@ -10,10 +10,10 @@ on SignalRaised(event: SignalRaised) {
 
 action on_emit_sample() -> Bool {
     let stage StageHolder = create StageHolder:
-        tag: "sample-fixture"
+        tag = "sample-fixture"
 
     emit SignalRaised:
-        code: "sample"
+        code = "sample"
 
     let okFixture Bool = stage.tag is "sample-fixture"
     return okFixture
@@ -21,10 +21,10 @@ action on_emit_sample() -> Bool {
 
 action on_emit_verify() -> Bool {
     let stage StageHolder = create StageHolder:
-        tag: "verify-fixture"
+        tag = "verify-fixture"
 
     emit SignalRaised:
-        code: "verify"
+        code = "verify"
 
     let okTag Bool = stage.tag is "verify-fixture"
     let okNotSample Bool = stage.tag is not "sample-fixture"

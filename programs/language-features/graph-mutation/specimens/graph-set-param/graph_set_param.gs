@@ -6,7 +6,7 @@ private action writeLabel(holder: LabelHolder) {
 
 action graph_set_param_sample() -> Bool {
     let holder LabelHolder = create LabelHolder:
-        label: "seed"
+        label = "seed"
 
     writeLabel(holder)
 
@@ -16,7 +16,7 @@ action graph_set_param_sample() -> Bool {
 
 action graph_set_param_verify() -> Bool {
     let holder LabelHolder = create LabelHolder:
-        label: "base"
+        label = "base"
 
     writeLabel(holder)
 

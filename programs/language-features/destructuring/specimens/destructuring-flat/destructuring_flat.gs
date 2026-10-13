@@ -2,8 +2,8 @@ module example.syntax.pair
 
 fn make_pair() -> Pair {
     return:
-        left: 2
-        right: 3
+        left = 2
+        right = 3
 }
 
 fn sum_pair() -> Int {

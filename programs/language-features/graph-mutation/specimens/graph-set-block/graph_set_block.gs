@@ -2,8 +2,8 @@ module example.syntax.graph_set_block
 
 action graph_set_block_sample() -> Bool {
     let holder TagHolder = create TagHolder:
-        label: "seed"
-        code: "v0"
+        label = "seed"
+        code = "v0"
 
     set:
         holder.label = "alpha"
@@ -16,8 +16,8 @@ action graph_set_block_sample() -> Bool {
 
 action graph_set_block_verify() -> Bool {
     let holder TagHolder = create TagHolder:
-        label: "base"
-        code: "old"
+        label = "base"
+        code = "old"
 
     set:
         holder.label = "checked"

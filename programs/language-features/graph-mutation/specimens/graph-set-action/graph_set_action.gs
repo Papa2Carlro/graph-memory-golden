@@ -2,7 +2,7 @@ module example.syntax.graph_set
 
 action graph_set_action_sample() -> Bool {
     let holder LabelHolder = create LabelHolder:
-        label: "seed"
+        label = "seed"
 
     set holder.label = "wired"
 
@@ -12,7 +12,7 @@ action graph_set_action_sample() -> Bool {
 
 action graph_set_action_verify() -> Bool {
     let holder LabelHolder = create LabelHolder:
-        label: "base"
+        label = "base"
 
     set holder.label = "checked"
 
